@@ -1,0 +1,473 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/slide.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/goods_list.css"/>
+</head>
+
+<body>
+<div class="site-nav" id="site-nav">
+    <div class="w w1200">
+        <div class="fl">
+            <div class="city-choice" id="city-choice" data-ectype="dorpdown">
+                <div class="dsc-choie dsc-cm" ectype="dsc-choie">
+                    <img src="../images/place.png" class="place" />
+                    <input type="text" value="北京" class="search" />
+                </div>
+
+            </div>
+            <div class="txt-info" id="">
+                <a href="http://passport.gmall.com:8096/index" class="link-login red">请登录</a>
+                <a href="http://localhost:8096/toregister" class="link-regist">免费注册</a>
+            </div>
+        </div>
+        <ul class="quick-menu fr">
+            <li>
+                <div class="dt">
+                    <a href="http://localhost:8097/orderList">我的订单</a>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <div class="dt">
+                    <a href="#">我的浏览</a>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <div class="dt">
+                    <a href="#">我的收藏</a>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <div class="dt">
+                    <a href="#">客户服务</a>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li class="li_dorpdown" data-ectype="dorpdown">
+                <div class="dt dsc-cm">网站导航</div>
+                <div class="dd dorpdown-layer" style="z-index: 10000000;">
+                    <dl class="fore1">
+                        <dt>特色主题</dt>
+                        <dd>
+                            <div class="item">
+                                <a href="#" target="_blank">家用电器</a>
+                            </div>
+                            <div class="item">
+                                <a href="#" target="_blank">手机数码</a>
+                            </div>
+                            <div class="item">
+                                <a href="#" target="_blank">电脑办公</a>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="fore2">
+                        <dt>促销活动</dt>
+                        <dd>
+                            <div class="item">
+                                <a href="#">拍卖活动</a>
+                            </div>
+                            <div class="item">
+                                <a href="#">共创商品</a>
+                            </div>
+                            <div class="item">
+                                <a href="#">优惠活动</a>
+                            </div>
+                            <div class="item">
+                                <a href="#">批发市场</a>
+                            </div>
+                            <div class="item">
+                                <a href="#">超值礼包</a>
+                            </div>
+                            <div class="item">
+                                <a href="#">优惠券</a>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="clear"></div>
+<div class="header">
+    <div class="header_container">
+        <div class="logo fl">
+            <a href="http://search.gmall.com:8094/index"><img src="../images/logo1.png" /></a>
+            <a href="http://search.gmall.com:8094/index"><img src="../images/ecsc-join.gif" /></a>
+        </div>
+        <div class="dsc-search">
+            <div class="form">
+                <form class="search-form">
+                    <input name="keywords" type="text" id="searchText" value="" class="search-text" style="color: rgb(153, 153, 153);">
+                    <button type="submit" class="button button-goods" onclick="search()">搜商品</button>
+                    <button type="submit" class="button button-store" onclick="search()">搜店铺</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<div class="nav" ectype="dscNav">
+    <div class="w w1200">
+        <div class="categorys" style="text-align: center;margin-top: 7px;">
+            <a href="http://localhost:8099/item/index"><img src="../images/skmu-nav.png" /></a>
+        </div>
+        <div class="nav-main" id="nav">
+            <ul class="navitems">
+                <!--闪购 秒杀   男鞋 女鞋 潮鞋 定制               联名   系列    男童鞋  女童鞋-->
+                <li>
+                    <a href="#">闪购</a>
+                </li>
+                <li>
+                    <a href="http://localhost:8099/item/index">秒杀</a>
+                </li>
+                <li>
+                    <a href="#">女鞋</a>
+                </li>
+                <li>
+                    <a href="#">潮鞋</a>
+                </li>
+                <li>
+                    <a href="#">定制</a>
+                </li>
+                <li>
+                    <a href="#">联名</a>
+                </li>
+                <li>
+                    <a href="#">系列</a>
+                </li>
+                <li>
+                    <a href="#">男童鞋</a>
+                </li>
+                <li>
+                    <a href="#">女童鞋</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="w1200_container" style="min-height: 450px;">
+    <div class="no_search">
+        <!--<img src="../images/none1.jpg" />
+        <a href="index.html">返回首页</a>-->
+        <input type="hidden" th:name="memberId" th:value="${memberId}">
+        <strong>
+            <table>
+                <tbody>
+                <tr>
+                    <td>当前用户名：</td>
+                    <td th:tel="${info.userName}"></td>
+                </tr>
+                <tr>
+                    <td>抢购的商品名称：</td>
+                    <td th:text="${info.itemName}"></td>
+                </tr>
+                <tr>
+                    <td>订单编号：</td>
+                    <td th:text="${info.code}">${info.code}</td>
+                </tr>
+                <tr>
+                    <td>成功抢购的时间：</td>
+                    <td th:text="${#dates.format(info.createTime, 'yyyy-MM-dd')}"></td>
+                </tr>
+                <tr>
+                    <td>当前支付的状态：</td>
+                </tr>
+                <tr>
+                    <h2>
+            <span>
+                <a th:if="${info.status==1}">
+                    已成功付款
+                </a>
+                <!--<a th:if="${info.status}==0" th:href="@{'http://localhost:8097/insertkillToOrder?orderSn='+${info.code}+'&itemId='+${info.itemId}+'&memberId='+${info.userId}}">-->
+                <a th:if="${info.status}==0" th:onclick="|topay('${info.code}')|">
+                    <!--th:onclick="|insertkillToOrder('${info.code}','${memberId}','${info.itemId}')|"-->
+                    未支付或已取消
+                </a>
+            </span>
+                    </h2>
+                </tr>
+                </tbody>
+            </table>
+        </strong>
+
+    </div>
+</div>
+<div class="back_index">
+
+</div>
+<div class="clear"></div>
+
+
+</div>
+<!--底部-->
+<div class="footer_con">
+    <div class="fnc_container">
+        <div class="help-list">
+            <div class="help-item">
+                <h3>新手上路 </h3>
+                <ul>
+                    <li>
+                        <a href="#" title="售后流程" target="_blank">售后流程</a>
+                    </li>
+                    <li>
+                        <a href="#" title="购物流程" target="_blank">购物流程</a>
+                    </li>
+                    <li>
+                        <a href="#" title="订购方式" target="_blank">订购方式</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="help-item">
+                <h3>配送与支付 </h3>
+                <ul>
+                    <li>
+                        <a href="#" title="货到付款区域" target="_blank">货到付款区域</a>
+                    </li>
+                    <li>
+                        <a href="#" title="配送支付智能查询 " target="_blank">配送支付智能查询</a>
+                    </li>
+                    <li>
+                        <a href="#" title="支付方式说明" target="_blank">支付方式说明</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="help-item">
+                <h3>会员中心</h3>
+                <ul>
+                    <li>
+                        <a href="#" title="资金管理" target="_blank">资金管理</a>
+                    </li>
+                    <li>
+                        <a href="#" title="我的收藏" target="_blank">我的收藏</a>
+                    </li>
+                    <li>
+                        <a href="#" title="我的订单" target="_blank">我的订单</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="help-item">
+                <h3>服务保证 </h3>
+                <ul>
+                    <li>
+                        <a href="#" title="退换货原则" target="_blank">退换货原则</a>
+                    </li>
+                    <li>
+                        <a href="#" title="售后服务保证" target="_blank">售后服务保证</a>
+                    </li>
+                    <li>
+                        <a href="#" title="产品质量保证 " target="_blank">产品质量保证</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="help-item">
+                <h3>联系我们 </h3>
+                <ul>
+                    <li>
+                        <a href="#" title="网站故障报告" target="_blank">网站故障报告</a>
+                    </li>
+                    <li>
+                        <a href="#" title="选机咨询 " target="_blank">选机咨询</a>
+                    </li>
+                    <li>
+                        <a href="#" title="投诉与建议 " target="_blank">投诉与建议</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="help-item">
+                <h3>关注我们 </h3>
+                <img src='../images/erweima.png'/>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--右侧红包栏-->
+<!--<div class="bk_foot_redbag">
+    <a href="#" id="red_bag">
+        <img src="../images/red_package.png" width="100%" alt="">
+    </a>
+    <span class="closehd"></span>
+</div>
+<div class="red_bag">
+    <span class="hide font"><label>10</label>元红包砸中了您</span><br />
+    <button class="hide font" id="ensure">确定</button>
+</div>-->
+</body>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/kuCity.js"></script>
+<script type="text/javascript" src="../js/jquery.SuperSlide.js"></script>
+<script type="text/javascript" src="../js/slide.js"></script>
+<script type="text/javascript">
+    function search() {
+        var keyword = $("#searchText").val()
+        window.location.href = "http://search.gmall.com:8094/list.html?keyword=" + keyword;
+    }
+</script>
+<script>
+    <!--去统一订单-->
+    /*function insertkillToOrder(orderSn,memberId,itemId) {
+        alert("orderSn:"+orderSn+" memberId:"+memberId+" itemId:"+itemId);
+        alert("http://localhost:8097/insertkillToOrder?memberId="+memberId+"&itemId="+itemId+"&orderSn="+orderSn);
+        window.location.href="http://localhost:8097/insertkillToOrder?orderSn="+orderSn+"&itemId="+itemId+"&memberId="+memberId;
+    }*/
+    <!--去付款-->
+    /*function topay(orderSn) {
+        window.location.href="http://localhost:8097/topay?orderSn="+orderSn;
+    }*/
+    <!--去付款-->
+    function topay(orderSn) {
+        window.location.href="http://localhost:8097/topay?orderSn="+orderSn;
+    }
+</script>
+<script>
+    $('.li_dorpdown').hover(function () {
+        $('.dorpdown-layer').show();
+    });
+    $('.li_dorpdown').mouseleave(function () {
+        $('.dorpdown-layer').hide();
+    });
+    $('.icon-close').click(function () {
+        $('.top_banner').hide();
+    });
+    $('.my_center_box_left a').hover(function () {
+
+    });
+    $('.cate-layer-right-slide img').mouseenter(function () {
+
+        $(this).delay('300').animate(300);
+    });
+    $('.cate-layer-right-slide img').mouseleave(function () {
+        $(this).css('border', 'none')
+    });
+
+
+    //		$('.categorys-type').mouseenter(function(){
+    //			$('.categorys-tab-content').show();
+    //		});
+    //		$('.categorys-type').mouseleave(function(){
+    //			$('.categorys-tab-content').hide();
+    //		});
+</script>
+<script>
+    $('.search').kuCity();
+    $("#lun2").slide({
+        autoplay: true,
+        autoTime: 5000,
+    });
+</script>
+<!--滚动展示-->
+<script type="text/javascript">
+    (function ($) {
+
+        $.fn.myScroll = function (options) {
+            //默认配置
+            var defaults = {
+                speed: 50, //滚动速度,值越大速度越慢
+                rowHeight: 50 //每行的高度
+            };
+
+            var opts = $.extend({}, defaults, options),
+                intId = [];
+
+            function marquee(obj, step) {
+
+                obj.find("ul").animate({
+                    marginTop: '-=1'
+                }, 0, function () {
+                    var s = Math.abs(parseInt($(this).css("margin-top")));
+                    if (s >= step) {
+                        $(this).find("li").slice(0, 1).appendTo($(this));
+                        $(this).css("margin-top", 0);
+                    }
+                });
+            }
+
+            this.each(function (i) {
+                var sh = opts["rowHeight"],
+                    speed = opts["speed"],
+                    _this = $(this);
+                intId[i] = setInterval(function () {
+                    if (_this.find("ul").height() <= _this.height()) {
+                        clearInterval(intId[i]);
+                    } else {
+                        marquee(_this, sh);
+                    }
+                }, speed);
+
+                _this.hover(function () {
+                    clearInterval(intId[i]);
+                }, function () {
+                    intId[i] = setInterval(function () {
+                        if (_this.find("ul").height() <= _this.height()) {
+                            clearInterval(intId[i]);
+                        } else {
+                            marquee(_this, sh);
+                        }
+                    }, speed);
+                });
+
+            });
+
+        }
+
+    })(jQuery);
+
+    $(function () {
+
+        $("div.ranklist").myScroll({
+            speed: 50,
+            rowHeight: 50
+        });
+
+    });
+    $(".closehd").click(function () { //右下角红包图标点击变小
+        $(this).hide();
+        $('.bk_foot_redbag a').animate({
+            width: '80px',
+            height: '100px'
+        });
+    });
+    $('#red_bag').click(function () {
+        $(this).hide();
+        $('.closehd').hide();
+        $('.font').show();
+        $('.font').css('display', 'inline-block')
+        $('.red_bag').animate({
+            width: '400px',
+            height: '300px'
+        });
+    });
+    $('#ensure').click(function () {
+        $('.red_bag').fadeOut();
+    });
+    $('#red_bag').click(function () {
+        $(this).hide();
+        $('.closehd').hide();
+        $('.font').show();
+        $('.font').css('display', 'inline-block')
+        $('.red_bag1').animate({
+            width: '400px',
+            height: '300px'
+        });
+    });
+    $('#ensure').click(function () {
+        $('.red_bag1').fadeOut();
+    });
+</script>
+
+</html>

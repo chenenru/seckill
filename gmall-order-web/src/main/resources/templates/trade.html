@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/JD2.css"/>
+    <link rel="stylesheet" type="text/css" href="address/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="address/css/style.css" />
+    <title></title>
+</head>
+
+<body>
+<!--顶部-->
+<header>
+    <div class="header">
+        <ul class="header-left" style="margin-left: 340px;">
+            <li>
+                <img src="img/header_1.png"/>
+                <a href="http://search.gmall.com:8094/index">首页</a>
+            </li>
+            <li class="header-l-2">
+                <i class="fa fa-map-marker" style="color: #5C5452;"></i>
+                <a href="">北京</a>
+
+            </li>
+
+        </ul>
+        <ul class="header-right" style="margin-right: 350px;">
+            <li th:text="'你好，'+${nickName}"></li>
+            <li>|</li>
+            <li class="spacer"></li>
+            <li><a href="http://localhost:8097/orderList">我的订单</a></li>
+            <li class="spacer"></li>
+
+        </ul>
+        <div style="clear: both;"></div>
+    </div>
+
+
+</header>
+
+<!--logo图片-->
+<div class="top-1" style="margin-left: 340px;">
+    <a href="http://search.gmall.com:8094/index"><img src="img/logo1.jpg" class="img1"/></a><span>结算页</span>
+    <!--右侧绿色-->
+    <img src="img/08.png" class="img2"/>
+</div>
+<!--主体部分-->
+<p class="p1" style="margin-left: 200px;">填写并核对订单信息</p>
+<div class="w1200_container">
+    <div class="address_c">
+        <div class="address_top">
+            <h3>收货人信息</h3>
+            <a href="http://localhost:8091/manageAddress">管理收货信息</a>
+        </div>
+        <div class="address_icon clear ">
+            <i><img src="img/place1.png"/></i>
+            <br />
+            <span><a href="#">添加新地址</a></span>
+        </div>
+        <div class="new_address hide">
+            <div class="model_bg">
+                <div class="my_model">
+                    <div class="add_address_con">
+                        <div class="add_address_hd">
+                            <span>新增收货人地址</span>
+                            <a href="#" class="add_add_clo fr">X</a>
+                        </div>
+                        <div class="pb_bd">
+                            <div class="pb_ct">
+                                <div class="user_form foreg_form">
+                                    <!--private String id;
+                                    private String memberId;
+                                    private String  name;
+                                    private String  phoneNumber;
+                                    private int defaultStatus;
+                                    private String postCode;
+                                    private String province;
+                                    private String city;
+                                    private String region;
+                                    private String detailAddress;-->
+                                    <form action="http://localhost:8091/addAddress" method="post" name="theForm" id="theForm" class="user_form">
+                                        <div class="form_row">
+                                            <div class="form_label"><span class="red">*</span>收货人：</div>
+                                            <div class="form_value">
+                                                <input type="text" class="form_input" value="" maxlength="20" name="name" id="consignee_name">
+                                                <span id="consigneeNameNote" class="status error hide">请您填写收货人姓名</span>
+                                            </div>
+                                        </div>
+                                        <div class="form_row">
+                                            <div class="form_label"><span class="red">*</span>手机号码：</div>
+                                            <div class="form_value">
+                                                <input type="text" class="form_input" maxlength="11" name="phoneNumber" value="" id="consignee_mobile">
+                                                <span id="consigneeMobileTelNote" class="status error hide">请您填写收货人联系方式</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form_row">
+                                            <div class="form_label form_label_lh"><span class="red">*</span>所在地区：</div>
+                                            <div class="form_value" ectype="regionLinkage">
+                                                <div class="address">
+                                                    <span class="queren hide"><span class="red">*</span> <label> 所在地区：</label></span>
+                                                    <select name="province" class="province"></select><label>&nbsp;省 &nbsp;</label>
+                                                    <select name="city" class="city"></select><label>&nbsp;市 &nbsp;</label>
+                                                    <select name="area" class="area"></select><label>&nbsp;县/区</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form_row">
+                                            <div class="form_label"><span class="red">*</span>详细信息：</div>
+                                            <div class="form_value">
+                                                <input type="text" class="form_input form_input_long" name="detailAddress" value="" id="consignee_address">
+                                                <span id="consigneeAddressNote" class="status error hide">请您填写收货详细地址</span>
+                                            </div>
+                                        </div>
+                                        <div class="form_row">
+                                            <div class="form_label">邮编：</div>
+                                            <div class="form_value">
+                                                <input type="text" class="form_input" name="postCode" value="" id="consignee_zipcode">
+                                                <span id="consigneeZipcodeNote" class="status error"></span>
+                                            </div>
+                                        </div>
+                                        <!--<div class="form_row">
+                                            <div class="form_label">邮箱：</div>
+                                            <div class="form_value">
+                                                <input type="text" class="form_input" name="email" value="" id="consignee_email">
+                                                <span id="emailNote" class="status error hide">请您填写邮箱</span>
+                                            </div>
+                                        </div>-->
+
+                                        <!--<div class="form_row">
+                                            <div class="form_label">地址别名：</div>
+                                            <div class="form_value"><input type="text" class="form_input fl" value="" name="sign_building" id="consignee_sign_building">
+                                                <div class="notic">设置一个易记的名称，如：'送到家里'、'送到公司'&nbsp;&nbsp;</div>
+                                            </div>
+                                            <span id="consigneeAliasNote" class="status error hide">请您填写地址别名</span>
+                                        </div>-->
+                                        <!--<input name="goods_flow_type" value="101" type="hidden">
+                                        <input name="address_id" value="" type="hidden">-->
+                                        <input type="hidden" th:name="memberId" th:value="${memberId}">
+                                        <!--<button type="submit" class="pb_btn pb_ok" id="submitAddress">保存收货人信息</button>-->
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tip_box icon_box">
+                            <div class="pb_ft">
+                                <a class="pb_btn pb_ok" id="submitAddress" onclick="addAddress()">保存收货人信息</a><!--onclick="addAddress()"-->
+                                <a class="pb_btn pb_cl">取消</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section" style="margin-left: 350px;width: 1200px;">
+    <!--收货人信息-->
+    <div class="top-2">
+        <span>收货人信息</span>
+        <!--<button class="toggleModal" id="toggleModal">新增收货地址</button>-->
+        <!--<span>新增收货地址</span>-->
+    </div>
+
+    <!--地址-->
+    <div class="top-3">
+        <ul>
+            <li class=".address default selected" th:each="userAddress:${userAddressList}">
+                <input name="deliveryAddress" type="radio" th:value="${userAddress.id}"
+                       th:checked="${userAddress.defaultStatus}=='1'" onclick="changeAddress()">
+                <span th:text="${userAddress.name}">收件人AAAA </span><span
+                    th:text="${userAddress.province}+${userAddress.city}+${userAddress.region}+${userAddress.detailAddress}">具体地址111 </span>
+            </li>
+        </ul>
+    </div>
+
+    </form>
+    <div class="hh1"/>
+</div>
+<!--********************************************************************************************-->
+
+
+<!--支付方式-->
+<h4 class="h4" style="margin-right: 1100px;width: 100px;">支付方式</h4>
+
+<div class="top-6">
+    <p><span> 在线支付 </span></p>
+</div>
+<div class="hh1"></div>
+<!--送货清单-->
+<h4 class="h4" style="margin-top: 5px;margin-right: 1110px;">送货清单</h4>
+<div class="top_1">
+
+    <div class="to_right">
+        <h5>商家：自营</h5>
+        <!--图片-->
+        <div class="yun1" th:each="omsOrderItem:${omsOrderItems}">
+            <img th:src="${omsOrderItem.productPic}" class="yun"/>
+            <div class="mi">
+                <div><p style="width: 500px;" th:text="${omsOrderItem.productName}">商品名称111111111111 </p> <span
+                        style="float: right"> <span align="center" style="color: red">   </span> <span> X 1   </span> <span>有货</span>  </span>
+                </div>
+
+            </div>
+        </div>
+        <div class="yun1">
+            <img th:src="${pmsSkuInfo.skuDefaultImg}" class="yun"/>
+            <div class="mi">
+                <div><p style="width: 500px;" th:text="${pmsSkuInfo.skuName}">商品名称111111111111 </p> <span
+                        style="float: right"> <span align="center" style="color: red">   </span> <span> X 1   </span> <span>有货</span>  </span>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="bto">
+    <div class="hh2"></div>
+    <h4 class="float">添加订单备注
+        <input id="orderCommentPage" type="text" maxlength="145" size="75" style="height: 22px"
+               placeholder="请将购买需求在备注中说明"/>
+    </h4>
+    <br/>
+    <div class="hh3"></div>
+
+</div>
+<div class="xia">
+
+
+    <div class="yfze">
+        <p class="yfze_a"><span class="z">应付总额：</span><span class="hq" th:text="'￥'+${totalAmount}"> ￥99999</span></p>
+
+
+        <button id="submitButton" class="tijiao">提交订单</button>
+    </div>
+</div>
+<div class="clear"></div>
+<script>
+    function addAddress() {
+        //alert("点击了新增地址");
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8091/addAddress",
+            data: $('#theForm').serialize(),
+            async: false,
+            success: function(data) {
+                //接收后台返回的结果
+                //alert(data+"???");
+                if (data=="success"){
+                    window.location.reload();
+                }
+            },
+            error: function(request) {
+                alert("添加地址失败");
+            }
+        });
+
+        /*$.ajax({
+            url:'http://localhost:8091/addAddress',
+            /!*data: JSON.stringify($('#theForm').serialize()),*!/
+            data: $('#theForm').serialize(),
+            type:'POST',
+            dataType:'json',
+            contentType: 'application/json',
+            success:function(data){
+                //success
+                alert(data);
+            },
+            error:function(data){
+                alert(data+"提交ajax函数异常");
+            }
+
+        });*/
+    }
+</script>
+
+<form action="./submitOrder" method="post" id="orderForm">
+    <input name="receiveAddressId" id="receiveAddressId" th:value="${defaultUserAddressId}" type="hidden"/><!--这里有写死的地方 -->
+    <input name="totalAmount" id="totalAmount" type="hidden" th:value="${totalAmount}"/>
+
+    <input name="tradeCode" type="hidden" th:value="${tradeCode}"/>
+</form>
+<script>
+
+    function changeAddress() {
+        var receiveAddressId = $("input[name='deliveryAddress']:checked").val();
+        alert(receiveAddressId);
+        $("#receiveAddressId").val(receiveAddressId);
+    }
+
+
+    $(function () {
+
+        $("#submitButton").click(function () {
+            $("#consignee").val($("input[type='radio']:checked").next().text());
+            $("#deliveryAddress").val($("input[type='radio']:checked").next().next().text());
+            $("#paymentWay").val("ONLINE");
+            $("#orderComment").val($("#orderCommentPage").val());
+            $("#orderForm").submit();
+
+        });
+
+
+        $('.header-right li:nth-of-type(6)').hover(function () {
+            $('.header-r-11').css('display', 'block')
+        }, function () {
+            $('.header-r-11').css('display', 'none')
+        })
+        $('.header-right orderFormli:nth-of-type(12)').hover(function () {
+            $('.header-r-2').css('display', 'block')
+        }, function () {
+            $('.header-r-2').css('display', 'none')
+        })
+        $('.header-right li:nth-of-type(14)').hover(function () {
+            $('.header-r-3').css('display', 'block')
+        }, function () {
+            $('.header-r-3').css('display', 'none')
+        })
+        $('.header-l-2').hover(function () {
+            $('.header-l-d').css('display', 'block')
+        }, function () {
+            $('.header-l-d').css('display', 'none')
+        })
+        $('.header-r-4').hover(function () {
+            $('.h-r-1').css('display', 'block')
+        }, function () {
+            $('.h-r-1').css('display', 'none')
+        })
+    })
+
+
+</script>
+<script type="text/javascript" src="address/js/jquery.min.js"></script>
+<script type="text/javascript" src="address/js/kuCity.js"></script>
+<script type="text/javascript" src="address/js/carts.js"></script>
+<script type="text/javascript" src="address/js/jquery.SuperSlider.js"></script>
+<script type="text/javascript" src="address/js/slide.js"></script>
+<script type="text/javascript" src="address/js/PCASClass.js"></script>
+<script>
+    $('.li_dorpdown').hover(function() {
+        $('.dorpdown-layer').show();
+    });
+    $('.li_dorpdown').mouseleave(function() {
+        $('.dorpdown-layer').hide();
+    });
+    $('.icon-close').click(function() {
+        $('.top_banner').hide();
+    });
+    $('.my_center_box_left a').hover(function() {
+
+    });
+    $('.cate-layer-right-slide img').mouseenter(function() {
+
+        $(this).delay('300').animate(300);
+    });
+    $('.cate-layer-right-slide img').mouseleave(function() {
+        $(this).css('border', 'none')
+    });
+    $('.address_icon').click(function(){
+        $('.new_address').show();
+    });
+    $('.add_add_clo').click(function(){
+        $('.new_address').fadeOut();
+    });
+    $('.pb_cl').click(function(){
+        $('.new_address').fadeOut();
+    })
+</script>
+<script>
+    $('.search').kuCity();
+    new PCAS("province", "city", "area", "", " ", " ");
+</script>
+</body>
+
+</html>

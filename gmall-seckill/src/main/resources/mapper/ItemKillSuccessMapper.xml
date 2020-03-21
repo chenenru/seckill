@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenenru.gmall.seckill.mapper.ItemKillSuccessMapper">
+
+    <!--<select id="selectAttrValueListByValueId" resultMap="selectAttrValueListByValueIdMap">
+        SELECT
+          ba.*,ba.id as ba_id,bv.*,bv.id as bv_id
+        FROM
+            pms_base_attr_info ba,
+            pms_base_attr_value bv
+        WHERE
+            ba.id = bv.attr_id
+        and
+          bv.id in (${valueIdStr})
+
+    </select>
+    <resultMap id="selectAttrValueListByValueIdMap" type="com.chenenru.gmall.bean.PmsBaseAttrInfo" autoMapping="true">
+
+        <result column="ba_id" property="id"></result>
+        <collection property="attrValueList" ofType="com.chenenru.gmall.bean.PmsBaseAttrValue" autoMapping="true">
+            <result column="bv_id" property="id"></result>
+        </collection>
+    </resultMap>-->
+    <!--<select id="selectBySuccessCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from item_kill_success
+        where code = #{code,jdbcType=VARCHAR}
+    </select>-->
+    <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from item_kill_success
+    where code = #{code,jdbcType=VARCHAR}
+  </delete>-->
+    <!--<insert id="insert" parameterType="com.chenenru.gmall.seckill.bean.ItemKillSuccess" >
+    insert into item_kill_success (code, item_id, kill_id,
+      user_id, status, create_time
+      )
+    values (#{code,jdbcType=VARCHAR}, #{itemId,jdbcType=INTEGER}, #{killId,jdbcType=INTEGER},
+      #{userId,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>-->
+    <!--<insert id="insertSelective" parameterType="com.chenenru.gmall.seckill.bean.ItemKillSuccess" >
+        insert into item_kill_success
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="code != null" >
+                code,
+            </if>
+            <if test="itemId != null" >
+                item_id,
+            </if>
+            <if test="killId != null" >
+                kill_id,
+            </if>
+            <if test="userId != null" >
+                user_id,
+            </if>
+            <if test="status != null" >
+                status,
+            </if>
+            <if test="createTime != null" >
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="code != null" >
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="itemId != null" >
+                #{itemId,jdbcType=INTEGER},
+            </if>
+            <if test="killId != null" >
+                #{killId,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null" >
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null" >
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>-->
+    <!--<update id="updateByPrimaryKeySelective" parameterType="com.chenenru.gmall.seckill.bean.ItemKillSuccess" >
+        update item_kill_success
+        <set >
+            <if test="itemId != null" >
+                item_id = #{itemId,jdbcType=INTEGER},
+            </if>
+            <if test="killId != null" >
+                kill_id = #{killId,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null" >
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null" >
+                status = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null" >
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where code = #{code,jdbcType=VARCHAR}
+    </update>-->
+    <!--<update id="updateByPrimaryKey" parameterType="com.chenenru.gmall.seckill.bean.ItemKillSuccess" >
+    update item_kill_success
+    set item_id = #{itemId,jdbcType=INTEGER},
+      kill_id = #{killId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=VARCHAR}
+  </update>-->
+
+    <!--根据秒杀活动跟用户Id查询用户的抢购数量-->
+    <select id="countByKillUserId" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1) AS total
+        FROM
+        item_kill_success
+        WHERE
+        user_id = #{userId}
+        AND kill_id = #{killId}
+        <!-- AND `status` IN (-1, 0) -->
+        AND `status` IN (0)
+    </select>
+
+    <!--根据有效用户秒杀成功后的订单编码查询-->
+    <select id="selectKillSuccessUserInfoByCode" resultType="com.chenenru.gmall.seckill.dto.KillSuccessUserInfo">
+    SELECT
+      a.*,
+      b.username AS userName,
+      b.phone AS phone,
+      b.email AS email,
+      c.sku_name AS itemName
+    FROM item_kill_success AS a
+      LEFT JOIN ums_member b ON b.id = a.user_id
+      LEFT JOIN pms_sku_info c ON c.id = a.item_id
+    WHERE a.code = #{code}
+          AND b.status = 1
+  </select>
+
+    <!--根据用户秒杀成功后所有状态的订单编码查询-->
+    <select id="selectKillSuccessUserInfoAllStatusByCode" resultType="com.chenenru.gmall.seckill.dto.KillSuccessUserInfo">
+    SELECT
+      a.*,
+      b.username AS userName,
+      b.phone AS phone,
+      b.email AS email,
+      c.sku_name AS itemName
+    FROM item_kill_success AS a
+      LEFT JOIN ums_member b ON b.id = a.user_id
+      LEFT JOIN pms_sku_info c ON c.id = a.item_id
+    WHERE a.code = #{code}
+  </select>
+
+    <select id="selectItemKillSuccessToStatusByCode" resultType="com.chenenru.gmall.seckill.bean.ItemKillSuccess">
+    SELECT
+      a.*
+    FROM item_kill_success AS a
+    WHERE a.code = #{code}
+  </select>
+
+    <!--失效更新订单信息-->
+    <update id="expireOrder">
+    UPDATE item_kill_success
+    SET status = -1
+    WHERE code = #{code} AND status = 0
+  </update>
+
+    <!--批量获取待处理的已保存订单记录-->
+    <select id="selectExpireOrders" resultType="com.chenenru.gmall.seckill.bean.ItemKillSuccess">
+    SELECT
+        a.*,TIMESTAMPDIFF(MINUTE,a.create_time,NOW()) AS diffTime
+    FROM
+        item_kill_success AS a
+    WHERE
+        a.`status` = 0
+  </select>
+
+    <!--批量获取待发货的已保存订单记录-->
+    <select id="selectShipExpireOrders" resultType="com.chenenru.gmall.seckill.bean.ItemKillSuccess">
+    SELECT
+        a.*
+    FROM
+        item_kill_success AS a
+    WHERE
+        a.`status` = 1
+  </select>
+</mapper>

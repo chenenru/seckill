@@ -1,0 +1,2597 @@
+{
+  "11": [
+    {
+      "catalog1Id": "11",
+      "id": "61",
+      "name": "鞋类",
+      "catalog3List": [
+        {
+          "catalog2Id": "61",
+          "id": "624",
+          "name": "休闲款"
+        },
+        {
+          "catalog2Id": "61",
+          "id": "625",
+          "name": "Jordan"
+        },
+        {
+          "catalog2Id": "61",
+          "id": "626",
+          "name": "跑步"
+        },
+        {
+          "catalog2Id": "61",
+          "id": "627",
+          "name": "篮球"
+        },
+        {
+          "catalog2Id": "61",
+          "id": "628",
+          "name": "训练/健身"
+        },
+        {
+          "catalog2Id": "61",
+          "id": "629",
+          "name": "足球"
+        },
+        {
+          "catalog2Id": "61",
+          "id": "630",
+          "name": "滑板"
+        },
+        {
+          "catalog2Id": "61",
+          "id": "631",
+          "name": "高尔夫"
+        },
+        {
+          "catalog2Id": "61",
+          "id": "632",
+          "name": "网球"
+        },
+        {
+          "catalog2Id": "61",
+          "id": "633",
+          "name": "步行"
+        }
+      ]
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "62",
+          "id": "624",
+          "name": "Nike"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "Nike Sportstwear"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Jordan"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "627",
+          "name": "NikeLab"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "627",
+          "name": "Nike By You"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "627",
+          "name": "ACG"
+        }
+      ],
+      "id": "62",
+      "name": "品牌"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "靴类"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "钉鞋"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "凉鞋/拖鞋"
+        }
+      ],
+      "id": "63",
+      "name": "鞋类"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "Air Force 1"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "Air Max"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Blazer"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Bruin"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Cortez"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Huarache"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Hyperdunk"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Internationalist"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Mercurial 刺客系列"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Metcon"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Dunk"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Epic React"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Free RN"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Pegasus"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Phantom"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Presto"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Roshe"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Structure"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Tiempo 传奇系列"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Vomero"
+        }
+      ],
+      "id": "64",
+      "name": "经典"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "Air Max 1"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "Air Max 90"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Air Max 95"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Air Max 97"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Air Max 98"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Air Max 200"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Air Max 270"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Air Max 720"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Air Max Dia"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "VaporMax"
+        }
+      ],
+      "id": "65",
+      "name": "Air Max"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "Nike Joyride"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "Nike Flyknit"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Flywire"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Lunarlon"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Max Air"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Air"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Free"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike React"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Shield"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike Zoom Air"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "Nike ZoomX"
+        }
+      ],
+      "id": "66",
+      "name": "技术"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "勒布朗·詹姆斯"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "凯里·欧文"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "克里斯蒂亚诺·罗纳尔多"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "斯蒂芬·基诺斯基"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "克里斯·保罗"
+        }
+      ],
+      "id": "67",
+      "name": "运动员"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "低帮"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "中帮"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "高帮"
+        }
+      ],
+      "id": "68",
+      "name": "鞋高"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "常规版"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "宽版"
+        }
+      ],
+      "id": "69",
+      "name": "宽度"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "宛如赤足的感受"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "柔缓感受"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "稳定性能"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "力量型"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "支撑力"
+        }
+      ],
+      "id": "70",
+      "name": "脚感"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "人造草地"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "天然硬质草地"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "草地球场"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "硬地球场"
+        }
+      ],
+      "id": "71",
+      "name": "场地"
+    },
+    {
+      "catalog1Id": "11",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "624",
+          "name": "室内球场"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "625",
+          "name": "多种场地"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "室外球场"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "公路"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "天然松软草地"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "小径"
+        },
+        {
+          "catalog2Id": "62",
+          "id": "626",
+          "name": "人造场地"
+        }
+      ],
+      "id": "72",
+      "name": "室内"
+    }
+  ],
+  "12": [
+    {
+      "catalog1Id": "12",
+      "catalog3List": [
+        {
+          "catalog2Id": "63",
+          "id": "645",
+          "name": "Superstar"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Stan Smith"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "NMD"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "UltraBOOST"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "UltraBOOST 19"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "PureBOOST"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "AlphaBOUNC"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "adizero"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Advantag"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Continenta"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": " COPA"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Crazychaos"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Damian Lillard"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Derrick Rose"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "EQT"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Falcon"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Grand Court"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Hoops"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "James Harden"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "NEMEZIZ"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Nite Jogger"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "POD"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "PREDATOR"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Prophere"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Questar"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "TERREX"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "X"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "Yung"
+        },
+        {
+          "catalog2Id": "63",
+          "id": "646",
+          "name": "adilette"
+        }
+      ],
+      "id": "73",
+      "name": "产品系列"
+    },
+    {
+      "catalog1Id": "12",
+      "catalog3List": [
+        {
+          "catalog2Id": "64",
+          "id": "647",
+          "name": "鞋类"
+        },
+        {
+          "catalog2Id": "64",
+          "id": "648",
+          "name": "品牌"
+        },
+        {
+          "catalog2Id": "64",
+          "id": "649",
+          "name": "运动表现"
+        },
+        {
+          "catalog2Id": "64",
+          "id": "650",
+          "name": "ORIGINALS"
+        },
+        {
+          "catalog2Id": "64",
+          "id": "651",
+          "name": "adidas neo"
+        },
+        {
+          "catalog2Id": "64",
+          "id": "652",
+          "name": "adidas by Stella"
+        },
+        {
+          "catalog2Id": "64",
+          "id": "653",
+          "name": "McCartney"
+        }
+      ],
+      "id": "74",
+      "name": "产品分类"
+    },
+    {
+      "catalog1Id": "12",
+      "catalog3List": [
+        {
+          "catalog2Id": "65",
+          "id": "655",
+          "name": "跑步"
+        },
+        {
+          "catalog2Id": "65",
+          "id": "656",
+          "name": "训练"
+        },
+        {
+          "catalog2Id": "65",
+          "id": "657",
+          "name": "户外"
+        },
+        {
+          "catalog2Id": "65",
+          "id": "658",
+          "name": "游泳"
+        },
+        {
+          "catalog2Id": "65",
+          "id": "658",
+          "name": "网球"
+        },
+        {
+          "catalog2Id": "65",
+          "id": "658",
+          "name": "羽毛球"
+        },
+        {
+          "catalog2Id": "65",
+          "id": "658",
+          "name": "高尔夫"
+        }
+      ],
+      "id": "75",
+      "name": "运动类型"
+    },
+    {
+      "catalog1Id": "12",
+      "catalog3List": [
+        {
+          "catalog2Id": "66",
+          "id": "659",
+          "name": "长跑"
+        },
+        {
+          "catalog2Id": "66",
+          "id": "660",
+          "name": "城市跑"
+        },
+        {
+          "catalog2Id": "66",
+          "id": "661",
+          "name": "动能跑"
+        }
+      ],
+      "id": "76",
+      "name": "适穿类型"
+    },
+    {
+      "catalog1Id": "12",
+      "catalog3List": [
+        {
+          "catalog2Id": "67",
+          "id": "668",
+          "name": "棕色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "669",
+          "name": "白色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "670",
+          "name": "红色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "671",
+          "name": "蓝色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "672",
+          "name": "黑色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "673",
+          "name": "紫色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "674",
+          "name": "黄色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "675",
+          "name": "粉色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "676",
+          "name": "绿色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "677",
+          "name": "灰色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "677",
+          "name": "银色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "677",
+          "name": "金色"
+        },
+        {
+          "catalog2Id": "67",
+          "id": "677",
+          "name": "橙色"
+        }
+      ],
+      "id": "77",
+      "name": "筛选色"
+    },
+    {
+      "catalog1Id": "12",
+      "catalog3List": [
+        {
+          "catalog2Id": "68",
+          "id": "678",
+          "name": "35.5"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "679",
+          "name": "36"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "680",
+          "name": "36.5"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "681",
+          "name": "37"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "682",
+          "name": "38"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "683",
+          "name": "37.5"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "684",
+          "name": "38.5"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "685",
+          "name": "39"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "686",
+          "name": "40"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "687",
+          "name": "41"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "687",
+          "name": "41.5"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "687",
+          "name": "42"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "687",
+          "name": "42.5"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "687",
+          "name": "43"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "687",
+          "name": "43.5"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "687",
+          "name": "44"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "687",
+          "name": "45"
+        },
+        {
+          "catalog2Id": "68",
+          "id": "687",
+          "name": "46"
+        }
+      ],
+      "id": "78",
+      "name": "尺码"
+    }
+  ],
+  "13": [
+    {
+      "catalog1Id": "13",
+      "catalog3List": [
+        {
+          "catalog2Id": "73",
+          "id": "724",
+          "name": "休闲"
+        },
+        {
+          "catalog2Id": "73",
+          "id": "725",
+          "name": "英美产系列"
+        },
+        {
+          "catalog2Id": "73",
+          "id": "726",
+          "name": "老爹鞋"
+        },
+        {
+          "catalog2Id": "73",
+          "id": "727",
+          "name": "男款跑步鞋"
+        },
+        {
+          "catalog2Id": "73",
+          "id": "728",
+          "name": "中性款"
+        },
+        {
+          "catalog2Id": "73",
+          "id": "729",
+          "name": "凉鞋/拖鞋"
+        },
+        {
+          "catalog2Id": "73",
+          "id": "730",
+          "name": "篮球鞋"
+        },
+        {
+          "catalog2Id": "73",
+          "id": "731",
+          "name": "板鞋"
+        },
+        {
+          "catalog2Id": "73",
+          "id": "731",
+          "name": "女款跑步鞋"
+        },
+        {
+          "catalog2Id": "73",
+          "id": "731",
+          "name": "训练"
+        }
+      ],
+      "id": "150",
+      "name": "鞋子"
+    },
+    {
+      "catalog1Id": "13",
+      "catalog3List": [
+        {
+          "catalog2Id": "151",
+          "id": "732",
+          "name": "997S系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "733",
+          "name": "850系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "734",
+          "name": "580系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "735",
+          "name": " 574系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "736",
+          "name": "997H系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "737",
+          "name": "x-racer系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "CRT300系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "996系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "其他系列休闲鞋"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "滑板鞋"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "574S系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "878系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "999系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "老爹鞋"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "英美产系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "Fresh Foam系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "fuel系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "Hanzo系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "NBx系列"
+        },
+        {
+          "catalog2Id": "74",
+          "id": "738",
+          "name": "其他系列跑鞋"
+        }
+      ],
+      "id": "151",
+      "name": "产品分类"
+    },
+    {
+      "catalog1Id": "13",
+      "catalog3List": [
+        {
+          "catalog2Id": "75",
+          "id": "739",
+          "name": "2E"
+        },
+        {
+          "catalog2Id": "75",
+          "id": "740",
+          "name": "4E"
+        },
+        {
+          "catalog2Id": "75",
+          "id": "741",
+          "name": "B"
+        },
+        {
+          "catalog2Id": "75",
+          "id": "742",
+          "name": "D"
+        }
+      ],
+      "id": "152",
+      "name": "宽度"
+    }
+  ],
+  "14": [
+    {
+      "catalog1Id": "14",
+      "catalog3List": [
+        {
+          "catalog2Id": "79",
+          "id": "780",
+          "name": "篮球鞋"
+        },
+        {
+          "catalog2Id": "79",
+          "id": "781",
+          "name": "跑鞋"
+        },
+        {
+          "catalog2Id": "79",
+          "id": "782",
+          "name": "综训鞋"
+        },
+        {
+          "catalog2Id": "79",
+          "id": "783",
+          "name": "板鞋"
+        },
+        {
+          "catalog2Id": "79",
+          "id": "784",
+          "name": "休闲鞋"
+        },
+        {
+          "catalog2Id": "79",
+          "id": "785",
+          "name": "棉鞋"
+        },
+        {
+          "catalog2Id": "79",
+          "id": "785",
+          "name": "户外鞋"
+        },
+        {
+          "catalog2Id": "79",
+          "id": "785",
+          "name": "拖鞋·凉鞋"
+        },
+        {
+          "catalog2Id": "79",
+          "id": "785",
+          "name": "帆布鞋"
+        },
+        {
+          "catalog2Id": "79",
+          "id": "785",
+          "name": "硫化鞋"
+        }
+      ],
+      "id": "153",
+      "name": "品类"
+    },
+    {
+      "catalog1Id": "14",
+      "catalog3List": [
+        {
+          "catalog2Id": "154",
+          "id": "786",
+          "name": "35"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "787",
+          "name": "36"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "788",
+          "name": "37"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "789",
+          "name": "38"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "790",
+          "name": "39"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "791",
+          "name": "40"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "792",
+          "name": "41"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "793",
+          "name": "42"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "794",
+          "name": "43"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "795",
+          "name": "44"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "795",
+          "name": "45"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "795",
+          "name": "46"
+        },
+        {
+          "catalog2Id": "80",
+          "id": "795",
+          "name": "47"
+        }
+      ],
+      "id": "154",
+      "name": "尺码"
+    },
+    {
+      "catalog1Id": "14",
+      "catalog3List": [
+        {
+          "catalog2Id": "155",
+          "id": "796",
+          "name": "秋季"
+        },
+        {
+          "catalog2Id": "81",
+          "id": "797",
+          "name": "冬季"
+        },
+        {
+          "catalog2Id": "81",
+          "id": "798",
+          "name": "春季"
+        },
+        {
+          "catalog2Id": "81",
+          "id": "799",
+          "name": "夏季"
+        }
+      ],
+      "id": "155",
+      "name": "季节"
+    },
+    {
+      "catalog1Id": "14",
+      "catalog3List": [
+        {
+          "catalog2Id": "82",
+          "id": "803",
+          "name": "2011"
+        },
+        {
+          "catalog2Id": "82",
+          "id": "804",
+          "name": "2020"
+        },
+        {
+          "catalog2Id": "82",
+          "id": "805",
+          "name": "2015"
+        },
+        {
+          "catalog2Id": "82",
+          "id": "806",
+          "name": "2016"
+        },
+        {
+          "catalog2Id": "82",
+          "id": "807",
+          "name": "2017"
+        },
+        {
+          "catalog2Id": "82",
+          "id": "808",
+          "name": "2018"
+        },
+        {
+          "catalog2Id": "82",
+          "id": "808",
+          "name": "2019"
+        },
+        {
+          "catalog2Id": "82",
+          "id": "808",
+          "name": "2012"
+        }
+      ],
+      "id": "156",
+      "name": "年份"
+    },
+    {
+      "catalog1Id": "14",
+      "catalog3List": [
+        {
+          "catalog2Id": "157",
+          "id": "809",
+          "name": "跑步系列"
+        },
+        {
+          "catalog2Id": "83",
+          "id": "810",
+          "name": "综训系列"
+        },
+        {
+          "catalog2Id": "83",
+          "id": "811",
+          "name": "生活系列"
+        },
+        {
+          "catalog2Id": "83",
+          "id": "812",
+          "name": "户外系列"
+        },
+        {
+          "catalog2Id": "83",
+          "id": "813",
+          "name": "篮球系列"
+        }
+      ],
+      "id": "157",
+      "name": "系列"
+    },
+    {
+      "catalog1Id": "14",
+      "catalog3List": [
+        {
+          "catalog2Id": "157",
+          "id": "816",
+          "name": "宽松鞋型"
+        },
+        {
+          "catalog2Id": "84",
+          "id": "817",
+          "name": "适脚鞋型"
+        }
+      ],
+      "id": "158",
+      "name": "版型"
+    }
+  ],
+  "15": [
+    {
+      "catalog1Id": "15",
+      "catalog3List": [
+        {
+          "catalog2Id": "159",
+          "id": "832",
+          "name": "跑步鞋"
+        },
+        {
+          "catalog2Id": "86",
+          "id": "833",
+          "name": "篮球鞋"
+        },
+        {
+          "catalog2Id": "86",
+          "id": "834",
+          "name": "运动时尚鞋"
+        },
+        {
+          "catalog2Id": "86",
+          "id": "835",
+          "name": "户外鞋"
+        },
+        {
+          "catalog2Id": "86",
+          "id": "836",
+          "name": "羽毛球鞋"
+        },
+        {
+          "catalog2Id": "86",
+          "id": "837",
+          "name": "乒乓球鞋"
+        },
+        {
+          "catalog2Id": "86",
+          "id": "838",
+          "name": "训练鞋"
+        },
+        {
+          "catalog2Id": "86",
+          "id": "839",
+          "name": "足球鞋"
+        },
+        {
+          "catalog2Id": "86",
+          "id": "840",
+          "name": "凉鞋/拖鞋"
+        }
+      ],
+      "id": "159",
+      "name": "男鞋"
+    },
+    {
+      "catalog1Id": "15",
+      "catalog3List": [
+        {
+          "catalog2Id": "160",
+          "id": "841",
+          "name": "跑步鞋"
+        },
+        {
+          "catalog2Id": "87",
+          "id": "842",
+          "name": "运动时尚鞋"
+        },
+        {
+          "catalog2Id": "87",
+          "id": "843",
+          "name": "羽毛球鞋"
+        },
+        {
+          "catalog2Id": "87",
+          "id": "844",
+          "name": "乒乓球鞋"
+        },
+        {
+          "catalog2Id": "87",
+          "id": "845",
+          "name": "训练鞋"
+        },
+        {
+          "catalog2Id": "87",
+          "id": "846",
+          "name": "凉鞋/拖鞋"
+        },
+        {
+          "catalog2Id": "87",
+          "id": "846",
+          "name": "篮球鞋"
+        }
+      ],
+      "id": "160",
+      "name": "女鞋"
+    },
+    {
+      "catalog1Id": "15",
+      "catalog3List": [
+        {
+          "catalog2Id": "161",
+          "id": "847",
+          "name": "跑步鞋"
+        },
+        {
+          "catalog2Id": "88",
+          "id": "848",
+          "name": "篮球鞋"
+        },
+        {
+          "catalog2Id": "88",
+          "id": "849",
+          "name": "休闲鞋"
+        },
+        {
+          "catalog2Id": "88",
+          "id": "850",
+          "name": "训练鞋"
+        },
+        {
+          "catalog2Id": "88",
+          "id": "851",
+          "name": "凉鞋/拖鞋"
+        },
+        {
+          "catalog2Id": "88",
+          "id": "851",
+          "name": "运动时尚鞋"
+        }
+      ],
+      "id": "161",
+      "name": "男童鞋"
+    },
+    {
+      "catalog1Id": "15",
+      "catalog3List": [
+        {
+          "catalog2Id": "162",
+          "id": "852",
+          "name": "跑步鞋"
+        },
+        {
+          "catalog2Id": "89",
+          "id": "853",
+          "name": "训练鞋"
+        },
+        {
+          "catalog2Id": "89",
+          "id": "854",
+          "name": "凉鞋/拖鞋"
+        },
+        {
+          "catalog2Id": "89",
+          "id": "854",
+          "name": "运动时尚鞋"
+        }
+      ],
+      "id": "162",
+      "name": "女童鞋"
+    }
+  ],
+  "16": [
+    {
+      "catalog1Id": "16",
+      "catalog3List": [
+        {
+          "catalog2Id": "163",
+          "id": "908",
+          "name": "BIG3 篮球鞋"
+        },
+        {
+          "catalog2Id": "98",
+          "id": "909",
+          "name": "BIG3-建盏 篮球鞋"
+        },
+        {
+          "catalog2Id": "98",
+          "id": "910",
+          "name": "寂寞大神篮球鞋"
+        },
+        {
+          "catalog2Id": "98",
+          "id": "911",
+          "name": "篮潮文化鞋"
+        },
+        {
+          "catalog2Id": "98",
+          "id": "912",
+          "name": "篮球鞋"
+        },
+        {
+          "catalog2Id": "98",
+          "id": "913",
+          "name": "篮潮文化鞋"
+        },
+        {
+          "catalog2Id": "98",
+          "id": "914",
+          "name": "磨砺悍将篮球鞋"
+        }
+      ],
+      "id": "163",
+      "name": "篮球"
+    },
+    {
+      "catalog1Id": "16",
+      "catalog3List": [
+        {
+          "catalog2Id": "164",
+          "id": "930",
+          "name": "百事防泼水涂鸦鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "931",
+          "name": "百事防泼水雨屏鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "932",
+          "name": "锋熠跑鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "933",
+          "name": "高达系列 Q弹"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "934",
+          "name": "猎风3轻质跑鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "935",
+          "name": "M1°RO SPIRE 3"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "936",
+          "name": "钛速跑鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "937",
+          "name": "SACAIRPLUS 气能缓震跑鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "938",
+          "name": "跑步文化鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "939",
+          "name": "M1?RO 跑步鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "940",
+          "name": "SPIRE"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "941",
+          "name": "SACAIR跑步文化鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "942",
+          "name": "MERAKI-2"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "943",
+          "name": "SPIRE 3"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "944",
+          "name": "SACAIR全掌气垫耐磨跑鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "945",
+          "name": "RUNSPARK都市型格跑鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "945",
+          "name": "TITAN专业跑鞋"
+        },
+        {
+          "catalog2Id": "99",
+          "id": "945",
+          "name": "RUNSPARK都市型格跑鞋"
+        }
+      ],
+      "id": "164",
+      "name": "跑步"
+    },
+    {
+      "catalog1Id": "16",
+      "catalog3List": [
+        {
+          "catalog2Id": "165",
+          "id": "946",
+          "name": "【CF联名】休闲运动鞋"
+        },
+        {
+          "catalog2Id": "100",
+          "id": "947",
+          "name": "【CF联名-潜伏】耐磨Q弹篮球鞋"
+        },
+        {
+          "catalog2Id": "100",
+          "id": "948",
+          "name": "【CF联名-勋章】高帮复古休闲板鞋"
+        },
+        {
+          "catalog2Id": "100",
+          "id": "949",
+          "name": "【CF联名-荣光】魔术贴潮流休闲鞋"
+        },
+        {
+          "catalog2Id": "100",
+          "id": "950",
+          "name": "高达系列 RX-78"
+        },
+        {
+          "catalog2Id": "100",
+          "id": "951",
+          "name": "高达系列 扎古"
+        },
+        {
+          "catalog2Id": "100",
+          "id": "952",
+          "name": "M1°RO SPIRE1"
+        },
+        {
+          "catalog2Id": "100",
+          "id": "953",
+          "name": "复古潮流休闲鞋"
+        },
+        {
+          "catalog2Id": "100",
+          "id": "954",
+          "name": "网面透气休闲鞋"
+        },
+        {
+          "catalog2Id": "100",
+          "id": "955",
+          "name": "复古文化鞋"
+        }
+      ],
+      "id": "165",
+      "name": "生活"
+    },
+    {
+      "catalog1Id": "16",
+      "catalog3List": [
+        {
+          "catalog2Id": "166",
+          "id": "957",
+          "name": "精英训练鞋"
+        },
+        {
+          "catalog2Id": "101",
+          "id": "958",
+          "name": "壹穿健走鞋"
+        },
+        {
+          "catalog2Id": "101",
+          "id": "959",
+          "name": "轻便透气综训鞋"
+        },
+        {
+          "catalog2Id": "101",
+          "id": "960",
+          "name": "防滑综训鞋"
+        }
+      ],
+      "id": "166",
+      "name": "综训"
+    }
+  ],
+  "17": [
+    {
+      "catalog1Id": "17",
+      "catalog3List": [
+        {
+          "catalog2Id": "106",
+          "id": "1008",
+          "name": "黑色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1009",
+          "name": "灰色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1010",
+          "name": "白色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1011",
+          "name": "米黄色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1012",
+          "name": "黄色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1013",
+          "name": "卡其色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1014",
+          "name": "绿色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1015",
+          "name": "金色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1016",
+          "name": "银色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1017",
+          "name": "橙色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1018",
+          "name": "粉红色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "红色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "酒红色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "咖啡色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "蓝色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "深蓝色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "浅蓝色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "紫色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "肉色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "双色搭配"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "花色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "棕色"
+        },
+        {
+          "catalog2Id": "106",
+          "id": "1019",
+          "name": "土黄色"
+        }
+      ],
+      "id": "167",
+      "name": "颜色"
+    },
+    {
+      "catalog1Id": "17",
+      "catalog3List": [
+        {
+          "catalog2Id": "105",
+          "id": "997",
+          "name": "34.5"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "998",
+          "name": "35"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "999",
+          "name": "36"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1000",
+          "name": "36.5"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1001",
+          "name": "37"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1002",
+          "name": "38"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1003",
+          "name": "38.5"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1004",
+          "name": "39"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1005",
+          "name": "40"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1006",
+          "name": "41"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1007",
+          "name": "42"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1007",
+          "name": "42.5"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1007",
+          "name": "43"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1007",
+          "name": "44"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1007",
+          "name": "44.5"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1007",
+          "name": "45"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1007",
+          "name": "46"
+        },
+        {
+          "catalog2Id": "105",
+          "id": "1007",
+          "name": "47"
+        }
+      ],
+      "id": "168",
+      "name": "鞋码"
+    },
+    {
+      "catalog1Id": "17",
+      "catalog3List": [
+        {
+          "catalog2Id": "168",
+          "id": "1020",
+          "name": "鞋"
+        },
+        {
+          "catalog2Id": "107",
+          "id": "1021",
+          "name": "服装"
+        },
+        {
+          "catalog2Id": "107",
+          "id": "1022",
+          "name": "配件"
+        }
+      ],
+      "id": "169",
+      "name": "鞋服配"
+    },
+    {
+      "catalog1Id": "17",
+      "catalog3List": [
+        {
+          "catalog2Id": "170",
+          "id": "1027",
+          "name": "系带"
+        },
+        {
+          "catalog2Id": "108",
+          "id": "1028",
+          "name": "一脚蹬"
+        },
+        {
+          "catalog2Id": "108",
+          "id": "1029",
+          "name": "魔术贴"
+        }
+      ],
+      "id": "170",
+      "name": "穿法"
+    },
+    {
+      "catalog1Id": "17",
+      "catalog3List": [
+        {
+          "catalog2Id": "171",
+          "id": "1033",
+          "name": "低帮"
+        },
+        {
+          "catalog2Id": "109",
+          "id": "1034",
+          "name": "中帮"
+        },
+        {
+          "catalog2Id": "109",
+          "id": "1035",
+          "name": "高帮"
+        }
+      ],
+      "id": "171",
+      "name": "鞋帮"
+    },
+    {
+      "catalog1Id": "17",
+      "catalog3List": [
+        {
+          "catalog2Id": "172",
+          "id": "1040",
+          "name": "AUTHENTIC"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1041",
+          "name": "ERA"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1042",
+          "name": "SLIP-ON"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1043",
+          "name": "OLD SKOOL"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1044",
+          "name": "SK8-HI"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1045",
+          "name": "VAULT系列"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1046",
+          "name": "经典系列"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1047",
+          "name": "COMFYCUSH系列"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1048",
+          "name": "滑板系列"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1049",
+          "name": "冲浪系列"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1050",
+          "name": "CUSTOMS定制鞋"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1051",
+          "name": "CLASSICS 经典款"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1052",
+          "name": "PRO SKATE 职业鞋款"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1053",
+          "name": "VAULT BY VANS"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1054",
+          "name": "安纳海姆"
+        },
+        {
+          "catalog2Id": "110",
+          "id": "1055",
+          "name": "SNOW BOOTS 职业滑雪鞋款"
+        }
+      ],
+      "id": "172",
+      "name": "鞋款"
+    }
+  ],
+  "18": [
+    {
+      "catalog1Id": "18",
+      "catalog3List": [
+        {
+          "catalog2Id": "173",
+          "id": "1100",
+          "name": "跑鞋"
+        },
+        {
+          "catalog2Id": "114",
+          "id": "1101",
+          "name": "篮球鞋"
+        },
+        {
+          "catalog2Id": "114",
+          "id": "1102",
+          "name": "训练鞋"
+        },
+        {
+          "catalog2Id": "114",
+          "id": "1103",
+          "name": "运动休闲鞋"
+        },
+        {
+          "catalog2Id": "114",
+          "id": "1104",
+          "name": "拖鞋"
+        },
+        {
+          "catalog2Id": "114",
+          "id": "1105",
+          "name": "其他"
+        },
+        {
+          "catalog2Id": "114",
+          "id": "1105",
+          "name": "配件"
+        }
+      ],
+      "id": "173",
+      "name": "鞋类"
+    },
+    {
+      "catalog1Id": "18",
+      "catalog3List": [
+        {
+          "catalog2Id": "174",
+          "id": "1106",
+          "name": "男子PROJECT ROCK系列"
+        },
+        {
+          "catalog2Id": "115",
+          "id": "1107",
+          "name": "男子RUSH系列"
+        },
+        {
+          "catalog2Id": "115",
+          "id": "1108",
+          "name": "男子HOVR系列"
+        },
+        {
+          "catalog2Id": "115",
+          "id": "1109",
+          "name": "男子CURRY专区系列"
+        },
+        {
+          "catalog2Id": "115",
+          "id": "1110",
+          "name": "男子TRIBASE系列"
+        }
+      ],
+      "id": "174",
+      "name": "新品推荐"
+    },
+    {
+      "catalog1Id": "18",
+      "catalog3List": [
+        {
+          "catalog2Id": "116",
+          "id": "1111",
+          "name": "训练"
+        },
+        {
+          "catalog2Id": "175",
+          "id": "1112",
+          "name": "跑步"
+        },
+        {
+          "catalog2Id": "116",
+          "id": "1112",
+          "name": "休闲"
+        },
+        {
+          "catalog2Id": "116",
+          "id": "1112",
+          "name": "高尔夫"
+        },
+        {
+          "catalog2Id": "116",
+          "id": "1112",
+          "name": "户外"
+        },
+        {
+          "catalog2Id": "116",
+          "id": "1112",
+          "name": "篮球"
+        },
+        {
+          "catalog2Id": "116",
+          "id": "1112",
+          "name": "垂钓"
+        }
+      ],
+      "id": "175",
+      "name": "适合运动"
+    },
+    {
+      "catalog1Id": "18",
+      "catalog3List": [
+        {
+          "catalog2Id": "117",
+          "id": "1113",
+          "name": "黑色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1114",
+          "name": "灰色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "白色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "红色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "绿色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "透明"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "蓝色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "深蓝色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "棕色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "黄色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "紫色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "橙色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "粉红色"
+        },
+        {
+          "catalog2Id": "117",
+          "id": "1115",
+          "name": "银色"
+        }
+      ],
+      "id": "176",
+      "name": "颜色"
+    },
+    {
+      "catalog1Id": "18",
+      "catalog3List": [
+        {
+          "catalog2Id": "118",
+          "id": "1116",
+          "name": "35.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1117",
+          "name": "36"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "36.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "37.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "38"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "38.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "39"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "40"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "40.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "41"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "42"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "42.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "43"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "44"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "44.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "45"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "45.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "46"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "47"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "47.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "48.5"
+        },
+        {
+          "catalog2Id": "118",
+          "id": "1118",
+          "name": "48"
+        }
+      ],
+      "id": "177",
+      "name": "尺码"
+    }
+  ],
+  "19": [
+    {
+      "catalog1Id": "19",
+      "catalog3List": [
+        {
+          "catalog2Id": "178",
+          "id": "1160",
+          "name": "休闲鞋"
+        },
+        {
+          "catalog2Id": "127",
+          "id": "1160",
+          "name": "跑步鞋"
+        },
+        {
+          "catalog2Id": "127",
+          "id": "1160",
+          "name": "训练鞋"
+        },
+        {
+          "catalog2Id": "127",
+          "id": "1160",
+          "name": "赛车鞋"
+        }
+      ],
+      "id": "178",
+      "name": "鞋类"
+    },
+    {
+      "catalog1Id": "19",
+      "catalog3List": [
+        {
+          "catalog2Id": "179",
+          "id": "1161",
+          "name": "法国码 35.5"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 36"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 37"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 37.5"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 38"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 38.5"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 39"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 40"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 40.5"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 41"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 42"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 42.5"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 43"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 44"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 44.5"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 45"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 46"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 47"
+        },
+        {
+          "catalog2Id": "128",
+          "id": "1162",
+          "name": "法国码 47.5"
+        }
+      ],
+      "id": "179",
+      "name": "尺码"
+    }
+  ]
+}
+

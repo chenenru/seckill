@@ -1,0 +1,682 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>秒杀</title>
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/sec_kill.css" />
+		<link rel="stylesheet" href="../css/slide.css" />
+	</head>
+
+	<body>
+		<div class="site-nav" id="site-nav">
+			<div class="w w1200">
+				<div class="fl">
+					<div class="city-choice" id="city-choice" data-ectype="dorpdown">
+						<div class="dsc-choie dsc-cm" ectype="dsc-choie">
+							<img src="../images/place.png" class="place" />
+							<input type="text" value="北京" class="search" />
+						</div>
+
+					</div>
+					<div class="txt-info" id="">
+						<a href="http://passport.gmall.com:8096/index" class="link-login red">请登录</a>
+						<a href="http://localhost:8096/toregister" class="link-regist">免费注册</a>
+					</div>
+				</div>
+				<ul class="quick-menu fr">
+					<li>
+						<div class="dt">
+							<a href="http://localhost:8097/orderList">我的订单</a>
+						</div>
+					</li>
+					<li class="spacer"></li>
+					<li>
+						<div class="dt">
+							<a href="javascript:void(0)">我的浏览</a>
+						</div>
+					</li>
+					<li class="spacer"></li>
+					<li>
+						<div class="dt">
+							<a href="javascript:void(0)">我的收藏</a>
+						</div>
+					</li>
+					<li class="spacer"></li>
+					<li>
+						<div class="dt">
+							<a href="javascript:void(0)">客户服务</a>
+						</div>
+					</li>
+					<li class="spacer"></li>
+					<li class="li_dorpdown" data-ectype="dorpdown">
+						<div class="dt dsc-cm">网站导航</div>
+						<div class="dd dorpdown-layer" style="z-index: 10000000;">
+							<dl class="fore1">
+								<dt>特色主题</dt>
+								<dd>
+									<div class="item">
+										<a href="javascript:void(0)" target="_blank">家用电器</a>
+									</div>
+									<div class="item">
+										<a href="javascript:void(0)" target="_blank">手机数码</a>
+									</div>
+									<div class="item">
+										<a href="javascript:void(0)" target="_blank">电脑办公</a>
+									</div>
+								</dd>
+							</dl>
+							<dl class="fore2">
+								<dt>促销活动</dt>
+								<dd>
+									<div class="item">
+										<a href="javascript:void(0)">拍卖活动</a>
+									</div>
+									<div class="item">
+										<a href="javascript:void(0)">共创商品</a>
+									</div>
+									<div class="item">
+										<a href="javascript:void(0)">优惠活动</a>
+									</div>
+									<div class="item">
+										<a href="javascript:void(0)">批发市场</a>
+									</div>
+									<div class="item">
+										<a href="javascript:void(0)">超值礼包</a>
+									</div>
+									<div class="item">
+										<a href="javascript:void(0)">优惠券</a>
+									</div>
+								</dd>
+							</dl>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="header">
+			<div class="header_container">
+				<div class="logo fl">
+					<a href="http://search.gmall.com:8094/index"><img src="../images/logo1.png" /></a>
+					<a href="http://search.gmall.com:8094/index"><img src="../images/ecsc-join.gif" /></a>
+				</div>
+				<div class="dsc-search">
+					<div class="form">
+						<form class="search-form">
+							<input name="keywords" type="text" id="searchText" value="" class="search-text" style="color: rgb(153, 153, 153);">
+							<button type="submit" class="button button-goods" onclick="search()">搜商品</button>
+							<button type="submit" class="button button-store" onclick="search()">搜店铺</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="nav" ectype="dscNav">
+			<div class="w w1200">
+				<div class="categorys" style="text-align: center;margin-top: 7px;">
+					<a href="http://localhost:8099/item/index"><img src="../images/skmu-nav.png" /></a>
+				</div>
+				<div class="nav-main" id="nav">
+					<ul class="navitems">
+						<!--闪购 秒杀   男鞋 女鞋 潮鞋 定制               联名   系列    男童鞋  女童鞋-->
+						<li>
+							<a href="javascript:void(0)">闪购</a>
+						</li>
+						<li>
+							<a href="http://localhost:8099/item/index">秒杀</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">女鞋</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">潮鞋</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">定制</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">联名</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">系列</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">男童鞋</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">女童鞋</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="seckill"></div>
+		<div class="w1200_container">
+			<div class="sec_kill_goods">
+				<div class="skill_tab">
+					<ul class="skill_tab_time">
+						<li class="curr">
+							<!--<strong>8:00</strong>
+							<div class="time" ectype="time" data-time="2018-01-04 10:00:00">
+								<span>距结束</span>
+								<span class="hours">00</span>
+								<em>:</em>
+								<span class="minutes">00</span>
+								<em>:</em>
+								<span class="seconds">00</span>
+							</div>-->
+
+							<!--<i>即将开始</i>-->
+							<div id="noStart">活动未开始</div>
+							<div class="div1" id="startNow" style="display: none;">开始购买</div>
+							<div class="div2" id="stopNow" style="display: none;">活动结束</div>
+							<div class="time" ectype="time">
+								<span class="content"></span>
+								<span class="botHours"></span>时
+								<span class="botMIn"></span>分
+								<span class="botSecond"></span>秒
+							</div>
+						</li>
+						<!--<li>
+							<strong>10:00</strong>-->
+							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
+								<span>距结束</span>
+								<span class="hours">00</span>
+								<em>:</em>
+								<span class="minutes">00</span>
+								<em>:</em>
+								<span class="seconds">00</span>
+							</div>-->
+							<!--<i>即将开始</i>
+						</li>
+						<li>
+							<strong>12:00</strong>-->
+							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
+								<span>距结束</span>
+								<span class="hours">00</span>
+								<em>:</em>
+								<span class="minutes">00</span>
+								<em>:</em>
+								<span class="seconds">00</span>
+							</div>-->
+							<!--<i>即将开始</i>
+						</li>
+						<li>
+							<strong>14:00</strong>-->
+							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
+								<span>距结束</span>
+								<span class="hours">00</span>
+								<em>:</em>
+								<span class="minutes">00</span>
+								<em>:</em>
+								<span class="seconds">00</span>
+							</div>-->
+							<!--<i>即将开始</i>
+						</li>
+						<li>
+							<strong>16:00</strong>-->
+							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
+								<span>距结束</span>
+								<span class="hours">00</span>
+								<em>:</em>
+								<span class="minutes">00</span>
+								<em>:</em>
+								<span class="seconds">00</span>
+							</div>-->
+							<!--<i>即将开始</i>
+						</li>-->
+					</ul>
+				</div>
+				<div class="clear"></div>
+				<div class="tab_content">
+
+					<div class="skill_warp sel hide">
+						<ul class="skill_goods_list">
+							<!--Double price;
+							String skuDesc;
+							String skuDefaultImg;-->
+							<li class="mod_shodow"  th:each="item:${list}"><!--th:if="${#dates.format(item.startTime, 'HH:mm:ss')}>'00:08:00' and ${#dates.format(item.endTime, 'HH:mm:ss')}<'00:10:00'"-->
+								<form th:action="@{/kill/execute}" method="post" class="seckillform">
+                                <input id="killId" th:value="${item.id}" th:name="killId" type="hidden"/>
+                                    <input th:name="userId" th:value="${memberId}" type="hidden"/><!--这有地方写死了 -->
+								<div class="p_img">
+									<a href="javascript:void(0);" id="seckillimg">
+										<img src="../images/se_kill_img.jpg" th:src="${item.skuDefaultImg}" />
+									</a>
+								</div>
+								<div class="p_name">
+									<a id="seckilldesc" href="javascript:void(0);" th:text="${item.itemName}+${item.skuDesc}" th:title="${item.itemName}+${item.skuDesc}">
+										8:00HLA/海澜之家撞色长袖T恤春季热卖圆领修身拼接T恤男 简约圆领 微弹修身 撞色拼接 触感柔软
+									</a>
+								</div>
+								<div class="p_lie clear">
+									<div class="p_price">
+										<em>￥</em><sp th:text="${item.price}"></sp>
+									</div>
+									<div class="p_del">
+										<del>
+										<em>￥</em>1111
+									</del>
+									</div>
+								</div>
+								<span th:if="${item.canKill==1}">
+                                    <!--<button><a class="sc_kill_btn btn seckillbtn" href="javascript:executeKill();">立即购买</a></button>-->
+									<button class="sc_kill_btn btn" type="submit">立即购买</button>
+                                </span>
+								<span th:unless="${item.canKill}">
+                                    <a class="sc_kill_btn btn" href="javascript:void(0);">哈哈~商品已抢购完毕或者不在抢购时间段哦!</a>
+                                </span>
+                                </form>
+                            </li>
+								<!--<a class="sc_kill_btn btn" href="javascript:void(0);" id="seckill">立即购买</a>-->
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="more_goods">
+				<img src="../images/more_goods.png" />
+			</div>
+			<div class="sec_kill_goods">
+				<!--<div class="skill_tab">
+					<ul class="skill_tab_time">
+						<li class="curr"></li>
+					</ul>
+				</div>-->
+				<div class="skill_warp">
+					<ul class="skill_goods_list">
+						<li class="mod_shodow">
+							<div class="p_img">
+								<a href="http://item.gmall.com:8093/125.html" title="男子篮球鞋 LeBron XVII PRM EP">
+									<img src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rEIaAHoTZAADE9gpZr8g264.jpg" alt="">
+								</a>
+							</div>
+							<div class="p_name">
+								<a href="http://item.gmall.com:8093/125.html" title="LeBron XVII PRM EP 篮球鞋依托勒布朗的力量和速度，塑就出众包覆性和支撑力，助你制霸赛场。采用轻盈的针织和模压纱线组合设计，塑就耐穿外观和质感。组合缓震设计，为勒布朗带来出色减震支撑效果和灵敏响应回弹能量，助力畅享漫长赛季。">
+									LeBron XVII PRM EP 篮球鞋依托勒布朗的力量和速度，塑就出众包覆性和支撑力，助你制霸赛场。采用轻盈的针织和模压纱线组合设计，塑就耐穿外观和质感。组合缓震设计，为勒布朗带来出色减震支撑效果和灵敏响应回弹能量，助力畅享漫长赛季。
+								</a>
+							</div>
+							<div class="p_lie clear">
+								<div class="p_price">
+									<em>￥</em>899
+								</div>
+								<div class="p_del">
+									<del>
+										<em>￥</em>999
+									</del>
+								</div>
+							</div>
+							<a class="sc_kill_btn btn" href="http://item.gmall.com:8097/toTradeNotCart?skuId=125">立即购买</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<!--底部-->
+		<div class="footer_con">
+			<div class="fnc_container">
+				<div class="help-list">
+					<div class="help-item">
+						<h3>新手上路 </h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)" title="售后流程" target="_blank">售后流程</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="购物流程" target="_blank">购物流程</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="订购方式" target="_blank">订购方式</a>
+							</li>
+						</ul>
+
+					</div>
+					<div class="help-item">
+						<h3>配送与支付 </h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)" title="货到付款区域" target="_blank">货到付款区域</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="配送支付智能查询 " target="_blank">配送支付智能查询</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="支付方式说明" target="_blank">支付方式说明</a>
+							</li>
+						</ul>
+
+					</div>
+					<div class="help-item">
+						<h3>会员中心</h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)" title="资金管理" target="_blank">资金管理</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="我的收藏" target="_blank">我的收藏</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="我的订单" target="_blank">我的订单</a>
+							</li>
+						</ul>
+
+					</div>
+					<div class="help-item">
+						<h3>服务保证 </h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)" title="退换货原则" target="_blank">退换货原则</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="售后服务保证" target="_blank">售后服务保证</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="产品质量保证 " target="_blank">产品质量保证</a>
+							</li>
+						</ul>
+
+					</div>
+					<div class="help-item">
+						<h3>联系我们 </h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)" title="网站故障报告" target="_blank">网站故障报告</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="选机咨询 " target="_blank">选机咨询</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" title="投诉与建议 " target="_blank">投诉与建议</a>
+							</li>
+						</ul>
+					</div>
+					<div class="help-item">
+						<h3>关注我们 </h3>
+						<img src='../images/erweima.png' />
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--右侧红包栏-->
+		<!--<div class="bk_foot_redbag">
+			<a href="javascript:void(0)">
+				<img src="../images/red_package.png" width="100%" alt="">
+			</a>
+			<span class="closehd"></span>
+		</div>-->
+	</body>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/kuCity.js"></script>
+	<script type="text/javascript" src="../js/jquery.SuperSlide.js"></script>
+	<script type="text/javascript" src="../js/slide.js"></script>
+	<script>
+		setTimeout(function () {
+			var cha = 4 * 1000 * 3600;
+			var date = new Date($.ajax({async: false}).getResponseHeader("Date"));
+			var bom= date + (3600000 * 8);
+			var time = new Date(bom);
+
+			function time() {
+				cha = time - 1000;
+				var hours = parseInt(cha / 1000 / 3600) % 24;
+				var minutes = parseInt(cha / 1000 / 60) % 60;
+				var seconds = parseInt(cha / 1000) % 60;
+				if (hours < 10 && hours>0) {
+					hours = "0" + hours
+				}
+				if (minutes < 10 && minutes>0) {
+					minutes = "0" + minutes
+				}
+				if (seconds < 10 && seconds >0) {
+					seconds = "0" + seconds
+				}
+				$(".hours").html(hours);
+				$(".minutes").html(minutes);
+				$(".seconds").html(seconds);
+			}
+
+			setInterval(time, 1000)
+		}, 1)
+	</script>
+	<script>
+		$('.li_dorpdown').hover(function() {
+			$('.dorpdown-layer').show();
+		});
+		$('.li_dorpdown').mouseleave(function() {
+			$('.dorpdown-layer').hide();
+		});
+		$('.icon-close').click(function() {
+			$('.top_banner').hide();
+		});
+		$('.my_center_box_left a').hover(function() {
+
+		});
+		$('.cate-layer-right-slide img').mouseenter(function() {
+
+			$(this).delay('300').animate(300);
+		});
+		$('.cate-layer-right-slide img').mouseleave(function() {
+			$(this).css('border', 'none')
+		});
+
+		//		li 切换
+		$('.skill_tab_time li').click(function() {
+			$(this).addClass('curr').siblings().removeClass('curr');
+			$(this).children('i').hide().parent().children('i').css('display', 'inline-block');
+			$(this).children('div').addClass('active2').removeClass('hide');
+			var index = $(this).index();
+			$('.tab_content>div:eq(' + index + ')').addClass('sel').siblings().removeClass('sel');
+		});
+	</script>
+	<script>
+		$('.search').kuCity();
+		$(".closehd").click(function() { //右下角红包图标点击变小
+			$(this).hide();
+			$('.bk_foot_redbag a').animate({
+				width: '80px',
+				height: '100px'
+			});
+		})
+	</script>
+<!-- 倒计时-->
+	<script>
+		$(function() {
+			fn()
+			function fn() {
+				if(window.ActiveXObject) {
+					xmlHttpRequest=new ActiveXObject("microsoft.XMLHTTP");
+				} else if (window.XMLHttpRequest) {
+					xmlHttpRequest=new XMLHttpRequest();
+				}
+
+				xmlHttpRequest.open("HEAD","http://localhost:8099/item/",true);
+				xmlHttpRequest.send("");
+				xmlHttpRequest.onreadystatechange=function() {
+					if (xmlHttpRequest.readyState == 4) {
+						if (xmlHttpRequest.status == 200) {
+							var dateStr = xmlHttpRequest.getResponseHeader("Date");
+							var d = new Date(dateStr);
+							var h = d.getHours();
+							var m = d.getMinutes();
+							var s = d.getSeconds();
+							var days = d.getUTCDate();
+							var mouths = d.getUTCMonth() + 1;
+							var years = d.getUTCFullYear();
+							//alert(years + "/" + mouths + "/" + days + " " + h + ":" + m + ":" + s);
+							var timer = setInterval(function() {
+								var start = years + '/' + mouths + '/' + days +' 8:00:00';
+								var StartTime = new Date(start);
+								var NowTime = new Date();
+								var day = NowTime.getDate();
+								var month = NowTime.getMonth() + 1;
+								var year = NowTime.getFullYear();
+								var tw = year + '/' + month + '/' + day + ' 16:42:00';
+								var ei = year + '/' + month + '/' + day + ' 18:42:30';
+								var tw1 = year + '/' + month + '/' + day +' 20:42:40';
+								var ei1 = year + '/' + month + '/' + day +' 23:42:50';
+								tw = new Date(tw).getTime();
+								ei = new Date(ei).getTime();
+								tw1 = new Date(tw1).getTime();
+								ei1 = new Date(ei1).getTime();
+								var EndTime = '';
+								if(NowTime < StartTime) {
+									EndTime = StartTime;
+									$('#stopNow').css('display', 'none');
+									$('#startNow').css('display', 'none');
+									$('#noStart').css('display', 'block');
+									$(".content").html("距离活动开始")
+								} else {
+									if(NowTime < tw) {
+										EndTime = tw;
+										$('#stopNow').css('display', 'none');
+										$('#startNow').css('display', 'block');
+										$('#noStart').css('display', 'none');
+										$(".content").html("距离活动结束剩余");
+										//document.getElementById("seckill").href = "http://www.baidu.com";//记得改为秒杀路径
+										/*document.getElementById("seckillimg").href = "javascript:void(0);";//记得改为秒杀路径
+										document.getElementById("seckilldesc").href = "javascript:void(0);";//记得改为秒杀路径*/
+									} else if(NowTime >= tw && NowTime < ei) {
+										EndTime = ei;
+										$('#stopNow').css('display', 'none');
+										$('#startNow').css('display', 'block');
+										$('#noStart').css('display', 'none');
+										$(".content").html("距离活动结束剩余");
+										//document.getElementById("seckill").href = "javascript:executeKill();";
+										/*document.getElementById("seckill").href = "http://www.baidu.com";
+										document.getElementById("seckillimg").href = "http://www.baidu.com";//记得改为秒杀路径
+										document.getElementById("seckilldesc").href = "http://www.baidu.com";//记得改为秒杀路径*/
+									}else if(NowTime < tw1){
+										EndTime =tw1;
+										$('#stopNow').css('display', 'none');
+										$('#startNow').css('display', 'block');
+										$('#noStart').css('display', 'none');
+										$(".content").html("距离活动结束剩余");
+										//document.getElementById("seckill").href = "javascript:executeKill();";
+										/*document.getElementById("seckill").href = "http://www.baidu.com";
+										document.getElementById("seckillimg").href = "http://www.baidu.com";//记得改为秒杀路径
+										document.getElementById("seckilldesc").href = "http://www.baidu.com";//记得改为秒杀路径*/
+									} else if(NowTime >= tw1 && NowTime < ei1) {
+										EndTime = ei1;
+										$('#stopNow').css('display', 'none');
+										$('#startNow').css('display', 'block');
+										$('#noStart').css('display', 'none');
+										$(".content").html("距离活动结束剩余");
+										//document.getElementById("seckill").href = "javascript:executeKill();";
+										/*document.getElementById("seckill").href = "http://www.baidu.com";
+										document.getElementById("seckillimg").href = "http://www.baidu.com";//记得改为秒杀路径
+										document.getElementById("seckilldesc").href = "http://www.baidu.com";//记得改为秒杀路径*/
+									}else if(NowTime >= ei1) {
+										EndTime = tw + 24 * 60 * 60 * 1000;
+										$('#stopNow').css('display', 'block');
+										$('#startNow').css('display', 'none');
+										$('#noStart').css('display', 'none');
+										$(".content").html("距离活动开始剩余")
+									}
+								}
+								console.log(EndTime)
+								var t = EndTime - NowTime;
+								if(t < 1000) {
+									window.location.reload();
+									clearInterval(timer);
+									timer = null;
+									return false;
+								}
+								var d = 0;
+								var h = 0;
+								var m = 0;
+								var s = 0;
+								if(t >= 0) {
+									d = Math.floor((t / 1000 / 3600) / 24);
+									h = Math.floor((t / 1000 / 3600) % 24);
+									m = Math.floor((t / 1000 / 60) % 60);
+									s = Math.floor(t / 1000 % 60);
+									if(d < 10) {
+										d = "0" + d;
+									}
+									if(h < 10) {
+										h = "0" + h;
+									}
+									if(m < 10) {
+										m = "0" + m;
+									}
+									if(s < 10) {
+										s = "0" + s;
+									}
+									$('.botHours').html(h);
+									$('.botMIn').html(m);
+									$('.botSecond').html(s);
+								}
+							}, 1000)
+						}
+					}
+				}
+			}
+		});
+	</script>
+	<!-- 秒杀连接-->
+    <script>
+        $(function executeKill() {
+            $(".seckillbtn").click(function () {
+                $(".seckillform").submit();
+            });
+
+        })
+    </script>
+
+	<script type="text/javascript">
+		function search() {
+			var keyword = $("#searchText").val()
+			window.location.href = "http://search.gmall.com:8094/list.html?keyword=" + keyword;
+		}
+	</script>
+
+	<!--<script>
+		function executeKill() {
+			$.ajax({
+				type: "POST",
+				url: "http://localhost:8099/item/kill/execute",
+				contentType: "application/json;charset=utf-8",
+				data: JSON.stringify(getJsonData()),
+				dataType: "json",
+
+				success: function(res){
+					if (res.code==0) {
+						//alert(res.msg);
+						window.location.href="http://localhost:8099/item/kill/execute/success";
+					}else{
+						//alert(res.msg);
+						window.location.href="http://localhost:8099/item/kill/execute/fail";
+					}
+				},
+				error: function (data) {
+					alert(data+"提交数据失败！");
+					return;
+				}
+			});
+		}
+
+		function getJsonData() {
+			var killId=$("#killId").val();
+			//alert(killId);
+			var dataa = {
+                "killId":killId,
+                "userId":1
+            };
+			/*var data = {
+				"killId":killId
+			};*/
+			alert(dataa);
+			alert(JSON.stringify(dataa));
+			return JSON.stringify(dataa);
+		}
+	</script>-->
+</html>

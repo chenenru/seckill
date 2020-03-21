@@ -1,0 +1,511 @@
+﻿﻿﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>JD注册页面</title>
+		<script src="../libs/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jQuery/jquery-3.1.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="../bootStrap/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../sass/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+
+
+	</head>
+
+	<body>
+		<header>
+			<a href="http://search.gmall.com:8094/index" class="logo"><img src="img/logo1.png" alt=""></a>
+			<div class="desc">欢迎注册</div>
+			<div class="dfg">
+				<span>已有账号？</span>
+				<a href="http://passport.gmall.com:8096/index">请登录</a>
+			</div>
+		</header>
+		<section>
+			<!--username ***
+			password ***
+			phone ***
+			email ***
+
+			nickname *-->
+			<form action="" class="one">
+				<div class="register-box">
+					<label class="username_label">用 户 名
+						<input name="username" maxlength="20" type="text" placeholder="您的用户名和登录名">
+					</label>
+					<div class="tips">
+
+                    </div>
+				</div>
+				<div class="register-box">
+					<label class="username_label">昵  称
+						<input name="nickname" maxlength="20" type="text" placeholder="您的昵称">
+					</label>
+					<div class="tips">
+
+                    </div>
+				</div>
+				<div class="register-box">
+					<label class="other_label">设 置 密 码
+						<input name="password" maxlength="20" type="password" placeholder="建议至少使用两种字符组合">
+					</label>
+					<div class="tips">
+
+                    </div>
+				</div>
+				<div class="register-box">
+					<label class="other_label">确 认 密 码
+						<input maxlength="20" type="password" placeholder="请再次输入密码">
+					</label>
+					<div class="tips">
+
+                    </div>
+				</div>
+				<div class="register-box">
+					<label class="other_label">
+						<span>中国 0086∨</span>
+						<input name="phone" class="phone" maxlength="20" type="text" placeholder="建议使用常用手机">
+					</label>
+					<div class="tips">
+
+                    </div>
+				</div>
+				<div class="register-box">
+					<label class="other_label">邮 箱
+						<input name="email" class="phone" maxlength="20" type="text" placeholder="建议使用常用邮箱">
+					</label>
+					<div class="tips">
+
+                    </div>
+				</div>
+
+				<div class="register-box">
+					<label class="other_label">验 证 码
+						<input maxlength="20" type="text" placeholder="请输入验证码" class="caa">
+					</label>
+					<span id="code"></span>
+					<div class="tips">
+
+                    </div>
+				</div>
+
+				<div class="register-box">
+					<label class="other_label">省 份
+						<input name="province" class="phone" maxlength="20" type="text" placeholder="建议使用常用邮箱">
+					</label>
+					<div class="tips">
+
+					</div>
+				</div>
+				<div class="register-box">
+					<label class="other_label">城 市
+						<input name="city" class="phone" maxlength="20" type="text" placeholder="建议使用常用邮箱">
+					</label>
+					<div class="tips">
+
+					</div>
+				</div>
+				<div class="register-box">
+					<label class="other_label">地 区
+						<input name="area" class="phone" maxlength="20" type="text" placeholder="建议使用常用邮箱">
+					</label>
+					<div class="tips">
+
+					</div>
+				</div>
+
+				<div class="register-box">
+					<label class="other_label">详细地址信息
+						<input name="consigneeAddressNote" class="phone" maxlength="20" type="text" placeholder="建议使用常用邮箱">
+					</label>
+					<div class="tips">
+
+					</div>
+				</div>
+
+				<div class="register-box">
+					<label class="other_label">邮 编
+						<input name="postCode" class="phone" maxlength="20" type="text" placeholder="建议使用常用邮箱">
+					</label>
+					<div class="tips">
+
+					</div>
+				</div>
+
+				<div class="arguement">
+					<input type="checkbox" id="xieyi"> 阅读并同意
+					<a href="#">《京东用户注册协议》</a>
+					<a href="#">《隐私政策》</a>
+					<div class="tips">
+
+                    </div>
+					<br/>
+					<div class="submit_btn">
+						<button type="submit" id="submit_btn">立 即 注 册</button>
+					</div>
+				</div>
+
+			</form>
+			<div class="two">
+			<div class="right_r">
+				<div class="right_r1">
+					<img src="img/a65a18e877a16246a92e1b755bd88a03_03.png"/>
+					<span>企业用户注册</span>
+				</div>
+				<div class="right_r2">
+					<img src="img/a65a18e877a16246a92e1b755bd88a03_06.png"/>
+					<span>INTERNATIONAL <br /> CUSTOMERS</span>
+				</div>
+			</div>
+			</div>
+		</section>
+		<br /><br />
+		<hr>
+		<div class="footer">
+			<ul>
+				<li>
+					<a href="">关于我们</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">联系我们</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">人次招聘</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">商家入驻</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">广告服务</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">手机京东</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">友情链接</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">销售联盟</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">京东社区</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">京东公益</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="">English Site</a>
+				</li>
+			</ul>
+		</div>
+		<p class="bq">Copyright©2004-2016 京东JD.com 版权所有</p>
+		<br /><br />
+		<script type="text/javascript" charset="utf-8">
+			//function submitLogin(data) {
+				//var username = $("#username").val();
+				//var password = $("#password").val();
+				//$.post("register", JSON.parse(data), function (token) {
+					//alert("submitLogin:"+token);
+					/*if (token == "fail") {
+						alert("用户名或者密码错误或已存在");
+					} else {
+						alert("注册成功");
+						// 验证token是否为空或者异常
+						var s = encodeURIComponent("http://search.gmall.com:8094/index");
+						window.location.href = "http://passport.gmall.com:8096/index?ReturnUrl="+s;
+						//window.location.href = "http://passport.gmall.com:8096/index?ReturnUrl=";
+					}*/
+					/*alert(token);
+					if (token == "success") {
+						alert("注册成功");
+						// 验证token是否为空或者异常
+						var s = encodeURIComponent("http://search.gmall.com:8094/index");
+						window.location.href = "http://passport.gmall.com:8096/index?ReturnUrl="+s;
+						//window.location.href = "http://passport.gmall.com:8096/index?ReturnUrl=";
+					} else {
+						alert("用户名或者密码错误或已存在");
+					}*/
+				//});
+			//};
+			$(function() {
+				//var stuList = getStuList(); //设置传送信息：学生的集合
+
+				//聚焦失焦input
+				$('input').eq(0).focus(function() {
+					if($(this).val().length == 0) {
+						$(this).parent().next("div").text("支持中文，字母，数字，'-'，'_'的多种组合");
+					}
+				})
+				$('input').eq(1).focus(function() {
+					if($(this).val().length == 0) {
+						$(this).parent().next("div").text("支持中文，字母，数字，'-'，'_'的多种组合，非必填");
+					}
+				})
+				$('input').eq(2).focus(function() {
+					if($(this).val().length == 0) {
+						$(this).parent().next("div").text("建议使用字母、数字和符号两种以上的组合，6-20个字符");
+					}
+				})
+				$('input').eq(3).focus(function() {
+					if($(this).val().length == 0) {
+						$(this).parent().next("div").text("请再次输入密码");
+					}
+				})
+				$('input').eq(4).focus(function() {
+					if($(this).val().length == 0) {
+						$(this).parent().next("div").text("验证完后，你可以使用该手机登陆和找回密码");
+					}
+				})
+				$('input').eq(5).focus(function() {
+					if($(this).val().length == 0) {
+						$(this).parent().next("div").text("邮箱用于订单通知，必填");
+					}
+				})
+				$('input').eq(6).focus(function() {
+						if($(this).val().length == 0) {
+							$(this).parent().next().next("div").text("看不清？点击图片更换验证码");
+						}
+					})
+					//input各种判断
+					//用户名：
+				$('input').eq(0).blur(function() {
+					var username=$(this).val();
+						if($(this).val().length == 0) {
+							$(this).parent().next("div").text("");
+							$(this).parent().next("div").css("color", '#ccc');
+						} else if($(this).val().length > 0 && $(this).val().length < 2) {
+							$(this).parent().next("div").text("长度只能在2-20个字符之间");
+							$(this).parent().next("div").css("color", 'red');
+						} else if($(this).val().length >= 4 && !isNaN($(this).val())) {
+							$(this).parent().next("div").text("用户名不能为纯数字");
+							$(this).parent().next("div").css("color", 'red');
+						} else {
+							/*for(var m = 0; m < stuList.length; m++) {
+								if($(this).val() == stuList[m].name) {
+									$(this).parent().next("div").text("该用户名已被注册");
+									$(this).parent().next("div").css("color", 'red');
+									return;
+								}
+							}*/
+							$(this).parent().next("div").text("");
+						}
+					})
+				//昵称：
+				$('input').eq(1).blur(function() {
+					var nickname=$(this).val();
+					if($(this).val().length == 0) {
+						$(this).parent().next("div").text("");
+						$(this).parent().next("div").css("color", '#ccc');
+					} else if($(this).val().length > 0 && $(this).val().length < 2) {
+						$(this).parent().next("div").text("长度只能在2-20个字符之间");
+						$(this).parent().next("div").css("color", 'red');
+					}  else {
+						/*for(var m = 0; m < stuList.length; m++) {
+							if($(this).val() == stuList[m].name) {
+								$(this).parent().next("div").text("该昵称已被使用");
+								$(this).parent().next("div").css("color", 'red');
+								return;
+							}
+						}*/
+						$(this).parent().next("div").text("");
+					}
+				})
+					//密码
+				$('input').eq(2).blur(function() {
+					var password=$(this).val();
+						if($(this).val().length == 0) {
+							$(this).parent().next("div").text("");
+							$(this).parent().next("div").css("color", '#ccc');
+						} else if($(this).val().length > 0 && $(this).val().length < 6) {
+							$(this).parent().next("div").text("长度只能在6-20个字符之间");
+							$(this).parent().next("div").css("color", 'red');
+						} else {
+							$(this).parent().next("div").text("");
+						}
+					})
+					//	确认密码
+				$('input').eq(3).blur(function() {
+						if($(this).val().length == 0) {
+							$(this).parent().next("div").text("");
+							$(this).parent().next("div").css("color", '#ccc');
+						} else if($(this).val() != $('input').eq(2).val()) {
+							$(this).parent().next("div").text("两次密码不匹配");
+							$(this).parent().next("div").css("color", 'red');
+						} else {
+							$(this).parent().next("div").text("");
+						}
+					})
+					//	手机号
+				$('input').eq(4).blur(function() {
+					var phone = $(this).val();
+						if($(this).val().length == 0) {
+							$(this).parent().next("div").text("");
+							$(this).parent().next("div").css("color", '#ccc');
+						} //else if($(this).val().substr(0, 3) != 138 && $(this).val().substr(0, 3) != 189 && $(this).val().substr(0, 3) != 139 && $(this).val().substr(0, 3) != 158 && $(this).val().substr(0, 3) != 188 && $(this).val().substr(0, 3) != 157 || $(this).val().length != 11) {
+					else if(!/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/.test(phone)){
+					$(this).parent().next("div").text("手机号格式不正确");
+							$(this).parent().next("div").css("color", 'red');
+						} else {
+							$(this).parent().next("div").text("");
+						}
+					})
+				//邮箱
+				$('input').eq(5).blur(function() {
+					var email=$(this).val();
+					var strRegex = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+					//var length= $(this).val().lastIndexOf('@');
+					//alert(length==-1);
+					//alert(length!=-1);
+					if($(this).val().length == 0) {
+						$(this).parent().next("div").text("");
+						$(this).parent().next("div").css("color", '#ccc');
+					} else if(!strRegex.test($(this).val())) {
+						$(this).parent().next("div").text("邮箱不正确");
+						$(this).parent().next("div").css("color", 'red');
+					} else {
+						$(this).parent().next("div").text("");
+					}
+				})
+					// 	验证码
+					//	 验证码刷新
+				function code() {
+					var str = "qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPLKJHGFDSAZXCVBNM";
+					var str1 = 0;
+					for(var i = 0; i < 4; i++) {
+						str1 += str.charAt(Math.floor(Math.random() * 62))
+					}
+					str1 = str1.substring(1)
+					$("#code").text(str1);
+				}
+				code();
+				$("#code").click(code);
+				//	验证码验证
+				$('input').eq(6).blur(function() {
+						if($(this).val().length == 0) {
+							$(this).parent().next().next("div").text("");
+							$(this).parent().next().next("div").css("color", '#ccc');
+						} else if($(this).val().toUpperCase() != $("#code").text().toUpperCase()) {
+							$(this).parent().next().next("div").text("验证码不正确");
+							$(this).parent().next().next("div").css("color", 'red');
+						} else {
+							$(this).parent().next().next("div").text("");
+						}
+					})
+					//	提交按钮
+				$("#submit_btn").click(function(e) {
+					for(var j = 0; j < 7; j++) {
+						if($('input').eq(j).val().length == 0) {
+							$('input').eq(j).focus();
+							if(j == 6) {
+								$('input').eq(j).parent().next().next("div").text("此处不能为空");
+								$('input').eq(j).parent().next().next("div").css("color", 'red');
+								e.preventDefault();
+								return;
+							}
+							$('input').eq(j).parent().next(".tips").text("此处不能为空");
+							$('input').eq(j).parent().next(".tips").css("color", 'red');
+							e.preventDefault();
+							return;
+						}
+					}
+					//协议
+					if($("#xieyi")[0].checked) {
+						//向变量stuList数组添加一个数值，数值内部格式Student(name,password,tel,id)
+						//发送用户信息
+
+					/*@Transient
+						String province;
+						//String city;
+					@Transient
+						String area;
+					@Transient
+						String detailAddress;*/
+
+						var umber = {
+							username : $('input').eq(0).val(),
+							nickname : $('input').eq(1).val(),
+							password : $('input').eq(2).val(),
+							phone: $('input').eq(4).val(),
+							email : $('input').eq(5).val(),
+							province: $('input').eq(7).val(),
+							city :$('input').eq(8).val(),
+							area :$('input').eq(9).val(),
+							detailAddress :$('input').eq(10).val(),
+							postCode: $('input').eq(11).val()
+						}
+						//alert(JSON.stringify(umber));
+						//stuList.push(new Student($('input').eq(0).val(), $('input').eq(1).val(),$('input').eq(2).val(),$('input').eq(4).val(),$('input').eq(5).val(), stuList.length + 1));
+						//localStorage.setItem('stuList', JSON.stringify(stuList));
+						//var token=submitLogin(JSON.stringify(umber));
+						$.post("register", JSON.parse(JSON.stringify(umber)), function (token) {
+							alert("后"+token);
+							if (token == "success") {
+								alert("注册成功");
+								// 验证token是否为空或者异常
+								var s = encodeURIComponent("http://search.gmall.com:8094/index");
+								//window.location.href = "http://passport.gmall.com:8096/index?ReturnUrl="+s;
+								window.open("http://passport.gmall.com:8096/index?ReturnUrl="+s);
+							} else {
+								alert("用户名或者密码错误或已存在");
+							}
+						});
+						alert("先注册成功");
+						//window.open("register", "_blank");
+						var s = encodeURIComponent("http://search.gmall.com:8094/index");
+						//window.location.href = "http://passport.gmall.com:8096/index?ReturnUrl="+s;
+						window.open("http://passport.gmall.com:8096/index?ReturnUrl="+s);
+					} else {
+						$("#xieyi").next().next().next(".tips").text("请勾选协议");
+						$("#xieyi").next().next().next(".tips").css("color", 'red');
+						e.preventDefault();
+						return;
+					}
+				})
+
+				/*username ***
+				password ***
+				phone ***
+				email ***
+
+				nickname **/
+				//  建立构造函数，构造学生信息模板
+				/*function Student(username,nickname, password, phone,email, id) {
+					this.username = username;
+					this.nickname=nickname;
+					this.password = password;
+					this.phone = phone;
+					this.id = id;
+				}*/
+				//	获取之前所有已经注册的用户集合
+				/*function getStuList() {
+					var list = localStorage.getItem('stuList');
+					if(list != null) {
+						return JSON.parse(list);
+					} else {
+						return new Array();
+					}
+				}*/
+
+			});
+			/*$(".ty").click(function() {
+				$(".zong").hide();
+				$(".laoda").hide();
+			});
+			$(".cuo").click(function() {
+				$(".zong").hide();
+			});*/
+		</script>
+	</body>
+
+</html>

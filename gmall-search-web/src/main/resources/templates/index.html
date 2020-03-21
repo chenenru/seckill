@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="index/css/GL.css">
+    <script src="index/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="index/js/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="index/js/swiper-3.4.2.min.js"></script>
+
+</head>
+
+<body>
+<div class="top_find">
+    <div class="top_find_son">
+        <img src="index/img/top_find_logo.jpg" alt="">
+        <div class="input_find">
+            <input type="text" id="searchText2" placeholder="篮球鞋"/>
+            <span style="background: url(static/index/img/img_12.png) 0 -1px;"></span>
+            <a href="javascript:void(0)"><img src="index/img/img_09.png" onclick="search2()"/></a>
+        </div>
+    </div>
+</div>
+<ul class="left_floor">
+    <li class="left_floor_xiang">限时秒杀</li>
+    <li class="left_floor_fu">畅销热卖</li>
+    <li class="left_floor_hai">还没逛够</li>
+    <li class="left_floor_ding">顶部</li>
+</ul>
+<header>
+    <!--头部-->
+    <div class="header_head">
+        <div class="header_head_box">
+            <a href="http://localhost:8094/index" class="img"><img src="index/img/logo1.jpg"/></a>
+            <b class="header_head_p">
+                <a href="javascript:void(0)">
+                    <img src="index/img/img_05.png" style="border-radius: 50%;"/>
+                    <!--<span class="glyphicon glyphicon-map-marker"></span>-->
+                    北京</a>
+                <div class="header_head_p_cs">
+                    <a href="javascript:void(0)" style="background: #C81623;color: #fff;">北京</a>
+                    <a href="javascript:void(0)">上海</a>
+                    <a href="javascript:void(0)">天津</a>
+                    <a href="javascript:void(0)">重庆</a>
+                    <a href="javascript:void(0)">河北</a>
+                    <a href="javascript:void(0)">山西</a>
+                    <a href="javascript:void(0)">河南</a>
+                    <a href="javascript:void(0)">辽宁</a>
+                    <a href="javascript:void(0)">吉林</a>
+                    <a href="javascript:void(0)">黑龙江</a>
+                    <a href="javascript:void(0)">内蒙古</a>
+                    <a href="javascript:void(0)">江苏</a>
+                    <a href="javascript:void(0)">山东</a>
+                    <a href="javascript:void(0)">安徽</a>
+                    <a href="javascript:void(0)">浙江</a>
+                    <a href="javascript:void(0)">福建</a>
+                    <a href="javascript:void(0)">湖北</a>
+                    <a href="javascript:void(0)">湖南</a>
+                    <a href="javascript:void(0)">广东</a>
+                    <a href="javascript:void(0)">广西</a>
+                    <a href="javascript:void(0)">江西</a>
+                    <a href="javascript:void(0)">四川</a>
+                    <a href="javascript:void(0)">海南</a>
+                    <a href="javascript:void(0)">贵州</a>
+                    <a href="javascript:void(0)">云南</a>
+                    <a href="javascript:void(0)">西藏</a>
+                    <a href="javascript:void(0)">陕西</a>
+                    <a href="javascript:void(0)">甘肃</a>
+                    <a href="javascript:void(0)">青海</a>
+                    <a href="javascript:void(0)">宁夏</a>
+                    <a href="javascript:void(0)">新疆</a>
+                    <a href="javascript:void(0)">港澳</a>
+                    <a href="javascript:void(0)">台湾</a>
+                    <a href="javascript:void(0)">钓鱼岛</a>
+                    <a href="javascript:void(0)">海外</a>
+                </div>
+            </b>
+            <ul>
+                <li>
+                    <a href="http://passport.gmall.com:8096/index?ReturnUrl=http://search.gmall.com:8094/index">你好，请登录</a>
+                </li>
+                <li>
+                    <a href="http://localhost:8096/toregister" class="li_2">免费注册</a>
+                </li>
+                <span>|</span>
+                <li>
+                    <a href="http://localhost:8097/orderList">我的订单</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <!--搜索导航-->
+    <div class="header_sous">
+        <div class="header_form">
+            <input id="searchText" type="text" placeholder="篮球鞋"/>
+            <span style="background: url(../static/index/img/img_12.png) 0 -1px;"></span>
+            <!--<button><i class="glyphicon"></i></button>-->
+            <a href="javascript:void(0)"><img src="index/img/img_09.png" onclick="search()"/></a>
+        </div>
+        <div class="header_ico">
+            <div class="header_gw">
+                <img src="index/img/img_15.png"/>
+                <span><a href="http://localhost:8095/cartList">我的购物车</a></span>
+                <span>0</span>
+            </div>
+            <div class="header_ko">
+                <p>购物车中还没有商品，赶紧选购吧！</p>
+            </div>
+        </div>
+        <div class="header_form_nav">
+        </div>
+        <nav>
+            <ul>
+                <!--闪购 秒杀   男鞋 女鞋 潮鞋 定制               联名   系列    男童鞋  女童鞋-->
+                <li>
+                    <a href="javascript:void(0)">闪购</a>
+                </li>
+                <li>
+                    <a href="http://localhost:8099/item/index">秒杀</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">男鞋</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">女鞋</a>
+                </li>
+            </ul>
+            <div class="spacer">|</div>
+            <ul>
+                <!--潮鞋 定制               联名   系列    男童鞋  女童鞋 -->
+                <li>
+                    <a href="javascript:void(0)">潮鞋</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">定制</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">联名</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">系列</a>
+                </li>
+            </ul>
+            <div class="spacer">|</div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">童鞋</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--轮播主体内容-->
+    <div class="header_main">
+        <div class="header_banner">
+            <div class="header_main_left">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" class="header_main_left_a"><b></b></a>
+                    </li>
+                    <li class="header_li2">
+                        <a href="javascript:void(0)" class="header_main_left_a" ctg-data="11"><b>耐克</b> / <b>耐克</b> / <b>耐克</b></a>
+                    </li>
+                    <li class="header_li2">
+                        <a href="javascript:void(0)" class="header_main_left_a" ctg-data="12"><b>阿迪达斯</b> / <b>阿迪达斯</b></a>
+                    </li>
+                    <li class="header_li2">
+                        <a href="javascript:void(0)" class="header_main_left_a" ctg-data="13"><b>新百伦</b> / <b>新百伦</b></a>
+                    </li>
+                    <li class="header_li2">
+                        <a href="javascript:void(0)" class="header_main_left_a" ctg-data="19"><b>彪马</b> / <b>彪马</b> / <b>彪马</b></a>
+                    </li>
+                    <li class="header_li2">
+                        <a href="javascript:void(0)" class="header_main_left_a" ctg-data="17"><b>范斯 </b>/ <b>范斯</b>/ <b>范斯</b></a>
+                    </li>
+                    <li class="header_li2">
+                        <a href="javascript:void(0)" class="header_main_left_a" ctg-data="18"><b>安德玛</b> / <b>安德玛</b></a>
+                    </li>
+                    <li class="header_li2">
+                        <a href="javascript:void(0)" class="header_main_left_a" ctg-data="14"> <b>安踏</b> / <b>安踏</b> / <b>安踏</b></a>
+                    </li>
+                    <li class="header_li2">
+                        <a href="javascript:void(0)" class="header_main_left_a" ctg-data="15"><b>李宁</b> / <b>李宁</b> / <b>李宁</b></a>
+                    </li>
+                    <li class="header_li2">
+                        <a href="javascript:void(0)" class="header_main_left_a" ctg-data="16"><b>361</b> / <b>361</b> / <b>361</b></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="header_main_left_a"><b></b></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="header_main_left_a"><b></b></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="header_main_left_a"><b></b></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="header_main_left_a"><b></b></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="header_main_left_a"><b></b></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="header_main_left_a"><b></b></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="header_main_left_a"><b></b></a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="header_main_center">
+                <div class="swiper-container swiper1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:void(0)"><img src="index/img/lunbo1.jpg"/></a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="javascript:void(0)"><img src="index/img/lunbo2.jpg"/></a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="javascript:void(0)"><img src="index/img/lunbo3.jpg"/></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:void(0)"><img src="index/img/lunbo4.jpg"/></a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                </div>
+                <div class="header_main_center_b">
+                    <a href="#abc"><img src="index/img/5a13bf0bNe1606e58.jpg" width="390px" height="130px"/></a><!--路由器的图片390*130-->
+                    <a href="#abc1"><img src="index/img/5a154759N5385d5d6.jpg" width="390px" height="130px"/></a><!--电磁锅的图片-->
+                </div>
+            </div>
+            <div class="header_main_right">
+                <div class="header_main_right_user">
+                    <div class="user_info">
+                        <div class="user_info_tou">
+                            <a href="javascript:void(0)"><img class="" src="index/img/touxiang.png"></a>
+                        </div>
+                        <div class="user_info_show">
+                            <p class="">Hi, 欢迎来到!</p>
+                            <p>
+                                <a href="http://passport.gmall.com:8096/index?ReturnUrl=http://search.gmall.com:8094/index" class="">登录</a>
+                                <a href="http://localhost:8096/toregister" class="">注册</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="user_info_hide">
+                        <a href="javascript:void(0)">新人福利</a>
+                        <a href="javascript:void(0)">PLUS会员</a>
+                    </div>
+                </div>
+                <div class="header_main_right_new">
+                    <div class="header_new">
+                        <div class="header_new_t">
+                            <p class="active">
+                                <a href="javascript:void(0)">促销</a>
+                            </p>
+                            <p>
+                                <a href="javascript:void(0)">公告</a>
+                            </p>
+                            <a href="javascript:void(0)">更多</a>
+                        </div>
+                        <div class="header_new_connter">
+                            <div class="header_new_connter_1">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)">全民纸巾大作战</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">家具建材满999减300元</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">黑科技冰箱，下单立减千元</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">抢102减101神券！</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header_new_connter_1" style="display: none;">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)">关于召回普利司通（天津）轮胎有限公司2个规格乘用车轮胎的公告</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">物流推出配送员统一外呼电话"95056”</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">天府大件运营中心开仓公告</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">大件物流“送装一体”服务全面升级！</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header_main_right_ser">
+                    <div class="ser_box">
+                        <ul>
+                            <li class="ser_box_item">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/huafei.png"/>
+                                    <span>话费</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/jipiao.png"/>
+                                    <span>机票</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/jiudian.png"/>
+                                    <span>酒店</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/youxi.png"/>
+                                    <span>游戏</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item1">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/qiyegou.png"/>
+                                    <span>企业购</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item1">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/jiayouka.png"/>
+                                    <span>加油卡</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item1">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/dianyingpiao.png"/>
+                                    <span>电影票</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item1">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/huochepiao.png" style="height:20px;"/>
+                                    <span>火车票</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item1">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/zhongchou.png"/>
+                                    <span>众筹</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item1">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/licai.png" style="height:22px;"/>
+                                    <span>理财</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item1">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/lipinka.png" style="height:14px;"/>
+                                    <span>礼品卡</span>
+                                </a>
+                            </li>
+                            <li class="ser_box_item1">
+                                <a href="javascript:void(0)">
+                                    <img src="index/img/baitiao.png" style="height:20px;"/>
+                                    <span>白条</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="section_second">
+    <!-- 第一层 -->
+    <div class="section_second_header">
+        <p class="section_second_header_img"></p>
+        <div class="section_second_header_left">
+            <p></p>
+            <span class="">秒杀</span>
+            <span>总有你想不到的低价</span>
+            <span>
+        </span>
+        </div>
+        <div class="section_second_header_right">
+            <p>当前场次</p>
+            <span class="section_second_header_right_hours">00</span>
+            <span class="section_second_header_right_mao">：</span>
+            <span class="section_second_header_right_minutes">00</span>
+            <span class="section_second_header_right_mao">：</span>
+            <span class="section_second_header_right_second">00</span>
+            <p>后结束</p>
+        </div>
+    </div>
+    <div class="section_second_list">
+        <div class="swiper-container swiper_section_second_list_left">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <ul>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimAIbt0AAEGHKH9vk4319.jpg" alt=""><!--秒杀下面的图片 -->
+                            <p>
+                                <a href="http://item.gmall.com:8093/139.html">男子篮球鞋 Jordan Why Not Zer0.3 PF 颜色 白色/黑/大气灰/亮深红 尺寸 CD3002-101</a>
+                            </p>
+                            <span>1099.00</span><s>¥1299.00</s>
+                        </li>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rGiGAY4mMAADyiN9DJGY593.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/129.html">男子篮球鞋 Air Jordan XXXIII PF 颜色 苍野灰/白色/帆白/空间蓝 尺寸 BV5072-004</a>
+                            </p>
+                            <span>¥1299.90</span><s>¥1499.90</s>
+                        </li>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimACLliAADzJTIlRkk658.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/137.html">男子篮球鞋 Jordan Why Not Zer0.3 PF  颜色 黑/白色/金属金 尺寸 CD3002-001</a>
+                            </p>
+                            <span>¥1099.00</span><s>¥1299.00</s>
+                        </li>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimAZ1G8AAEEQUa8Sck191.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/135.html">男子篮球鞋 Jordan Why Not Zer0.3 PF  颜色 微粒灰/黑/铁灰/爆炸粉 尺寸 CD3002-003</a>
+                            </p>
+                            <span>¥1299.00</span><s>¥1499.00</s>
+                        </li>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rEIaAQOb6AAEUAHJ_kVA423.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/122.html">男子篮球鞋 LeBron XVII PRM EP 颜色 赭石沙色/杉木红/金属金 尺寸 CT3467-001</a></p>
+                            <span>¥899.00</span><s>¥999.00</s>
+                        </li>
+                    </ul>
+                </div>
+                <div class="swiper-slide">
+                    <ul>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rEIaAHoTZAADE9gpZr8g264.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/124.html">男子篮球鞋 LeBron XVII PRM EP 颜色 赛车蓝/黑/白色 尺寸 CT3465-400
+                            </a></p>
+                            <span>¥899.00</span><s>¥999.00</s>
+                        </li>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rG7OAEksgAADRZjbivvc089.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/132.html">女子运动鞋 Air Jordan 1 Mid 颜色 亮深红/黑 尺寸 BQ6472-600
+                            </a></p>
+                            <span>¥999.00</span><s>¥1099.00</s>
+                        </li>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rG7OAEIYWAAC-FkT4ZyU808.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/133.html">女子运动鞋 Air Jordan 1 Mid 颜色 白色/白色/暗白蓝 尺寸 BQ6472-114
+                            </a>
+                            </p>
+                            <span>¥999.00</span><s>¥1099.00</s>
+                        </li>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimASCcyAAErP2LxToY168.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/138.html">男子篮球鞋 Jordan Why Not Zer0.3 PF 颜色 白色/冷灰/狼灰/白色 尺寸 CD3002-100
+                            </a></p>
+                            <span>¥1099.00</span><s>¥1299.00</s>
+                        </li>
+                        <li>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimAGpIxAAEXLFNyeE8886.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/136.html">男子篮球鞋 Jordan Why Not Zer0.3 PF 颜色 白色/赛车粉/阴影绿/黑 尺寸 CD3002-102
+                            </a></p>
+                            <span>¥1099.90</span><s>¥1299.00</s>
+                        </li>
+                    </ul>
+            </div>
+            </div>
+            <div class="swiper-button-prev second_list">
+                <p></p>
+            </div>
+            <div class="swiper-button-next second_list">
+                <p></p>
+            </div>
+        </div>
+        <ul class="section_second_list_right">
+            <li>
+                <a href="javascript:void(0)"><img src="index/img/section_second_list_right_img.jpg" alt=""></a>
+            </li>
+            <div class="section_second_list_right_button">
+                <p class="section_second_list_right_button_active"></p>
+                <p></p>
+            </div>
+        </ul>
+    </div></div>
+</div>
+<div id="abc2" th:include="inner3"></div>
+<div id="abc3" th:include="inner2"></div>
+<div id="abc1" th:include="inner"></div>
+<div id="abc" th:include="inner1"></div>
+</body>
+<script type="text/javascript">
+    function search() {
+        var keyword = $("#searchText").val()
+        window.location.href = "http://search.gmall.com:8094/list.html?keyword=" + keyword;
+    }
+    function search2() {
+        var keyword2 = $("#searchText2").val()
+        window.location.href = "http://search.gmall.com:8094/list.html?keyword=" + keyword2;
+    }
+</script>
+<script type="text/javascript" src="index/js/text.js"></script>
+<script type="text/javascript" src="index/js/header.js"></script>
+<script type="text/javascript" src="index/js/secend.js"></script>
+<script type="text/javascript" src="index/js/zz.js"></script>
+<script type="text/javascript" src="index/js/index.js"></script>
+<script type="text/javascript" src="index/js/left,top.js"></script>
+<script type="text/javascript" src="index/js/catalogLoader.js"></script>
+</html>

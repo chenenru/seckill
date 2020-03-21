@@ -1,0 +1,61 @@
+1.	刚开始用docker desktop搭建，还没学lunix，什么操作都不懂，关键是不知道docker运行时的ip，
+所以关闭电脑的功能Hyper-V，卸载docker desktop,下载docker toolbox,
+http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/,
+https://get.daocloud.io/toolbox/
+尽量挑带-ce的下载，下载完点击运行，一直next,我原先装过，docker toolbox，有VM，git了，还是选中重新安装，（所以弄没了右键git clone~），
+双击Docker Quickstart Terminal，就可以看到docker 运行的ip了192.168.99.100，
+pull镜像时，不知道是不是网络差，一直pull fastdfs不成功，需要改镜像源，
+参考https://www.jianshu.com/p/2aa5b05717c6
+https://blog.csdn.net/m0_37728974/article/details/95596751
+https://blog.csdn.net/weixin_36242811/article/details/90515835，
+2. 加速地址获取：
+注册阿里云账号，打开https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors，
+可以看到加速地址https://df3mt5z2.mirror.aliyuncs.com，
+到docker执行
+docker-machine start default 
+docker-machine ssh default 
+sudo sed -i "s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=加速地址 |g" /var/lib/boot2docker/profile 
+exit 
+docker-machine restart default
+之后会有提示输入
+docker-machine env
+，输入后就可以使用阿里云的镜像仓库进行pull,然后重新
+docker pull delron/fastdfs
+,速度不是一个等级，继续开始搭建fastdfs的服务tracker和storage
+
+docker run -d --network=host --name tracker -v /root:/var/root delron/fastdfs tracker
+
+docker run -d --network=host --name storage -e TRACKER_SERVER=192.168.99.100:22122 -v /root:/var/root -e GROUP_NAME=group1 delron/fastdfs storage
+
+docker exec -it storage /bin/bash
+
+wget https://upload-images.jianshu.io/upload_images/11693390-a26b21909429f7d2.png
+
+/usr/bin/fdfs_upload_file /etc/fdfs/client.conf 11693390-a26b21909429f7d2.png
+
+然后返回group1/M00/00/00/wKhjZF5Mt6-AQKlOAC-ojGdpZlE229.png，在浏览器输入
+http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5Mt6-AQKlOAC-ojGdpZlE229.png
+ip为docker运行时的ip，不是127.0.0.1或者本机的ip，8888端口默认开放，
+如果无法重启storage容器，可以删除/var/fdfs/storage/data目录下的fdfs_storaged.pid 文件，然后重新运行storage。(遇到过)
+参考
+https://www.jianshu.com/p/2aa5b05717c6
+https://blog.csdn.net/weixin_40156933/article/details/103405717
+https://www.imooc.com/article/48684
+推荐https://www.jianshu.com/p/bf431b2c95dc
+https://www.jianshu.com/p/93e2a8a0698e
+https://blog.csdn.net/qq_27576109/article/details/89499757
+https://blog.csdn.net/Sukiyou_xixi/article/details/79197173
+https://www.cnblogs.com/yanwanglol/p/9860202.html
+
+第一阶段docker部署fastdfs搭建完毕
+第二阶段springboot整合fastdfs分布式文件系统
+https://blog.csdn.net/qq_43455410/article/details/84797814
+需要clone fastdfs-client-java为项目的module 
+https://github.com/happyfish100/fastdfs-client-java
+clone后尽量在idea的maven那里install一下，到pom.xml添加依赖，注意版本要对应
+<dependency>
+    <groupId>org.csource</groupId>
+    <artifactId>fastdfs-client-java</artifactId>
+    <version>1.29-SNAPSHOT</version>
+</dependency>
+

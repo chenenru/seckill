@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenenru.gmall.seckill.mapper.ItemKillMapper">
+
+    <!--<select id="selectAttrValueListByValueId" resultMap="selectAttrValueListByValueIdMap">
+        SELECT
+          ba.*,ba.id as ba_id,bv.*,bv.id as bv_id
+        FROM
+            pms_base_attr_info ba,
+            pms_base_attr_value bv
+        WHERE
+            ba.id = bv.attr_id
+        and
+          bv.id in (${valueIdStr})
+
+    </select>
+    <resultMap id="selectAttrValueListByValueIdMap" type="com.chenenru.gmall.bean.PmsBaseAttrInfo" autoMapping="true">
+
+        <result column="ba_id" property="id"></result>
+        <collection property="attrValueList" ofType="com.chenenru.gmall.bean.PmsBaseAttrValue" autoMapping="true">
+            <result column="bv_id" property="id"></result>
+        </collection>
+    </resultMap>-->
+
+
+    <!--查询待秒杀的活动商品列表
+    Double price;
+    String skuDesc;
+    String skuDefaultImg;-->
+    <select id="selectAllItemKil" resultType="com.chenenru.gmall.seckill.bean.ItemKill">
+    SELECT
+        a.*,
+        b.sku_name AS itemName,
+        b.price AS price,
+        b.sku_desc AS skuDesc,
+        b.sku_default_img AS skuDefaultImg,
+        (
+    CASE
+
+        WHEN ( NOW( ) BETWEEN a.start_time AND a.end_time AND a.total > 0 ) THEN
+        1 ELSE 0
+    END
+        ) AS cankill
+    FROM
+        item_kill AS a
+        LEFT JOIN pms_sku_info AS b ON b.id = a.item_id
+    WHERE
+    a.is_active =1
+  </select>
+
+    <!--获取秒杀详情-->
+    <select id="selectItemKilById" resultType="com.chenenru.gmall.seckill.bean.ItemKill">
+    SELECT
+      a.*,
+      b.sku_name AS itemName,
+      (
+        CASE WHEN (now() BETWEEN a.start_time AND a.end_time AND a.total > 0)
+          THEN 1
+        ELSE 0
+        END
+      )      AS canKill
+    FROM item_kill AS a LEFT JOIN pms_sku_info AS b ON b.id = a.item_id
+    WHERE a.is_active = 1 AND a.id= #{id}
+  </select>
+
+
+    <!--抢购商品，剩余数量减一-->
+    <update id="updateKillItem">
+    UPDATE item_kill
+    SET total = total - 1
+    WHERE
+        id = #{killId}
+  </update>
+
+
+    <!--获取秒杀详情V2-->
+    <select id="selectByIdV2" resultType="com.chenenru.gmall.seckill.bean.ItemKill">
+    SELECT
+      a.*,
+      b.sku_name AS itemName,
+      (CASE WHEN (now() BETWEEN a.start_time AND a.end_time)
+        THEN 1
+       ELSE 0
+       END)  AS canKill
+    FROM item_kill AS a LEFT JOIN pms_sku_info AS b ON b.id = a.item_id
+    WHERE a.is_active = 1 AND a.id =#{id} AND a.total>0
+  </select>
+
+
+    <!--抢购商品，剩余数量减一-->
+    <update id="updateKillItemV2">
+    UPDATE item_kill
+    SET total = total - 1
+    WHERE id = #{killId} AND total>0
+  </update>
+
+</mapper>
