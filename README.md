@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # gmall0105本地修改版本
 
 #gmall-user用户服务8080
@@ -74,3 +75,6 @@ http://127.0.0.1:15672 gust guest
 
 #activeMQ
 http://127.0.0.1:8161/ admin admin
+=======
+# seckill
+>>>>>>> e49bb9b0f990e88b0c0aacbee93354a68b43a2ae
