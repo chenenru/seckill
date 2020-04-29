@@ -274,12 +274,18 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
             <version>1.5.7.RELEASE</version>
         </dependency>
+        <!--rabbitmq-->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>17.0.0</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency>-->
 
         <!--redisson-->
         <!--<dependency>

@@ -115,9 +115,12 @@ public class OrderServiceImpl implements OrderService {
         Example e = new Example(OmsOrder.class);
         e.createCriteria().andEqualTo("orderSn",omsOrder.getOrderSn());
 
+
         OmsOrder omsOrderUpdate = new OmsOrder();
 
         omsOrderUpdate.setStatus("1");
+        omsOrderUpdate.setPaymentTime(new Date());
+        omsOrderUpdate.setPayType(1);
 
         // 发送一个订单已支付的队列，提供给库存消费
         Connection connection = null;
@@ -271,7 +274,7 @@ public class OrderServiceImpl implements OrderService {
     public void updateOrderStusAndCStus(OmsOrder omsOrder) {
 //        Example e = new Example(OmsOrder.class);
 //        e.createCriteria().andEqualTo("status",omsOrder.getStatus()).andEqualTo("confirmStatus",omsOrder.getConfirmStatus());
-        omsOrderMapper.updateByPrimaryKey(omsOrder);
+        omsOrderMapper.updateByPrimaryKeySelective(omsOrder);
         //System.out.println("更新后数据库的order:"+omsOrder);
         // 缓存同步
         //flushOrderCache(omsOrder.getMemberId(),omsOrder.getOrderSn());
@@ -304,6 +307,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void deleteOrder(OmsOrder omsOrder) {
         omsOrder.setDeleteStatus(1);
+        omsOrder.setModifyTime(new Date());
         omsOrderMapper.updateByPrimaryKey(omsOrder);
     }
 
@@ -335,6 +339,23 @@ public class OrderServiceImpl implements OrderService {
         }
         List<OmsOrder> orders = omsOrderMapper.select(omsOrder);
         return orders;
+    }
+
+    @Override
+    public List<OmsOrder> getAllOrders() {
+        List<OmsOrder> omsOrders = omsOrderMapper.selectAll();
+        return omsOrders;
+    }
+
+    @Override
+    public List<OmsOrder> getOrdersByFilter(OmsOrder omsOrder) {
+        List<OmsOrder> omsOrders = omsOrderMapper.select(omsOrder);
+        return omsOrders;
+    }
+
+    @Override
+    public void updateorder(OmsOrder omsOrder) {
+        omsOrderMapper.updateByPrimaryKeySelective(omsOrder);
     }
 
     private List<OmsOrder> orderFromDb(String uId) {

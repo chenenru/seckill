@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.persistence.Transient;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -258,9 +259,12 @@ public class PassportController {
             }
             umsMember.setGender(g);
             umsMember.setBirthday(new Date());
-            umsMember.setCity("中国");
+            umsMember.setPersonalizedSignature("快来设置自己的个性签名吧");
+            umsMember.setJob("顾客是上帝");
+            umsMember.setIcon("../img/icon.png");
+            //umsMember.setCity("中国");
 
-            String province=umsMember.getProvince();
+            String province=umsMember.getProvince().substring(0, umsMember.getProvince().length() - 1);
             String city=umsMember.getCity();
             String area=umsMember.getArea();
             String detailAddress=umsMember.getDetailAddress();

@@ -37,5 +37,11 @@ public interface OrderService {
     List<OmsOrder> getOrdersByStatus();
 
     List<OmsOrder> getOrdersByStatus(String status,Integer ordertype);
+
+    List<OmsOrder> getAllOrders();
+
+    List<OmsOrder> getOrdersByFilter(OmsOrder omsOrder);
+
+    void updateorder(OmsOrder omsOrder);
 }
 

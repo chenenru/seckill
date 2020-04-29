@@ -111,7 +111,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public UmsMember getOauthUser(UmsMember umsMemberCheck) {
 
-
         UmsMember umsMember = userMapper.selectOne(umsMemberCheck);
         return umsMember;
     }
@@ -137,6 +136,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateReceiveAddress(UmsMemberReceiveAddress umsMemberReceiveAddress) {
         umsMemberReceiveAddressMapper.updateByPrimaryKey(umsMemberReceiveAddress);
+    }
+
+    @Override
+    public UmsMember getUserByuId(String userId) {
+        UmsMember umsMember=new UmsMember();
+        umsMember.setId(userId);
+        UmsMember member = userMapper.selectOne(umsMember);
+        return member;
+    }
+
+    @Override
+    public void updateUser(UmsMember umsMember) {
+        userMapper.updateByPrimaryKeySelective(umsMember);
     }
 
     private UmsMember loginFromDb(UmsMember umsMember) {

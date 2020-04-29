@@ -29,4 +29,8 @@ public interface UserService {
     void deleateUmsMemberReceiveAddress(UmsMemberReceiveAddress umsMemberReceiveAddress);
 
     void updateReceiveAddress(UmsMemberReceiveAddress umsMemberReceiveAddress);
+
+    UmsMember getUserByuId(String userId);
+
+    void updateUser(UmsMember umsMember);
 }

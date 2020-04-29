@@ -56,11 +56,15 @@
                     </ol>
                 </li>
             </ul>
-            <ul class="header_ul_right">
+            <ul class="header_ul_right" th:if="${#httpServletRequest.getAttribute('memberId')}==null">
                 <li style="border: 0;"><a th:href="@{'http://passport.gmall.com:8096/index?ReturnUrl=http://item.gmall.com:8093/' + ${skuInfo.id} + '.html'}" class="aa">你好，请登录</a></li>
-                <li><a href="http://localhost:8096/toregister" style="color: red;">免费注册</a> |</li>
-                <li><a href="http://localhost:8097/orderList" class="aa">我的订单</a> |</li>
-
+                <li><a href="http://passport.gmall.com:8096/toregister" style="color: red;">免费注册</a> |</li>
+                <li><a href="http://passport.gmall.com:8097/orderList" class="aa">我的订单</a> |</li>
+            </ul>
+            <ul class="header_ul_right" th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+                <li style="border: 0;"><a href="" class="link-login red" th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}" class="aa"></a></li>
+                <li><a href="http://search.gmall.com:8091/userInfo"style="color: red;">我的账号</a> |</li>
+                <li><a href="http://order.gmall.com:8097/orderList" class="aa">我的订单</a> |</li>
             </ul>
         </div>
     </header>
@@ -71,7 +75,7 @@
                 <div class="nav_top_two"><input id="keyword" name="keyword" type="text" placeholder="篮球鞋"/>
                     <button onclick="searchList()">搜索</button>
                 </div>
-                <div class="nav_top_three"><a href="http://localhost:8095/cartList">我的购物车</a><span
+                <div class="nav_top_three"><a href="http://cart.gmall.com:8095/cartList">我的购物车</a><span
                         class="glyphicon glyphicon-shopping-cart"></span>
                     <div class="nav_top_three_1">
                         <img src="/img/44.png"/>购物车还没有商品，赶紧选购吧！
@@ -171,7 +175,7 @@
                         <li>惊喜价</li>
                         <li>
                             <span>￥</span>
-                            <span th:text="${skuInfo?.price}">4499.00 降价通知</span>
+                            <span th:text="${skuInfo?.price}+'.00 降价通知'">4499.00 降价通知</span>
                         </li>
                         <li>
 
@@ -237,9 +241,8 @@
                 <div class="box-btns clear">
                     <div class="box-btns-one">
                         <form id="itemForm" action="http://cart.gmall.com:8095/addToCart" method="post">
-                            <input type="text" name="quantity" id="" value="1"/>
                             <input type="hidden" name="skuId" th:value="${skuInfo?.id}"/>
-
+                            <input type="text" name="quantity" id="quantity" value="1"/>
                             <div class="box-btns-one1">
 
                                 <div>
@@ -327,7 +330,7 @@
                 </li>
             </ul>
 
-            &lt;!&ndash;商品图片详情&ndash;&gt;
+            <li style="color: #E4393C;">商品图片详情</li>
             <div>
                 <ul>
                     <li th:each="skuImage:${skuInfo?.skuImageList}">
@@ -371,7 +374,9 @@
     }
     function toTrade() {
         var skuId = $("#skuId").val();
-        window.location.href = "http://item.gmall.com:8097/toTradeNotCart?skuId=" + skuId;
+        var n = $("#quantity").val();
+        //alert(n);
+        window.location.href = "http://item.gmall.com:8097/toTradeNotCart?skuId=" + skuId+"&num="+n;
     }
 
     function switchSkuId() {
@@ -389,8 +394,27 @@
         } else {
             alert("该抢购商品很抢手，暂时售完，商家正在进货")
         }
-
     }
+    /*//加减
+    $("#jia").click(function () {
+        //alert("??");
+        var n = $(this).parent().parent().prev("input").val();
+        alert($(this).parent().parent().prev("input").val());
+        var num = parseInt(n) + 1;
+        if (num == 0) {
+            return;
+        }
+        $(this).parent().parent().prev("input").val(num);
+    })
+
+    $("#jian").click(function () {
+        var n = $(this).parent().parent().prev("input").val();
+        var num = parseInt(n) - 1;
+        if (num == 0) {
+            return;
+        }
+        $(this).parent().parent().prev("input").val(num);
+    })*/
 </script>
 
 </html>

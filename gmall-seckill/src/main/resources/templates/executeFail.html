@@ -21,15 +21,19 @@
 					</div>
 
 				</div>
-				<div class="txt-info" id="">
+				<div class="txt-info"  th:if="${#httpServletRequest.getAttribute('memberId')}==null">
 					<a href="http://passport.gmall.com:8096/index" class="link-login red">请登录</a>
-					<a href="http://localhost:8096/toregister" class="link-regist">免费注册</a>
+					<a href="http://passport.gmall.com:8096/toregister" class="link-regist">免费注册</a>
+				</div>
+				<div class="txt-info" th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+					<a href="" class="link-login red" th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}"></a>
+					<a href="http://user.gmall.com:8091/userInfo" class="link-regist">我的账号</a>
 				</div>
 			</div>
 			<ul class="quick-menu fr">
 				<li>
 					<div class="dt">
-						<a href="http://localhost:8097/orderList">我的订单</a>
+						<a href="http://order.gmall.com:8097/orderList">我的订单</a>
 					</div>
 				</li>
 				<li class="spacer"></li>
@@ -118,16 +122,22 @@
 	<div class="nav" ectype="dscNav">
 		<div class="w w1200">
 			<div class="categorys" style="text-align: center;margin-top: 7px;">
-				<a href="http://localhost:8099/item/index"><img src="../images/skmu-nav.png" /></a>
+				<a href="http://seckill.gmall.com:8099/item/index"><img src="../images/skmu-nav.png" /></a>
 			</div>
 			<div class="nav-main" id="nav">
 				<ul class="navitems">
+					<li>
+						<a href="http://search.gmall.com:8094/index">首页</a>
+					</li>
 					<!--闪购 秒杀   男鞋 女鞋 潮鞋 定制               联名   系列    男童鞋  女童鞋-->
 					<li>
 						<a href="#">闪购</a>
 					</li>
 					<li>
-						<a href="http://localhost:8099/item/index">秒杀</a>
+						<a href="http://seckill.gmall.com:8099/item/index">秒杀</a>
+					</li>
+					<li>
+						<a href="#">男鞋</a>
 					</li>
 					<li>
 						<a href="#">女鞋</a>
@@ -160,6 +170,7 @@
 			<div class="no_search">
 				<!--<img src="../images/none1.jpg" />
 				<a href="index.html">返回首页</a>-->
+				<img src="../images/none1.jpg" />
 				<a th:text="${msg}">抢购失败-商品已被抢购完毕!!</a>
 			</div>
 			<div class="back_index">

@@ -63,13 +63,13 @@ public class ItemKillServiceImpl implements ItemKillService {
     }
 
     @Override
-    public List<ItemKill> getItemKills(String userId,String ip) throws Exception{
+    public List<ItemKill> getItemKills(String list,String ip) throws Exception{
         System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "进入的商品详情的请求");
         List<ItemKill> itemKills = new ArrayList<>();
         // 链接缓存
         Jedis jedis = redisUtil.getJedis();
         // 查询缓存
-        String killsKey = "killsId:" + userId + ":info";
+        String killsKey = "kills:" + list + ":info";
         String killsJson = jedis.get(killsKey);
 
         if (StringUtils.isNotBlank(killsJson)) {//if(skuJson!=null&&!skuJson.equals(""))
@@ -79,14 +79,14 @@ public class ItemKillServiceImpl implements ItemKillService {
             itemKills=JSON.parseArray(killsJson,ItemKill.class);
         } else {
             // 如果缓存中没有，查询mysql
-            System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "发现缓存中没有，申请缓存的分布式锁：" + "killsId:" + userId + ":lock");
+            System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "发现缓存中没有，申请缓存的分布式锁：" + "kills:" + list + ":lock");
 
             // 设置分布式锁
             String token = UUID.randomUUID().toString();
-            String OK = jedis.set("killsId:" + userId + ":lock", token, "nx", "px", 10 * 1000);// 拿到锁的线程有10秒的过期时间
+            String OK = jedis.set("kills:" + list + ":lock", token, "nx", "px", 10 * 1000);// 拿到锁的线程有10秒的过期时间
             if (StringUtils.isNotBlank(OK) && OK.equals("OK")) {
                 // 设置成功，有权在10秒的过期时间内访问数据库
-                System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "有权在10秒的过期时间内访问数据库：" + "killsId:" + userId + ":lock");
+                System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "有权在10秒的过期时间内访问数据库：" + "kills:" + list + ":lock");
 
                 try {
                     itemKills = getKillItems();
@@ -96,28 +96,84 @@ public class ItemKillServiceImpl implements ItemKillService {
 
                 if (itemKills != null) {
                     // mysql查询结果存入redis
-                    jedis.set("killsId:" + userId + ":info", JSON.toJSONString(itemKills));
+                    jedis.set("kills:" + list + ":info", JSON.toJSONString(itemKills));
                 } else {
                     // 数据库中不存在该sku
                     // 为了防止缓存穿透将，null或者空字符串值设置给redis
-                    jedis.setex("killsId:" + userId + ":info", 60 * 3, JSON.toJSONString(""));
+                    jedis.setex("kills:" + list + ":info", 60 * 3, JSON.toJSONString(""));
                 }
 
                 // 在访问mysql后，将mysql的分布锁释放
-                System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "使用完毕，将锁归还：" + "killsId:" + userId + ":lock");
-                String lockToken = jedis.get("killsId:" + userId + ":info");
+                System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "使用完毕，将锁归还：" + "kills:" + list + ":lock");
+                String lockToken = jedis.get("kills:" + list + ":info");
                 if (StringUtils.isNotBlank(lockToken) && lockToken.equals(token)) {
                     //jedis.eval("lua");可与用lua脚本，在查询到key的同时删除该key，防止高并发下的意外的发生
-                    jedis.del("killsId:" + userId + ":info");// 用token确认删除的是自己的sku的锁
+                    jedis.del("kills:" + list + ":info");// 用token确认删除的是自己的sku的锁
                 }
             } else {
                 // 设置失败，自旋（该线程在睡眠几秒后，重新尝试访问本方法）
                 System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "没有拿到锁，开始自旋");
 
-                return getItemKills(userId, ip);
+                return getItemKills(list, ip);
             }
         }
         jedis.close();
         return itemKills;
+    }
+
+    @Override
+    public ItemKill getDetailKill(Integer id) throws Exception {
+        String ip="127.0.0.1";
+        
+        System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "进入的商品详情的请求");
+        ItemKill itemKill = new ItemKill();
+        // 链接缓存
+        Jedis jedis = redisUtil.getJedis();
+        // 查询缓存
+        String killKey = "kill:" + id + ":info";
+        String killJson = jedis.get(killKey);
+
+        if (StringUtils.isNotBlank(killJson)) {//if(skuJson!=null&&!skuJson.equals(""))
+            System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "从缓存中获取商品详情");
+
+            itemKill = JSON.parseObject(killJson, ItemKill.class);
+        } else {
+            // 如果缓存中没有，查询mysql
+            System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "发现缓存中没有，申请缓存的分布式锁：" + "kill:" + id + ":lock");
+
+            // 设置分布式锁
+            String token = UUID.randomUUID().toString();
+            String OK = jedis.set("kill:" + id + ":lock", token, "nx", "px", 10 * 1000);// 拿到锁的线程有10秒的过期时间
+            if (StringUtils.isNotBlank(OK) && OK.equals("OK")) {
+                // 设置成功，有权在10秒的过期时间内访问数据库
+                System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "有权在10秒的过期时间内访问数据库：" + "kill:" + id + ":lock");
+
+                itemKill = getKillDetail(id);
+
+                if (itemKill != null) {
+                    // mysql查询结果存入redis
+                    jedis.set("kill:" + id + ":info", JSON.toJSONString(itemKill));
+                } else {
+                    // 数据库中不存在该sku
+                    // 为了防止缓存穿透将，null或者空字符串值设置给redis
+                    jedis.setex("kill:" + id + ":info", 60 * 3, JSON.toJSONString(""));
+                }
+
+                // 在访问mysql后，将mysql的分布锁释放
+                System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "使用完毕，将锁归还：" + "kill:" + id + ":lock");
+                String lockToken = jedis.get("kill:" + id + ":lock");
+                if (StringUtils.isNotBlank(lockToken) && lockToken.equals(token)) {
+                    //jedis.eval("lua");可与用lua脚本，在查询到key的同时删除该key，防止高并发下的意外的发生
+                    jedis.del("kill:" + id + ":lock");// 用token确认删除的是自己的sku的锁
+                }
+            } else {
+                // 设置失败，自旋（该线程在睡眠几秒后，重新尝试访问本方法）
+                System.out.println("ip为" + ip + "的同学:" + Thread.currentThread().getName() + "没有拿到锁，开始自旋");
+
+                return getDetailKill(id);
+            }
+        }
+        jedis.close();
+        return itemKill;
     }
 }

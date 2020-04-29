@@ -26,12 +26,15 @@
             </li>
 
         </ul>
-        <ul class="header-right" style="margin-right: 350px;">
-            <li th:text="'你好，'+${nickName}"></li>
-            <li>|</li>
-            <li class="spacer"></li>
-            <li><a href="http://localhost:8097/orderList">我的订单</a></li>
-            <li class="spacer"></li>
+        <li class="header-right" style="margin-right: 350px;">
+        <li th:if="${#httpServletRequest.getAttribute('memberId')}==null"><a href="http://passport.gmall.com:8096/index">请登录</a></li>
+        <li th:if="${#httpServletRequest.getAttribute('memberId')}==null"><a href="http://passport.gmall.com:8096/toregister">免费注册</a></li>
+        <li th:if="${#httpServletRequest.getAttribute('memberId')}!=null"><a th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}"></a></li>
+        <li th:if="${#httpServletRequest.getAttribute('memberId')}!=null"><a href="http://search.gmall.com:8091/userInfo">我的账号</a></li>
+        <li>|</li>
+        <li class="spacer"></li>
+        <li><a href="http://order.gmall.com:8097/orderList">我的订单</a></li>
+        <li class="spacer"></li>
 
         </ul>
         <div style="clear: both;"></div>
@@ -48,11 +51,11 @@
 </div>
 <!--主体部分-->
 <p class="p1" style="margin-left: 200px;">填写并核对订单信息</p>
-<div class="w1200_container">
-    <div class="address_c">
+<div class="w1200_container" style="padding-left: 250px;">
+    <div class="address_c" style="height: 143px;width: 1200px;margin-left: -125px;">
         <div class="address_top">
             <h3>收货人信息</h3>
-            <a href="http://localhost:8091/manageAddress">管理收货信息</a>
+            <a href="http://user.gmall.com:8091/manageAddress">管理收货信息</a>
         </div>
         <div class="address_icon clear ">
             <i><img src="img/place1.png"/></i>
@@ -80,7 +83,7 @@
                                     private String city;
                                     private String region;
                                     private String detailAddress;-->
-                                    <form action="http://localhost:8091/addAddress" method="post" name="theForm" id="theForm" class="user_form">
+                                    <form action="http://user.gmall.com:8091/addAddress" method="post" name="theForm" id="theForm" class="user_form">
                                         <div class="form_row">
                                             <div class="form_label"><span class="red">*</span>收货人：</div>
                                             <div class="form_value">
@@ -201,16 +204,16 @@
             <img th:src="${omsOrderItem.productPic}" class="yun"/>
             <div class="mi">
                 <div><p style="width: 500px;" th:text="${omsOrderItem.productName}">商品名称111111111111 </p> <span
-                        style="float: right"> <span align="center" style="color: red">   </span> <span> X 1   </span> <span>有货</span>  </span>
+                        style="float: right"> <span align="center" style="color: red">   </span> <span th:text="'X'+${omsOrderItem.productQuantity}"> X 1   </span> <span>有货</span>  </span>
                 </div>
 
             </div>
         </div>
-        <div class="yun1">
-            <img th:src="${pmsSkuInfo.skuDefaultImg}" class="yun"/>
+        <div class="yun1" th:if="${pmsSkuInfo}!=null">
+            <img th:src="${pmsSkuInfo?.skuDefaultImg}" class="yun"/>
             <div class="mi">
-                <div><p style="width: 500px;" th:text="${pmsSkuInfo.skuName}">商品名称111111111111 </p> <span
-                        style="float: right"> <span align="center" style="color: red">   </span> <span> X 1   </span> <span>有货</span>  </span>
+                <div><p style="width: 500px;" th:text="${pmsSkuInfo?.skuName}">商品名称111111111111 </p> <span
+                        style="float: right"> <span align="center" style="color: red">   </span> <span th:text="'X'+${quantity}"> X 1   </span> <span>有货</span>  </span>
                 </div>
 
             </div>
@@ -245,7 +248,7 @@
         //alert("点击了新增地址");
         $.ajax({
             type: "POST",
-            url: "http://localhost:8091/addAddress",
+            url: "http://user.gmall.com:8091/addAddress",
             data: $('#theForm').serialize(),
             async: false,
             success: function(data) {
@@ -282,14 +285,22 @@
 <form action="./submitOrder" method="post" id="orderForm">
     <input name="receiveAddressId" id="receiveAddressId" th:value="${defaultUserAddressId}" type="hidden"/><!--这里有写死的地方 -->
     <input name="totalAmount" id="totalAmount" type="hidden" th:value="${totalAmount}"/>
-
+    <input name="quantity" id="quantity" type="hidden" th:value="${quantity}" th:if="${quantity}!=null"/>
+    <input name="skuId" id="skuId" type="hidden" th:value="${skuId}" th:if="${skuId}!=null"/>
+    <input name="orderCommentPage" class="orderCommentPage" type="hidden" value=""/>
     <input name="tradeCode" type="hidden" th:value="${tradeCode}"/>
 </form>
 <script>
+    /*$(function () {
+        alert($("#orderCommentPage").val());
+        alert($(".orderCommentPage").val());
+        $(".orderCommentPage").val($("#orderCommentPage").val());
+        alert($(".orderCommentPage").val());
+    })*/
 
     function changeAddress() {
         var receiveAddressId = $("input[name='deliveryAddress']:checked").val();
-        alert(receiveAddressId);
+        //alert(receiveAddressId);
         $("#receiveAddressId").val(receiveAddressId);
     }
 
@@ -301,6 +312,8 @@
             $("#deliveryAddress").val($("input[type='radio']:checked").next().next().text());
             $("#paymentWay").val("ONLINE");
             $("#orderComment").val($("#orderCommentPage").val());
+            $(".orderCommentPage").val($("#orderCommentPage").val());
+            //alert($(".orderCommentPage").val());
             $("#orderForm").submit();
 
         });

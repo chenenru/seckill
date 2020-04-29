@@ -11,6 +11,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,7 +87,11 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
             // 需要将token携带的用户信息写入
             request.setAttribute("memberId", successMap.get("memberId"));
             request.setAttribute("nickname", successMap.get("nickname"));
-            request.setAttribute("username", successMap.get("username"));
+            //request.setAttribute("username", successMap.get("username"));
+            /*HttpSession session = request.getSession();
+            session.setAttribute("memberId",successMap.get("memberId"));
+            session.setAttribute("nickname",successMap.get("nickname"));
+            System.out.println("需要将token携带的用户信息写入---->"+session.getAttribute("memberId"));*/
             //验证通过，覆盖cookie中的token
             if (StringUtils.isNotBlank(token)) {
                 CookieUtil.setCookie(request, response, "oldToken", token, 60 * 60 * 2, true);
@@ -99,6 +104,10 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
                 request.setAttribute("memberId", successMap.get("memberId"));
                 request.setAttribute("nickname", successMap.get("nickname"));
 
+                /*HttpSession session = request.getSession();
+                session.setAttribute("memberId",successMap.get("memberId"));
+                session.setAttribute("nickname",successMap.get("nickname"));
+                System.out.println("没有登录也能用，但是必须验证session---->"+session.getAttribute("memberId"));*/
                 //验证通过，覆盖cookie中的token
                 if (StringUtils.isNotBlank(token)) {
                     CookieUtil.setCookie(request, response, "oldToken", token, 60 * 60 * 2, true);

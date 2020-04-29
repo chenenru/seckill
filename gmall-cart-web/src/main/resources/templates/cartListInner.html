@@ -16,14 +16,14 @@
             <div></div>
 
             <div>
-                <ol>
+                <ol class="order_lists">
                     <li><input type="checkbox" class="check" th:value="${cartInfo.productSkuId}"
                                onchange="checkSku(this)" th:checked="(${cartInfo.isChecked}==1)?'true':'false'"/></li>
                     <li>
                         <dt><img th:src="${cartInfo.productPic}" src="img\shop1.jpg" alt=""></dt>
                         <dd th:onclick="'toItem('+${cartInfo.productSkuId}+')'">
                             <p>
-                                <span th:text="${cartInfo.productName}">TCL 55A950C 55英寸32核</span>
+                                <span th:text="${#strings.abbreviate(cartInfo.productName,55)}">TCL 55A950C 55英寸32核</span>
                             </p>
                         </dd>
                     </li>
@@ -33,7 +33,7 @@
                     <li>
                         <p>
                             <span>-</span>
-                            <span th:text="${cartInfo.quantity}">5</span>
+                            <span th:text="${cartInfo.quantity}" class="sum">5</span>
                             <span>+</span>
                         </p>
                     </li>

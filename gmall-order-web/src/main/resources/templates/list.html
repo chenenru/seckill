@@ -24,33 +24,24 @@
             <h3>我的商城</h3>
             <button th:onclick="|toindex()|">返回首页</button>
         </div>
-        <ul class="nav_ul">
+        <ul class="nav_ul" style="weight:1069px;">
             <li th:onclick="|toindex()|">首页</li>
-            <li class="li hover">账户设置<i class="ul_i"></i>
+            <!--<li class="li hover">账户设置<i class="ul_i"></i>
                 <ol>
-                    <li>个人信息</li>
-                    <li>账户安全</li>
-                    <li>我的尺码</li>
-                    <li>账号绑定</li>
-                    <li>收货地址</li>
-                    <li>用药人信息</li>
-                    <li>分享绑定</li>
-                    <li>邮件订阅</li>
-                    <li>应用授权</li>
-                    <li>快捷支付</li>
-                    <li>增票资质</li>
-                    <li>企业发票</li>
-                    <li>采购需求单</li>
+                    <li><a href="http://user.gmall.com:8091/userInfo">个人信息</a></li>
+                    <li><a href="http://user.gmall.com:8091/manageAddress?operation=3">收货地址</a></li>
                 </ol>
-            </li>
-            <li class="li">社区<i class="ul_i"></i>
+            </li>-->
+            <li th:onclick="|touserInfo()|">个人信息</li>
+            <li th:onclick="|tomanageAddress()|">收货地址</li>
+            <!--<li class="li">社区<i class="ul_i"></i>
                 <ol>
                     <li>个人主页</li>
                     <li>我的活动</li>
                     <li>我的圈子</li>
                     <li>我的帖子</li>
                 </ol>
-            </li>
+            </li>-->
             <li>消息</li>
         </ul>
         <div class="right">
@@ -61,7 +52,7 @@
                 <button onclick="searchList()">搜索</button>
             </div>
             <ul class="shop">
-                <li><i class="shop_che"></i><a href="http://localhost:8095/cartList">我的购物车</a>
+                <li><i class="shop_che"></i><a href="http://cart.gmall.com:8095/cartList">我的购物车</a>
                     <ol>
                         <li>
                             <img src="../img/shop.png" alt="">
@@ -150,7 +141,7 @@
                 </ul>
             </div>
 
-            <table class="table" th:each="orderInfo:${orderList}" th:if="${orderInfo.deleteStatus}!=1">
+            <table class="table" th:each="orderInfo:${orderList}" th:if="${orderInfo.deleteStatus}!=1 and ${orderInfo.omsOrderItems.size()}==1">
                 <tr>
                     <td colspan="7" style="background:#F7F7F7"  class="order-header"  th:if="${orderInfo.deleteStatus}!=1">
                         <span style="color:#AAAAAA" text="2018-04-22 19:33:00" th:text="${#dates.format(orderInfo.createTime, 'yyyy-MM-dd')}"> </span>
@@ -169,10 +160,12 @@
                             <span  th:if="${orderInfo.status}==3">已完成</span>
                             <span  th:if="${orderInfo.status}==4">已关闭</span>
                             <span  th:if="${orderInfo.status}==5">无效订单</span>
+                            <span  th:if="${orderInfo.orderType}==0">普通订单</span>
                             <span  th:if="${orderInfo.orderType}==1">秒杀订单</span>
                             <!--订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单-->
-                            <i class="table_i"></i>
+                            <!--<i class="table_i"></i>-->
                         </span>
+                        <span>秒杀商城官方旗舰店<i class="table_i"></i></span>
                         <i class="table_i5 isShow" style="display: inline;"></i>
                     </td>
                 </tr>
@@ -186,14 +179,20 @@
                             <p th:text="${orderitem.productName}" th:onclick="|itemdetial('${orderitem.productSkuId}')|">商品名称11111111111111</p>
                             <p th:if="${orderitem.productName}==null">商品名称11111111111111</p>
                         </div>
-                        <div style="margin-left:15px;"  >X 1</div>
+                        <div style="margin-left:15px;" th:text="'X'+${orderitem.productQuantity}" >X 1</div>
                     </td>
 
-                    <td    rowspan="2" ><span th:text="${orderInfo.receiverName}" >张晨</span> </td>
+                    <!--<td    rowspan="2" ><span th:text="${orderInfo.receiverName}" >张晨</span> </td>
                     <td  rowspan="2">
                         总额 <div style="padding-left:10px;color:#AAAAB1;" th:text="${orderInfo.payAmount}"> 9999</div>
                         <hr style="width:90%;">
                         <p  style="padding-left:10px;color:#AAAAB1;" >在线支付</p>
+                    </td>-->
+                    <td><a th:text="${orderInfo.receiverName}"></a><i><i class="table_i1"></i></i></td>
+                    <td style="padding-left:10px;color:#AAAAB1;">
+                        <p style="margin-bottom:5px;" th:text="'总额 ￥'+${orderInfo.payAmount}">总额 ￥26.00</p>
+                        <hr style="width:90%;">
+                        <p>在线支付</p>
                     </td>
                     <td     rowspan="2">
                         <ul>
@@ -213,17 +212,16 @@
                         <img   th:src="${orderitem.productPic}" src="img/ding.jpg" alt="" class="img">
                         <img   th:if="${orderitem.productPic}==null" src="img/ding.jpg" alt="" class="img">
                         <div>
-                            <p th:text="${orderitem.productName}" th:onclick="|itemdetial('${orderitem.productSkuId}')|">商品名称11111111111111</p>
+                            <p th:text="${#strings.abbreviate(orderitem.productName,50)}" th:onclick="|itemdetial('${orderitem.productSkuId}')|">商品名称11111111111111</p>
                             <p th:if="${orderitem.productName}==null">商品名称11111111111111</p>
                         </div>
-                        <div style="margin-left:15px;"  >X 1</div>
+                        <div style="margin-left:15px;" th:text="'X'+${orderitem.productQuantity}" >X 1</div>
                     </td>
-
-                    <td    rowspan="2" ><span th:text="${orderInfo.receiverName}" >张晨</span> </td>
-                    <td  rowspan="2">
-                        总额 <div style="padding-left:10px;color:#AAAAB1;" th:text="${orderInfo.payAmount}"> 9999</div>
+                    <td><a th:text="${orderInfo.receiverName}"></a><i><i class="table_i1"></i></i></td>
+                    <td style="padding-left:10px;color:#AAAAB1;">
+                        <p style="margin-bottom:5px;" th:text="'总额 ￥'+${orderInfo.payAmount}">总额 ￥26.00</p>
                         <hr style="width:90%;">
-                        <p  style="padding-left:10px;color:#AAAAB1;" >在线支付</p>
+                        <p>在线支付</p>
                     </td>
                     <td     rowspan="2">
                         <ul>
@@ -231,6 +229,7 @@
                             <li style="color:#71B247;" th:if="${orderInfo.status}==0" th:text="等待付款" >等待付款</li>
                             <li style="color:#71B247;" th:if="${orderInfo.status}==1" th:text="待发货" >等待发货</li>
                             <li style="color:#71B247;" th:if="${orderInfo.status}==2 and ${orderInfo.confirmStatus}!=null" th:text="${orderInfo.confirmStatus}==0?'等待收货':'已确认收货'" >等待收货</li>
+                            <li style="color:#71B247;" th:if="${orderInfo.status}==2 and ${orderInfo.confirmStatus}==null">等待收货</li>
                             <li style="color:#71B247;" th:if="${orderInfo.status}==3" th:text="已完成" >已完成</li>
                             <li     style="margin:4px 0;" class="hide"><i class="table_i2"></i>跟踪<i class="table_i3"></i>
                                 <div class="hi" th:if="${orderInfo.status}==2 or ${orderInfo.status}==3">
@@ -257,11 +256,176 @@
                         <button th:if="${orderInfo.status}==2 and ${orderInfo.confirmStatus}!=1" th:onclick="|setconfirmStatus('${orderInfo.orderSn}')|">确认收货</button>
                         <button th:if="${orderInfo.status}==2 and ${orderInfo.confirmStatus}==1" th:onclick="|setstatus('${orderInfo.orderSn}')|">订单完成</button>
                         <button th:if="${orderInfo.status}==3" th:onclick="|delorder('${orderInfo.orderSn}')|">删除订单</button>
-                        <a style="margin:4px 0; " th:if="${orderInfo.status}!=4 and ${orderInfo.status}!=5 and ${orderInfo.status}!=3" th:href="@{'http://localhost:8097/orderstus?status=4&orderSn='+${orderInfo.orderSn}}" >取消订单</a>
+                        <p style="margin:4px 0; "><a th:if="${orderInfo.status}!=4 and ${orderInfo.status}!=5 and ${orderInfo.status}!=3" th:href="@{'http://order.gmall.com:8097/orderstus?status=4&orderSn='+${orderInfo.orderSn}}" >取消订单</a></p>
                         <p th:if="${orderInfo.status}!=4 and ${orderInfo.status}!=5 and ${orderInfo.status}!=3">催单</p>
                     </td>
                 </tr>
 
+            </table>
+            <table class="table" th:each="orderInfo:${orderList}" th:if="${orderInfo.deleteStatus}!=1 and ${orderInfo.omsOrderItems.size()}>1">
+                <tr>
+                    <td colspan="7" style="background:#F7F7F7"  class="order-header" >
+                        <span style="color:#AAAAAA" th:text="${#dates.format(orderInfo.createTime, 'yyyy-MM-dd HH:mm:ss')}">2017-12-09 20:50:10</span>
+                        <span><ruby style="color:#AAAAAA">订单号:</ruby><span th:text="${orderInfo.orderSn}"></span></span>
+                        <span>已拆分<i class="table_i"></i></span>
+                        <i class="table_i5 isShow"></i>
+                    </td>
+                </tr>
+                <tr >
+                    <td colspan="7" style="background:#F7F7F7"  class="order-header" >
+                        <span style="color:#AAAAAA" th:text="${#dates.format(orderInfo.createTime, 'yyyy-MM-dd HH:mm:ss')}">2017-12-09 20:50:10</span>
+                        <span><ruby style="color:#AAAAAA">订单号:</ruby><span th:text="${orderInfo.orderSn}"></span></span>
+                        <span>状态 :
+                            <span  th:if="${orderInfo.status}==0">待付款</span>
+                            <span  th:if="${orderInfo.status}==1">待发货</span>
+                            <span  th:if="${orderInfo.status}==2">已发货</span>
+                            <span  th:if="${orderInfo.status}==3">已完成</span>
+                            <span  th:if="${orderInfo.status}==4">已关闭</span>
+                            <span  th:if="${orderInfo.status}==5">无效订单</span>
+                            <span  th:if="${orderInfo.orderType}==0">普通订单</span>
+                            <span  th:if="${orderInfo.orderType}==1">秒杀订单</span>
+                            <!--订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单-->
+                            <!--<i class="table_i"></i>-->
+                        </span>
+                        <span>秒杀商城官方旗舰店<i class="table_i"></i></span>
+                        <i class="table_i5 isShow" style="display: inline;"></i>
+                    </td>
+                </tr>
+                <tr th:each="orderitem:${orderInfo.omsOrderItems}">
+                    <td colspan="3" class="item">
+                        <img th:src="${orderitem.productPic}" src="img/ding.jpg" alt="" class="img">
+                        <div>
+                            <p th:text="${#strings.abbreviate(orderitem.productName,50)}" th:onclick="|itemdetial('${orderitem.productSkuId}')|">MUXIWEIERPU皮手套男冬季加绒保暖户外骑<br />
+                                车开车触摸屏全指防寒全指手套 黑色 均码</p>
+                            <div><i class="table_i4"></i>找搭配</div>
+                        </div>
+                        <div style="margin-left:15px;" th:text="'X'+${orderitem.productQuantity}">x1</div>
+
+                    </td>
+                    <td><a th:text="${orderInfo.receiverName}"></a><i class="table_i1"></i></td>
+                    <td style="padding-left:10px;color:#AAAAB1;">
+                        <p style="margin-bottom:5px;">
+                        <p style="margin-bottom:5px;" th:text="'总额 ￥'+${orderInfo.payAmount}">总额 ￥26.00</p>
+                        <hr style="width:90%;">
+                        <p>在线支付</p></p>
+                    </td>
+                    <td>
+                        <ul>
+                            <!--订单状态：0->待付款；1->待发货；2-0->已发货；2-1已收货 3->已完成；4->已关闭；5->无效订单-->
+                            <li style="color:#71B247;" th:if="${orderInfo.status}==0" th:text="等待付款" >等待付款</li>
+                            <li style="color:#71B247;" th:if="${orderInfo.status}==1" th:text="待发货" >等待发货</li>
+                            <li style="color:#71B247;" th:if="${orderInfo.status}==2 and ${orderInfo.confirmStatus}!=null" th:text="${orderInfo.confirmStatus}==0?'等待收货':'已确认收货'" >等待收货</li>
+                            <li style="color:#71B247;" th:if="${orderInfo.status}==2 and ${orderInfo.confirmStatus}==null">等待收货</li>
+                            <li style="color:#71B247;" th:if="${orderInfo.status}==3" th:text="该订单已完成" >已完成</li>
+                            <li style="color:#71B247;" th:if="${orderInfo.status}==4" th:text="该订单已关闭" >已完成</li>
+                            <li style="color:#71B247;" th:if="${orderInfo.status}==5" th:text="该订单已无效" >已完成</li>
+                            <li     style="margin:4px 0;" class="hide"><i class="table_i2"></i>跟踪<i class="table_i3"></i>
+                                <div class="hi" th:if="${orderInfo.status}==2 or ${orderInfo.status}==3">
+                                    <div class="p-tit" >
+                                        普通快递   运单号:390085324974
+                                    </div>
+                                    <div class="hideList">
+                                        <ul>
+                                            <li>
+                                                [北京市] 在北京昌平区南口公司进行签收扫描,快件已被拍照(您
+                                                的快件已签收,感谢您使用韵达快递)签收
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <a class="tdLi" th:onclick="|topay('${orderInfo.orderSn}')|">订单详情</a>
+                        </ul>
+                    </td>
+                    <td>
+                        <!--<button>确认收货</button>
+                        <p style="margin:4px 0; ">取消订单</p>
+                        <p>催单</p>-->
+                        <!--订单状态：0->待付款；1->待发货；2-0->已发货；2-1已收货 3->已完成；4->已关闭；5->无效订单-->
+                        <button th:if="${orderInfo.status}==0" th:onclick="|topay('${orderInfo.orderSn}')|">去付款</button>
+                        <button th:if="${orderInfo.status}==2 and ${orderInfo.confirmStatus}!=1" th:onclick="|setconfirmStatus('${orderInfo.orderSn}')|">确认收货</button>
+                        <button th:if="${orderInfo.status}==2 and ${orderInfo.confirmStatus}==1" th:onclick="|setstatus('${orderInfo.orderSn}')|">订单完成</button>
+                        <button th:if="${orderInfo.status}==3" th:onclick="|delorder('${orderInfo.orderSn}')|">删除订单</button>
+                        <button th:if="${orderInfo.status}==4 or${orderInfo.status}==5 " th:onclick="|delorder('${orderInfo.orderSn}')|">删除订单</button>
+                        <p style="margin:4px 0; "><a th:if="${orderInfo.status}!=4 and ${orderInfo.status}!=5 and ${orderInfo.status}!=3" th:href="@{'http://order.gmall.com:8097/orderstus?status=4&orderSn='+${orderInfo.orderSn}}" >取消订单</a></p>
+                        <p th:if="${orderInfo.status}!=4 and ${orderInfo.status}!=5 and ${orderInfo.status}!=3">催单</p>
+                    </td>
+                </tr>
+                <!--<tr>
+                <td colspan="7" style="background:#F7F7F7"  class="order-header" >
+                    <span style="color:#AAAAAA" th:text="${#dates.format(orderInfo.createTime, 'yyyy-MM-dd HH:mm:ss')}">2017-12-09 20:50:10</span>
+                    <span><ruby style="color:#AAAAAA">订单号:</ruby><span th:text="${orderInfo.orderSn}"></span> 70207298274</span>
+                    <span>状态 :
+                            <span  th:if="${orderInfo.status}==0">待付款</span>
+                            <span  th:if="${orderInfo.status}==1">待发货</span>
+                            <span  th:if="${orderInfo.status}==2">已发货</span>
+                            <span  th:if="${orderInfo.status}==3">已完成</span>
+                            <span  th:if="${orderInfo.status}==4">已关闭</span>
+                            <span  th:if="${orderInfo.status}==5">无效订单</span>
+                            <span  th:if="${orderInfo.orderType}==1">秒杀订单</span>
+                        &lt;!&ndash;订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单&ndash;&gt;
+                        &lt;!&ndash;<i class="table_i"></i>&ndash;&gt;
+                        </span>
+                    <span>秒杀商城官方旗舰店<i class="table_i"></i></span>
+                    <i class="table_i5 isShow" style="display: inline;"></i>
+                </td>
+            </tr>
+                <tr class="tr">
+                    <td colspan="3" class="item">
+                        <img src="img/ding.jpg" alt="" class="img">
+                        <div>
+                            <p>MUXIWEIERPU皮手套男冬季加绒保暖户外骑<br />
+                                车开车触摸屏全指防寒全指手套 123123123123123</p>
+                            <div><i class="table_i4"></i>找搭配</div>
+                        </div>
+                        <div style="margin-left:15px;">x1</div>
+                        <div style="clear:both"></div>
+
+                    </td>
+                    <td rowspan="2" >张三 </td>
+                    <td rowspan="2" style="padding-left:10px;color:#AAAAB1;">
+                        <p style="margin-bottom:5px;">总额 ￥26.00</p>
+                    </td>
+                    <td rowspan="2" >
+                        <ul>
+                            <li style="color:#71B247;">等待收货</li>
+                            <li style="margin:4px 0;" class="hide"><i class="table_i2"></i>跟踪<i class="table_i3"></i>
+                                <div class="hi">
+                                    <div class="p-tit">
+                                        普通快递   运单号:390085324974
+                                    </div>
+                                    <div class="hideList">
+                                        <ul>
+                                            <li>
+                                                [北京市] 在北京昌平区南口公司进行签收扫描,快件已被拍照(您
+                                                的快件已签收,感谢您使用韵达快递)签收
+                                            </li>
+                                            <li>
+                                                [北京市] 在北京昌平区南口公司进行签收扫描,快件已被拍照(您
+                                                的快件已签收,感谢您使用韵达快递)签收
+                                            </li>
+                                            <li>
+                                                [北京昌平区南口公司] 在北京昌平区南口公司进行派件扫描
+                                            </li>
+                                            <li>
+                                                [北京市] 在北京昌平区南口公司进行派件扫描;派送业务员:业务员;联系电话:17319268636
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="tdLi">订单详情</li>
+                        </ul>
+                    </td>
+                    <td rowspan="2">
+                        <button>确认收货</button>
+                        <p style="margin:4px 0; ">取消订单</p>
+                        <p>催单</p>
+                    </td>
+
+
+                </tr>-->
             </table>
 
             <div class="order_btm">
@@ -436,47 +600,55 @@
     <!-- 改变收货状态 -->
     function setconfirmStatus(orderSn) {
         //alert(orderSn);
-        window.location.href="http://localhost:8097/orderstus?confirmStatus=1&orderSn="+orderSn;
+        window.location.href="http://order.gmall.com:8097/orderstus?confirmStatus=1&orderSn="+orderSn;
     }
     <!-- 改变订单状态-->
     function setstatus(orderSn) {
         //alert(orderSn);
-        window.location.href="http://localhost:8097/orderstus?status=3&orderSn="+orderSn;
+        window.location.href="http://order.gmall.com:8097/orderstus?status=3&orderSn="+orderSn;
     }
     <!-- 查询状态为...的订单-->
     function selorderstus(ordersyus) {
         //alert(ordersyus);
-        window.location.href="http://localhost:8097/orderList?status="+ordersyus;
+        window.location.href="http://order.gmall.com:8097/orderList?status="+ordersyus;
     }
     <!-- 查询秒杀的订单-->
     function selordertype(orderType) {
         //alert(orderType);
-        window.location.href="http://localhost:8097/selordertype?orderType="+orderType;
+        window.location.href="http://order.gmall.com:8097/selordertype?orderType="+orderType;
     }
     <!--查询所有订单-->
     function selorder() {
         //alert("全部");
-        window.location.href="http://localhost:8097/orderList";
+        window.location.href="http://order.gmall.com:8097/orderList";
     }
     <!--删除订单-->
     function delorder(orderSn) {
         //alert(orderSn);
-        window.location.href="http://localhost:8097/delorder?orderSn="+orderSn;
+        window.location.href="http://order.gmall.com:8097/delorder?orderSn="+orderSn;
     }
     <!--商品详情-->
     function itemdetial(skuId) {
         //alert(skuId);
         //th:href="@{'http://item.gmall.com:8093/'+${orderitem.id}+'.html'}"
-        //th:href="@{'http://localhost:8097/orderDetial?orderSn='+${orderInfo.orderSn}}"
+        //th:href="@{'http://order.gmall.com:8097/orderDetial?orderSn='+${orderInfo.orderSn}}"
         window.location.href="http://item.gmall.com:8093/"+skuId+".html";
     }
     <!--去付款-->
     function topay(orderSn) {
-        window.location.href="http://localhost:8097/topay?orderSn="+orderSn;
+        window.location.href="http://order.gmall.com:8097/topay?orderSn="+orderSn;
     }
     <!--去首页-->
     function toindex() {
         window.location.href="http://search.gmall.com:8094/index";
+    }
+    <!--去个人中心-->
+    function touserInfo() {
+        window.location.href="http://user.gmall.com:8091/userInfo";
+    }
+    <!--去管理地址-->
+    function tomanageAddress() {
+        window.location.href="http://user.gmall.com:8091/manageAddress?operation=3";
     }
     <!-- 搜索-->
     function searchList() {

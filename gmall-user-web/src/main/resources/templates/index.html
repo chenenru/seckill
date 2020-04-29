@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>商城网上商城</title>
+		<link rel="stylesheet" type="text/css" href="../address/css/style.css">
+		<link rel="stylesheet" type="text/css" href="../address/css/css.css" />
+		<script type="text/javascript" src="../address/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('.Caddress .add_mi').click(function() {
+					$(this).css('background', 'url("../address/images/mail_1.jpg") no-repeat').siblings('.add_mi').css('background', 'url("../address/images/mail.jpg") no-repeat')
+				})
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="Caddress">
+			<div class="add_mi" th:each="address:${addresses}" th:if="${address.defaultStatus}==1" style="background: url('../address/images/mail_1.jpg') no-repeat">  <!--th:if="${address.defaultStatus}==1" style="background: url('../address/images/mail.jpg') no-repeat"-->
+				<!--th:if="${address.defaultStatus}==1" style="background: url('../address/images/mail_1.jpg') no-repeat"-->
+				<p style="border-bottom:1px dashed #ccc;line-height:28px;" th:text="${address.name}">浙江杭州(爸爸收)</p>
+				<p th:text="${address.province}+' '+${address.city}+' '+${address.region}+' '+${address.detailAddress}+' '+${address.phoneNumber}">萧山 北干 明怡花苑53幢3单元 13735683918</p>
+				<a class="manage_address_icon clear ">
+					<button class="open_btn">管理地址</button>
+				</a>
+				<div class="manage_address hide">
+					<div class="model_bg">
+						<div class="my_model">
+							<div class="add_address_con">
+								<div class="add_address_hd">
+									<span>修改收货人地址</span>
+									<a href="#" class="manage_manage_clo fr">X</a>
+								</div>
+								<div class="pb_bd">
+									<div class="pb_ct">
+										<div class="user_form foreg_form">
+											<!--private String id;
+                                    private String memberId;
+                                    private String  name;
+                                    private String  phoneNumber;
+                                    private int defaultStatus;
+                                    private String postCode;
+                                    private String province;
+                                    private String city;
+                                    private String region;
+                                    private String detailAddress;-->
+											<form action="http://localhost:8091/addAddress" method="post" name="theForm" class="user_form">
+												<div class="form_row">
+													<div class="form_label"><span class="red">*</span>收货人：</div>
+													<div class="form_value">
+														<input type="text" class="form_input" th:value="${address.name}" maxlength="20" name="name">
+														<span id="consigneeNameNote" class="status error hide">请您填写收货人姓名</span>
+													</div>
+												</div>
+												<div class="form_row">
+													<div class="form_label"><span class="red">*</span>手机号码：</div>
+													<div class="form_value">
+														<input type="text" class="form_input" maxlength="11" name="phoneNumber" th:value="${address.phoneNumber}">
+														<span id="consigneeMobileTelNote" class="status error hide">请您填写收货人联系方式</span>
+													</div>
+												</div>
+
+												<div class="form_row">
+													<div class="form_label form_label_lh"><span class="red">*</span>所在地区：</div>
+													<div class="form_value" ectype="regionLinkage">
+														<div class="address">
+															<span class="queren hide"><span class="red">*</span> <label> 所在地区：</label></span>
+															<select name="province" class="province" th:value="${address.province}"></select><label>&nbsp;省 &nbsp;</label>
+															<select name="city" class="city" th:value="${address.city}"></select><label>&nbsp;市 &nbsp;</label>
+															<select name="area" class="area" th:value="${address.region}"></select><label>&nbsp;县/区</label>
+														</div>
+													</div>
+												</div>
+												<div class="form_row">
+													<div class="form_label"><span class="red">*</span>详细信息：</div>
+													<div class="form_value">
+														<input type="text" class="form_input form_input_long" name="detailAddress" th:value="${address.detailAddress}">
+														<span id="consigneeAddressNote" class="status error hide">请您填写收货详细地址</span>
+													</div>
+												</div>
+												<div class="form_row">
+													<div class="form_label">邮编：</div>
+													<div class="form_value">
+														<input type="text" class="form_input" name="postCode" th:value="${address.postCode}">
+														<span id="consigneeZipcodeNote" class="status error"></span>
+													</div>
+												</div>
+												<input type="hidden" th:name="memberId" th:value="${memberId}">
+											</form>
+										</div>
+									</div>
+									<div class="tip_box icon_box">
+										<div class="pb_ft">
+											<a class="pb_btn pb_ok" id="submitAddress" onclick="addAddress()">修改收货人信息</a><!--onclick="addAddress()"-->
+											<a class="pb_btn manage_pb_cl">取消</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="add_mi" th:each="address:${addresses}" th:if="${address.defaultStatus}==0" style="background: url('../address/images/mail.jpg') no-repeat">  <!--th:if="${address.defaultStatus}==1" style="background: url('../address/images/mail.jpg') no-repeat"-->
+				<!--th:if="${address.defaultStatus}==1" style="background: url('../address/images/mail_1.jpg') no-repeat"-->
+				<p style="border-bottom:1px dashed #ccc;line-height:28px;" th:text="${address.name}">浙江杭州(爸爸收)</p>
+				<p th:text="${address.province}+' '+${address.city}+' '+${address.region}+' '+${address.detailAddress}+' '+${address.phoneNumber}">萧山 北干 明怡花苑53幢3单元 13735683918</p>
+				<a class="manage_address_icon clear ">
+					<button class="open_btn">管理地址</button>
+				</a>
+				<div class="manage_address hide">
+					<div class="model_bg">
+						<div class="my_model">
+							<div class="add_address_con">
+								<div class="add_address_hd">
+									<span>修改收货人地址</span>
+									<a href="#" class="manage_manage_clo fr">X</a>
+								</div>
+								<div class="pb_bd">
+									<div class="pb_ct">
+										<div class="user_form foreg_form">
+											<!--private String id;
+                                    private String memberId;
+                                    private String  name;
+                                    private String  phoneNumber;
+                                    private int defaultStatus;
+                                    private String postCode;
+                                    private String province;
+                                    private String city;
+                                    private String region;
+                                    private String detailAddress;-->
+											<form action="http://localhost:8091/addAddress" method="post" name="theForm" class="user_form">
+												<div class="form_row">
+													<div class="form_label"><span class="red">*</span>收货人：</div>
+													<div class="form_value">
+														<input type="text" class="form_input" th:value="${address.name}" maxlength="20" name="name">
+														<span class="status error hide">请您填写收货人姓名</span>
+													</div>
+												</div>
+												<div class="form_row">
+													<div class="form_label"><span class="red">*</span>手机号码：</div>
+													<div class="form_value">
+														<input type="text" class="form_input" maxlength="11" name="phoneNumber" th:value="${address.phoneNumber}">
+														<span class="status error hide">请您填写收货人联系方式</span>
+													</div>
+												</div>
+
+												<div class="form_row">
+													<div class="form_label form_label_lh"><span class="red">*</span>所在地区：</div>
+													<div class="form_value" ectype="regionLinkage">
+														<div class="address">
+															<span class="queren hide"><span class="red">*</span> <label> 所在地区：</label></span>
+															<select name="province" class="province" th:value="${address.province}"></select><label>&nbsp;省 &nbsp;</label>
+															<select name="city" class="city" th:value="${address.city}"></select><label>&nbsp;市 &nbsp;</label>
+															<select name="area" class="area" th:value="${address.region}"></select><label>&nbsp;县/区</label>
+														</div>
+													</div>
+												</div>
+												<div class="form_row">
+													<div class="form_label"><span class="red">*</span>详细信息：</div>
+													<div class="form_value">
+														<input type="text" class="form_input form_input_long" name="detailAddress" th:value="${address.detailAddress}">
+														<span  class="status error hide">请您填写收货详细地址</span>
+													</div>
+												</div>
+												<div class="form_row">
+													<div class="form_label">邮编：</div>
+													<div class="form_value">
+														<input type="text" class="form_input" name="postCode" th:value="${address.postCode}">
+														<span class="status error"></span>
+													</div>
+												</div>
+												<input type="hidden" th:name="memberId" th:value="${memberId}">
+											</form>
+										</div>
+									</div>
+									<div class="tip_box icon_box">
+										<div class="pb_ft">
+											<a class="pb_btn pb_ok" onclick="addAddress()">修改收货人信息</a><!--onclick="addAddress()"-->
+											<a class="pb_btn manage_pb_cl">取消</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

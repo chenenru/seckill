@@ -15,5 +15,7 @@ public interface PaymentService {
 
 
     PaymentInfo selectPaymentInfoByoutTradeNo(String outTradeNo);
+
+    String saveWxPaymentInfo(PaymentInfo paymentInfo1) throws Exception;
 }
 

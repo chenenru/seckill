@@ -40,7 +40,7 @@ public class CartController {
 
     @RequestMapping("checkCart")
     @LoginRequired(loginSuccess = false)
-    public String checkCart(String isChecked, String skuId, HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap modelMap) {
+    public String checkCart(String isChecked, String skuId,BigDecimal num, HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap modelMap) {
 
         String memberId = (String) request.getAttribute("memberId");
         String nickname = (String) request.getAttribute("nickname");
@@ -50,6 +50,7 @@ public class CartController {
         omsCartItem.setMemberId(memberId);
         omsCartItem.setProductSkuId(skuId);
         omsCartItem.setIsChecked(isChecked);
+        omsCartItem.setQuantity(num);
         cartService.checkCart(omsCartItem);
 
         // 将最新的数据从缓存中查出，渲染给内嵌页
@@ -59,7 +60,7 @@ public class CartController {
         // 被勾选商品的总额
         BigDecimal totalAmount = getTotalAmount(omsCartItems);
         modelMap.put("totalAmount", totalAmount);
-        return "cartListInner";
+        return "cartList";
     }
 
 
@@ -110,7 +111,7 @@ public class CartController {
 
     @RequestMapping("addToCart")
     @LoginRequired(loginSuccess = false)
-    public String addToCart(String skuId, int quantity, HttpServletRequest request, HttpServletResponse response, HttpSession session,ModelMap modelMap) {
+    public String addToCart(String skuId, BigDecimal quantity, HttpServletRequest request, HttpServletResponse response, HttpSession session,ModelMap modelMap) {
         List<OmsCartItem> omsCartItems = new ArrayList<>();
 
         // 调用商品服务查询商品信息
@@ -130,7 +131,7 @@ public class CartController {
         omsCartItem.setProductPic(skuInfo.getSkuDefaultImg());
         omsCartItem.setProductSkuCode(String.valueOf(UUID.randomUUID()));
         omsCartItem.setProductSkuId(skuId);
-        omsCartItem.setQuantity(new BigDecimal(quantity));
+        omsCartItem.setQuantity(quantity);
         modelMap.put("skuInfo",omsCartItem);
 
 
@@ -175,8 +176,8 @@ public class CartController {
             if (omsCartItemFromDb == null) {
                 // 该用户没有添加过当前商品
                 omsCartItem.setMemberId(memberId);
-                omsCartItem.setMemberNickname("test小明");
-                omsCartItem.setQuantity(new BigDecimal(quantity));
+                omsCartItem.setMemberNickname(nickname);
+                omsCartItem.setQuantity(quantity);
                 cartService.addCart(omsCartItem);
 
             } else {

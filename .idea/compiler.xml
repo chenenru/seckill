@@ -7,34 +7,36 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="gware-manage" />
-        <module name="gmall-order-web" />
-        <module name="gmall-common-util" />
-        <module name="gmall-manage-web" />
-        <module name="gmall-payment" />
-        <module name="gmall-search-web" />
-        <module name="gmall-cart-service" />
-        <module name="gmall-passport-web" />
-        <module name="gmall-order-service" />
-        <module name="demo" />
-        <module name="gmallredisson-test" />
-        <module name="gmall-user-service" />
-        <module name="gmall-seckill" />
-        <module name="gmall-api" />
-        <module name="gmall-cart-web" />
-        <module name="fastdfs-client-java" />
         <module name="gmall-web-util" />
-        <module name="gmall-user-web" />
-        <module name="gmall-manage-service" />
-        <module name="gmall-search-service" />
-        <module name="gmall-item-web" />
         <module name="gmall-service-util" />
+        <module name="gmall-search-service" />
+        <module name="gmall-common-util" />
+        <module name="demo" />
+        <module name="gmall-passport-web" />
+        <module name="gmall-manage-web" />
+        <module name="gmall-manage-service" />
+        <module name="gmall-order-service" />
+        <module name="fastdfs-client-java" />
+        <module name="gmall-cart-service" />
+        <module name="gmall-api" />
+        <module name="gmall-order-web" />
+        <module name="gmallredisson-test" />
+        <module name="gmall-payment" />
+        <module name="gmall-user-service" />
+        <module name="gware-manage" />
+        <module name="gmall-admin" />
+        <module name="gmall-cart-web" />
+        <module name="gmall-user-web" />
         <module name="gmall-user" />
+        <module name="gmall-search-web" />
+        <module name="gmall-seckill" />
+        <module name="gmall-item-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="1.8" />
-      <module name="fastdfs-client-java" target="1.6" />
+      <module name="fastdfs-client-java" target="1.8" />
+      <module name="gmall-admin" target="1.8" />
       <module name="gmall-api" target="1.5" />
       <module name="gmall-cart-service" target="1.8" />
       <module name="gmall-cart-web" target="1.8" />

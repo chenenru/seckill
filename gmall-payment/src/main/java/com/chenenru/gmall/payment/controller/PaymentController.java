@@ -84,7 +84,7 @@ public class PaymentController {
         }
 
         //return new ModelAndView("redirect:/orderList");
-        return "redirect:http://localhost:8097/orderList";
+        return "redirect:http://order.gmall.com:8097/orderList";
     }
 
 
@@ -106,7 +106,7 @@ public class PaymentController {
         map.put("out_trade_no",outTradeNo);
         map.put("product_code","FAST_INSTANT_TRADE_PAY");
         map.put("total_amount",0.01);
-        map.put("subject","尚硅谷感光徕卡Pro300瞎命名系列手机");
+        map.put("subject","闪购秒杀牌子鞋的购物网站的新鞋");
 
         String param = JSON.toJSONString(map);
 
@@ -165,11 +165,11 @@ public class PaymentController {
     }
 
 
-    @RequestMapping("mx/submit")
+    /*@RequestMapping("mx/submit")
     @LoginRequired(loginSuccess = true)
     public String mx(String outTradeNo, BigDecimal totalAmount, HttpServletRequest request, ModelMap modelMap){
 
 
         return null;
-    }
+    }*/
 }

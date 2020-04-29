@@ -1,0 +1,113 @@
+(1)function submitLogin() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        $.post("login", {username: username, password: password}, function (token) {
+        //alert(token);
+        //alert($("#ReturnUrl").val() + "?token=" + token);
+        if (token == "fail") {
+        alert("用户名或者密码错误");
+        } else {
+        // 验证token是否为空或者异常
+        //alert(token);
+        window.location.href = $("#ReturnUrl").val() + "?token=" + token;
+        }
+        });
+        }
+
+(2)var umber = {
+        username : $('input').eq(0).val(),
+        nickname : $('input').eq(1).val(),
+        password : $('input').eq(2).val(),
+        phone: $('input').eq(4).val(),
+        email : $('input').eq(5).val(),
+        province: $('input').eq(7).val(),
+        city :$('input').eq(8).val(),
+        area :$('input').eq(9).val(),
+        detailAddress :$('input').eq(10).val(),
+        postCode: $('input').eq(11).val()
+        }
+        //alert(JSON.stringify(umber));
+        //stuList.push(new Student($('input').eq(0).val(), $('input').eq(1).val(),$('input').eq(2).val(),$('input').eq(4).val(),$('input').eq(5).val(), stuList.length + 1));
+        //localStorage.setItem('stuList', JSON.stringify(stuList));
+        //var token=submitLogin(JSON.stringify(umber));
+        $.post("register", JSON.parse(JSON.stringify(umber)), function (token) {
+        alert("后"+token);
+        if (token == "success") {
+        alert("注册成功");
+        // 验证token是否为空或者异常
+        var s = encodeURIComponent("http://search.gmall.com:8094/index");
+        //window.location.href = "http://passport.gmall.com:8096/index?ReturnUrl="+s;
+        window.open("http://passport.gmall.com:8096/index?ReturnUrl="+s);
+        } else {
+        alert("用户名或者密码错误或已存在");
+        }
+        });
+        alert("先注册成功");
+        //window.open("register", "_blank");
+        var s = encodeURIComponent("http://search.gmall.com:8094/index");
+        //window.location.href = "http://passport.gmall.com:8096/index?ReturnUrl="+s;
+        window.open("http://passport.gmall.com:8096/index?ReturnUrl="+s);
+        } else {
+        $("#xieyi").next().next().next(".tips").text("请勾选协议");
+        $("#xieyi").next().next().next(".tips").css("color", 'red');
+        e.preventDefault();
+        return;
+        }
+(3)$(function () {
+        $("#paymentButton").click(function () {
+        $("#paymentForm").attr("action", "/" + $("input[type='radio']:checked").val() + "/submit");
+        $("#paymentForm").submit();
+
+        })
+
+
+        })
+(4)function search() {
+        var keyword = $("#searchText").val()
+        window.location.href = "http://search.gmall.com:8094/list.html?keyword=" + keyword;
+        }
+        function search2() {
+        var keyword2 = $("#searchText2").val()
+        window.location.href = "http://search.gmall.com:8094/list.html?keyword=" + keyword2;
+        }
+(5)function del() {
+        // 调用getSelected方法。
+        var row = $("#dg").datagrid('getSelected')
+
+        $.messager.confirm('确认', '您确认想要删除记录吗？', function(r) {
+        if (r) {
+        // 删除数据
+        $.ajax({
+        type : "post",
+        url : "${sxt}/del",
+        data : {
+        "id" : row.id
+        },
+        dataType : "json",
+        success : function(data) {
+        if (data.flag == "ok") {
+        // 从新加载数据
+        $("#dg").datagrid('reload')
+        } else {
+        $.messager.alert('警告','删除失败！');
+        }
+        }
+        })
+        }
+        });
+
+        }
+(6)function saveWareSku(){
+        var formJson ={} ;
+        //把表格中的数据循环组合成json
+        formJson['warehouseId']=$('#warehouseId').combobox("getValue");
+        formJson["stock"]=$("#stock").val();
+        formJson["stockName"]=$("#stockName").val();
+        formJson["skuId"]=$("#skuId").val();
+
+        //ajax 保存到后台
+        $.post("saveWareSku",formJson,function(data){
+        $("#dlg").dialog("close");
+        $("#dg").datagrid("reload");
+        });
+        }

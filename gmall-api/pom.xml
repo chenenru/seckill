@@ -21,7 +21,19 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+        </dependency>
+        <!--json-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.9.0</version>
+            <!--<scope>compile</scope>-->
+        </dependency>
     </dependencies>
 
 

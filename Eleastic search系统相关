@@ -1,0 +1,125 @@
+GET gmall0105/PmsSkuInfo/_search
+{
+  "from" : 0,
+  "size" : 20,
+  "query" : {
+    "bool" : {
+      "filter" : {
+        "term" : {
+          "catalog3Id" : "1261"
+        }
+      }
+    }
+  },
+  "sort" : [ {
+    "id" : {
+      "order" : "desc"
+    }
+  } ],
+  "aggregations" : {
+    "groupby_attr" : {
+      "terms" : {
+        "field" : "skuAttrValueList.valueId"
+      }
+    }
+  },
+  "highlight" : {
+    "pre_tags" : [ "<span style='color:red;'>" ],
+    "post_tags" : [ "</span>" ],
+    "fields" : {
+      "skuName" : { }
+    }
+  }
+}
+
+{
+  "from" : 0,
+  "size" : 20,
+  "query" : {
+    "bool" : {
+      "must" : {
+        "match" : {
+          "skuName" : {
+            "query" : "男子"
+          }
+        }
+      }
+    }
+  },
+  "sort" : [ {
+    "id" : {
+      "order" : "desc"
+    }
+  } ],
+  "aggregations" : {
+    "groupby_attr" : {
+      "terms" : {
+        "field" : "skuAttrValueList.valueId"
+      }
+    }
+  },
+  "highlight" : {
+    "pre_tags" : [ "<span style='color:red;'>" ],
+    "post_tags" : [ "</span>" ],
+    "fields" : {
+      "skuName" : { }
+    }
+  }
+}
+
+
+GET _search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+PUT gmall0105
+{
+ "mappings": {
+   "PmsSkuInfo":{
+     "properties": {
+       "id":{
+        "type": "long",
+        "index": true
+      },
+      "skuName":{
+        "type": "text",
+        "analyzer": "ik_max_word"
+      },
+      "skuDesc":{
+        "type": "text"
+        , "analyzer": "ik_smart"
+      },
+      "catalog3Id":{
+        "type": "keyword"
+      },
+      "price":{
+        "type": "double"
+      },
+      "skuDefaultImg":{
+        "type": "keyword",
+        "index": false
+      },
+      "hotScore":{
+        "type": "double"
+      },
+      "productId":{
+        "type": "keyword"
+      },
+      "skuAttrValueList":{
+        "properties": {
+          "attrId":{
+            "type":"keyword"
+          },
+          "valueId":{
+            "type":"keyword"
+          }
+        }
+      }
+     }
+   }
+ }
+}
+DELETE gmall0105

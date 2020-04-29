@@ -21,15 +21,21 @@
 						</div>
 
 					</div>
-					<div class="txt-info" id="">
+                   <!-- <span  th:text="${#httpServletRequest.getAttribute('memberId')}"><<<&#45;&#45;&#45;&#45;&#45;&#45;</span>-->
+					<!--<input th:text="${session.memberId}" type="hidden"></div>-->
+					<div class="txt-info" th:if="${#httpServletRequest.getAttribute('memberId')}==null">
 						<a href="http://passport.gmall.com:8096/index" class="link-login red">请登录</a>
-						<a href="http://localhost:8096/toregister" class="link-regist">免费注册</a>
+						<a href="http://passport.gmall.com:8096/toregister" class="link-regist">免费注册</a>
+					</div>
+					<div class="txt-info" th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+						<a href="" class="link-login red" th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}"></a>
+						<a href="http://user.gmall.com:8091/userInfo" class="link-regist">我的账号</a>
 					</div>
 				</div>
 				<ul class="quick-menu fr">
 					<li>
 						<div class="dt">
-							<a href="http://localhost:8097/orderList">我的订单</a>
+							<a href="http://order.gmall.com:8097/orderList">我的订单</a>
 						</div>
 					</li>
 					<li class="spacer"></li>
@@ -118,16 +124,22 @@
 		<div class="nav" ectype="dscNav">
 			<div class="w w1200">
 				<div class="categorys" style="text-align: center;margin-top: 7px;">
-					<a href="http://localhost:8099/item/index"><img src="../images/skmu-nav.png" /></a>
+					<a href="http://seckill.gmall.com:8099/item/index"><img src="../images/skmu-nav.png" /></a>
 				</div>
 				<div class="nav-main" id="nav">
 					<ul class="navitems">
+						<li>
+							<a href="http://search.gmall.com:8094/index">首页</a>
+						</li>
 						<!--闪购 秒杀   男鞋 女鞋 潮鞋 定制               联名   系列    男童鞋  女童鞋-->
 						<li>
 							<a href="javascript:void(0)">闪购</a>
 						</li>
 						<li>
-							<a href="http://localhost:8099/item/index">秒杀</a>
+							<a href="http://seckill.gmall.com:8099/item/index">秒杀</a>
+						</li>
+						<li>
+							<a href="#">男鞋</a>
 						</li>
 						<li>
 							<a href="javascript:void(0)">女鞋</a>
@@ -158,10 +170,51 @@
 		<div class="seckill"></div>
 		<div class="w1200_container">
 			<div class="sec_kill_goods">
+				<div class="seckill-channel" id="h-seckill">
+					<div class="box-hd clearfix">
+						<i class="box_hd_arrow"></i>
+						<i class="box_hd_dec"><img src="../images/box_hd_arrow.png"/></i>
+						<i class="box-hd-icon"></i>
+						<div class="sk-time-cd">
+							<!--<div class="sk-cd-tit">距结束</div>
+							<div class="cd-time fl" ectype="time" data-time="2017-12-18 10:00:00">
+								<div class="days hide">00</div>
+								<span class="split hide">天</span>
+								<div class="hours">00</div>
+								<span class="split">时</span>
+								<div class="minutes">00</div>
+								<span class="split">分</span>
+								<div class="seconds">00</div>
+								<span class="split">秒</span>
+							</div>-->
+							<!--<div class="div0" id="noStart">活动未开始</div>
+							<div class="div1" id="startNow" style="display: none;">开始购买</div>
+							<div class="div2" id="stopNow" style="display: none;">活动结束</div>-->
+							<!--<div class="time" ectype="time">
+								<span class="content"></span>
+								<span class="botHours"></span>时
+								<span class="botMIn"></span>分
+								<span class="botSecond"></span>秒
+							</div>-->
+							<!--<div class="sk-cd-tit">距结束</div>-->
+							<div class="cd-time fl" ectype="time" data-time="2017-12-18 10:00:00">
+								<span class="content"></span>
+								<div class="botHours">00</div>
+								<span class="split">时</span>
+								<div class="botMIn">00</div>
+								<span class="split">分</span>
+								<div class="botSecond">00</div>
+								<span class="split">秒</span>
+							</div>
+						</div>
+						<div class="sk-more">
+							<a href="seckill.php" target="_blank">更多秒杀</a> <i class="arrow"></i></div>
+					</div>
+				</div>
 				<div class="skill_tab">
 					<ul class="skill_tab_time">
-						<li class="curr">
-							<!--<strong>8:00</strong>
+						<li class="curr" id="li8">
+							<strong>8:00</strong><!--
 							<div class="time" ectype="time" data-time="2018-01-04 10:00:00">
 								<span>距结束</span>
 								<span class="hours">00</span>
@@ -172,7 +225,10 @@
 							</div>-->
 
 							<!--<i>即将开始</i>-->
-							<div id="noStart">活动未开始</div>
+							<i><div class="div08">活动未开始</div>
+							<div class="div18" style="display: none;">开始购买</div>
+							<div class="div28" style="display: none;">活动结束</div></i>
+							<!--<div id="noStart">活动未开始</div>
 							<div class="div1" id="startNow" style="display: none;">开始购买</div>
 							<div class="div2" id="stopNow" style="display: none;">活动结束</div>
 							<div class="time" ectype="time">
@@ -180,10 +236,40 @@
 								<span class="botHours"></span>时
 								<span class="botMIn"></span>分
 								<span class="botSecond"></span>秒
-							</div>
+							</div>--><!-- 原来以这个为准-->
 						</li>
-						<!--<li>
-							<strong>10:00</strong>-->
+						<li id="li10">
+							<strong>10:00</strong>
+							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
+								<span>距结束</span>
+								<span class="hours">00</span>
+								<em>:</em>
+								<span class="minutes">00</span>
+								<em>:</em>
+								<span class="seconds">00</span>
+							</div>-->
+							<!--<i>即将开始</i>-->
+							<i><div class="div010">活动未开始</div>
+								<div class="div110" style="display: none;">开始购买</div>
+								<div class="div210" style="display: none;">活动结束</div></i>
+						</li>
+						<li id="li12">
+							<strong>12:00</strong>
+							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
+								<span>距结束</span>
+								<span class="hours">00</span>
+								<em>:</em>
+								<span class="minutes">00</span>
+								<em>:</em>
+								<span class="seconds">00</span>
+							</div>-->
+							<!--<i>即将开始</i>-->
+							<i><div class="div012">活动未开始</div>
+								<div class="div112" style="display: none;">开始购买</div>
+								<div class="div212" style="display: none;">活动结束</div></i>
+						</li>
+						<li id="li14">
+							<strong>14:00</strong>
 							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
 								<span>距结束</span>
 								<span class="hours">00</span>
@@ -193,9 +279,15 @@
 								<span class="seconds">00</span>
 							</div>-->
 							<!--<i>即将开始</i>
+							<div class="div0">活动未开始</div>
+							<div class="div1" style="display: none;">开始购买</div>
+							<div class="div2" style="display: none;">活动结束</div>-->
+							<i><div class="div014">活动未开始</div>
+								<div class="div114" style="display: none;">开始购买</div>
+								<div class="div214" style="display: none;">活动结束</div></i>
 						</li>
-						<li>
-							<strong>12:00</strong>-->
+						<li id="li16">
+							<strong>16:00</strong>
 							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
 								<span>距结束</span>
 								<span class="hours">00</span>
@@ -205,31 +297,14 @@
 								<span class="seconds">00</span>
 							</div>-->
 							<!--<i>即将开始</i>
+							<div class="div0">活动未开始</div>
+							<div class="div1" style="display: none;">开始购买</div>
+							<div class="div2" style="display: none;">活动结束</div>-->
+							<i><!--<i>即将开始</i>-->
+								<div class="div016">活动未开始</div>
+								<div class="div116" style="display: none;">开始购买</div>
+								<div class="div216" style="display: none;">活动结束</div></i>
 						</li>
-						<li>
-							<strong>14:00</strong>-->
-							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
-								<span>距结束</span>
-								<span class="hours">00</span>
-								<em>:</em>
-								<span class="minutes">00</span>
-								<em>:</em>
-								<span class="seconds">00</span>
-							</div>-->
-							<!--<i>即将开始</i>
-						</li>
-						<li>
-							<strong>16:00</strong>-->
-							<!--<div class="time hide" ectype="time" data-time="2018-01-04 10:00:00">
-								<span>距结束</span>
-								<span class="hours">00</span>
-								<em>:</em>
-								<span class="minutes">00</span>
-								<em>:</em>
-								<span class="seconds">00</span>
-							</div>-->
-							<!--<i>即将开始</i>
-						</li>-->
 					</ul>
 				</div>
 				<div class="clear"></div>
@@ -241,16 +316,16 @@
 							String skuDesc;
 							String skuDefaultImg;-->
 							<li class="mod_shodow"  th:each="item:${list}"><!--th:if="${#dates.format(item.startTime, 'HH:mm:ss')}>'00:08:00' and ${#dates.format(item.endTime, 'HH:mm:ss')}<'00:10:00'"-->
-								<form th:action="@{/kill/execute}" method="post" class="seckillform">
-                                <input id="killId" th:value="${item.id}" th:name="killId" type="hidden"/>
-                                    <input th:name="userId" th:value="${memberId}" type="hidden"/><!--这有地方写死了 -->
+								<form th:action="@{detail/}+${item.id}" method="post" class="seckillform">
+                                	<input id="killId" th:value="${item.id}" th:name="killId" type="hidden"/>
+									<input th:name="userId" th:value="${memberId}" type="hidden"/><!--这有地方写死了 -->
 								<div class="p_img">
 									<a href="javascript:void(0);" id="seckillimg">
 										<img src="../images/se_kill_img.jpg" th:src="${item.skuDefaultImg}" />
 									</a>
 								</div>
 								<div class="p_name">
-									<a id="seckilldesc" href="javascript:void(0);" th:text="${item.itemName}+${item.skuDesc}" th:title="${item.itemName}+${item.skuDesc}">
+									<a id="seckilldesc" th:href="@{detail/}+${item.id}" th:text="${item.itemName}+${item.skuDesc}" th:title="${item.itemName}+${item.skuDesc}">
 										8:00HLA/海澜之家撞色长袖T恤春季热卖圆领修身拼接T恤男 简约圆领 微弹修身 撞色拼接 触感柔软
 									</a>
 								</div>
@@ -264,16 +339,21 @@
 									</del>
 									</div>
 								</div>
-								<span th:if="${item.canKill==1}">
+								<span th:if="${item.canKill}==1">
                                     <!--<button><a class="sc_kill_btn btn seckillbtn" href="javascript:executeKill();">立即购买</a></button>-->
-									<button class="sc_kill_btn btn" type="submit">立即购买</button>
+									<button class="sc_kill_btn btn" type="submit">立即秒杀</button>
                                 </span>
-								<span th:unless="${item.canKill}">
-                                    <a class="sc_kill_btn btn" href="javascript:void(0);">哈哈~商品已抢购完毕或者不在抢购时间段哦!</a>
+								<span th:if="${item.canKill}==0">
+                                    <a class="sc_kill_btn btn" th:href="@{detail/}+${item.id}">商品已抢购完毕或者不在抢购时间段哦!</a>
                                 </span>
                                 </form>
-                            </li>
 								<!--<a class="sc_kill_btn btn" href="javascript:void(0);" id="seckill">立即购买</a>-->
+							</li>
+						</ul>
+						<ul th:if="${list}==null">
+							<li class="mod_shodow">
+								<img src="../images/none1.jpg" class="p_img"/>
+								<span class="p_name">还没发布秒杀商品哦</span>
 							</li>
 						</ul>
 					</div>
@@ -285,22 +365,22 @@
 				<img src="../images/more_goods.png" />
 			</div>
 			<div class="sec_kill_goods">
-				<!--<div class="skill_tab">
+				<div class="skill_tab">
 					<ul class="skill_tab_time">
 						<li class="curr"></li>
 					</ul>
-				</div>-->
+				</div>
 				<div class="skill_warp">
 					<ul class="skill_goods_list">
 						<li class="mod_shodow">
 							<div class="p_img">
-								<a href="http://item.gmall.com:8093/125.html" title="男子篮球鞋 LeBron XVII PRM EP">
-									<img src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rEIaAHoTZAADE9gpZr8g264.jpg" alt="">
+								<a href="http://item.gmall.com:8093/145.html" title="女子运动鞋 Air Jordan 1 Mid 显示颜色： 白色/白色/暗白蓝 款式： BQ6472-114P">
+									<img src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHQuATHbgAAC-FkT4ZyU169.jpg" alt="">
 								</a>
 							</div>
 							<div class="p_name">
-								<a href="http://item.gmall.com:8093/125.html" title="LeBron XVII PRM EP 篮球鞋依托勒布朗的力量和速度，塑就出众包覆性和支撑力，助你制霸赛场。采用轻盈的针织和模压纱线组合设计，塑就耐穿外观和质感。组合缓震设计，为勒布朗带来出色减震支撑效果和灵敏响应回弹能量，助力畅享漫长赛季。">
-									LeBron XVII PRM EP 篮球鞋依托勒布朗的力量和速度，塑就出众包覆性和支撑力，助你制霸赛场。采用轻盈的针织和模压纱线组合设计，塑就耐穿外观和质感。组合缓震设计，为勒布朗带来出色减震支撑效果和灵敏响应回弹能量，助力畅享漫长赛季。
+								<a href="http://item.gmall.com:8093/145.html" title="Air Jordan 1 Mid 集掌控全场的霸气风范、非凡舒适性及标志性外形于一体。鞋底加入 Air 缓震技术，专为硬木球场设计，加垫鞋口赋予脚踝出色支撑力。">
+									女子运动鞋 Air Jordan 1 Mid 显示颜色： 白色/白色/暗白蓝 款式： BQ6472-114P
 								</a>
 							</div>
 							<div class="p_lie clear">
@@ -313,7 +393,7 @@
 									</del>
 								</div>
 							</div>
-							<a class="sc_kill_btn btn" href="http://item.gmall.com:8097/toTradeNotCart?skuId=125">立即购买</a>
+							<a class="sc_kill_btn btn" href="http://item.gmall.com:8097/toTradeNotCart?skuId=145">立即购买</a>
 						</li>
 					</ul>
 				</div>
@@ -416,8 +496,17 @@
 	</body>
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/kuCity.js"></script>
-	<script type="text/javascript" src="../js/jquery.SuperSlide.js"></script>
+	<script type="text/javascript" src="../js/jquery.SuperSlider.js"></script>
 	<script type="text/javascript" src="../js/slide.js"></script>
+	<!--<script>
+		$('.skill_tab_time li').click(function() {
+			$(this).addClass('curr').siblings().removeClass('curr');
+			$(this).children('i').hide().parent().children('i').css('display', 'inline-block');
+			$(this).children('div').addClass('active2').removeClass('hide');
+			var index = $(this).index();
+			$('.tab_content>div:eq(' + index + ')').addClass('sel').siblings().removeClass('sel');
+		});
+	</script>-->
 	<script>
 		setTimeout(function () {
 			var cha = 4 * 1000 * 3600;
@@ -498,7 +587,7 @@
 					xmlHttpRequest=new XMLHttpRequest();
 				}
 
-				xmlHttpRequest.open("HEAD","http://localhost:8099/item/",true);
+				xmlHttpRequest.open("HEAD","http://seckill.gmall.com:8099/item/",true);
 				xmlHttpRequest.send("");
 				xmlHttpRequest.onreadystatechange=function() {
 					if (xmlHttpRequest.readyState == 4) {
@@ -519,70 +608,203 @@
 								var day = NowTime.getDate();
 								var month = NowTime.getMonth() + 1;
 								var year = NowTime.getFullYear();
-								var tw = year + '/' + month + '/' + day + ' 16:42:00';
-								var ei = year + '/' + month + '/' + day + ' 18:42:30';
-								var tw1 = year + '/' + month + '/' + day +' 20:42:40';
-								var ei1 = year + '/' + month + '/' + day +' 23:42:50';
+								var tw = year + '/' + month + '/' + day + ' 10:00:00';
+								var ei = year + '/' + month + '/' + day + ' 12:00:00';
+								var tw1 = year + '/' + month + '/' + day +' 14:00:00';
+								var ei1 = year + '/' + month + '/' + day +' 16:00:00';
+								var las = year + '/' + month + '/' + day +' 18:00:00';
 								tw = new Date(tw).getTime();
 								ei = new Date(ei).getTime();
 								tw1 = new Date(tw1).getTime();
 								ei1 = new Date(ei1).getTime();
+								las = new Date(las).getTime();
+								/*NowTime = new Date(NowTime).getTime();*/
 								var EndTime = '';
+								console.log(NowTime+'<-现在--开始-->'+StartTime);
 								if(NowTime < StartTime) {
+									console.log(NowTime+'<-距离8:00活动开始-->'+StartTime);
 									EndTime = StartTime;
-									$('#stopNow').css('display', 'none');
-									$('#startNow').css('display', 'none');
-									$('#noStart').css('display', 'block');
-									$(".content").html("距离活动开始")
+									$('.div28').css('display', 'none');
+									$('.div18').css('display', 'none');
+									$('.div08').css('display', 'block');
+									$('.div210').css('display', 'none');
+									$('.div110').css('display', 'none');
+									$('.div010').css('display', 'block');
+									$('.div212').css('display', 'none');
+									$('.div112').css('display', 'none');
+									$('.div012').css('display', 'block');
+									$('.div214').css('display', 'none');
+									$('.div114').css('display', 'none');
+									$('.div014').css('display', 'block');
+									$('.div216').css('display', 'none');
+									$('.div116').css('display', 'none');
+									$('.div016').css('display', 'block');
+									$(".content").html("距离8:00活动开始");
+									$("#li8").addClass('curr').siblings().removeClass('curr');
 								} else {
 									if(NowTime < tw) {
+										console.log(NowTime+'<-距离8:00活动结束剩余-->'+tw);
 										EndTime = tw;
-										$('#stopNow').css('display', 'none');
-										$('#startNow').css('display', 'block');
-										$('#noStart').css('display', 'none');
-										$(".content").html("距离活动结束剩余");
+										/*$('.div2').css('display', 'none');
+										$('.div1').css('display', 'block');
+										$('.div0').css('display', 'none');*/
+
+										$('.div28').css('display', 'none');
+										$('.div18').css('display', 'block');
+										$('.div08').css('display', 'none');
+										$('.div210').css('display', 'none');
+										$('.div110').css('display', 'none');
+										$('.div010').css('display', 'block');
+										$('.div212').css('display', 'none');
+										$('.div112').css('display', 'none');
+										$('.div012').css('display', 'block');
+										$('.div214').css('display', 'none');
+										$('.div114').css('display', 'none');
+										$('.div014').css('display', 'block');
+										$('.div216').css('display', 'none');
+										$('.div116').css('display', 'none');
+										$('.div016').css('display', 'block');
+
+										$(".content").html("距离8:00活动结束剩余");
+										$("#li8").addClass('curr').siblings().removeClass('curr');
 										//document.getElementById("seckill").href = "http://www.baidu.com";//记得改为秒杀路径
 										/*document.getElementById("seckillimg").href = "javascript:void(0);";//记得改为秒杀路径
 										document.getElementById("seckilldesc").href = "javascript:void(0);";//记得改为秒杀路径*/
 									} else if(NowTime >= tw && NowTime < ei) {
+										console.log(NowTime+'<--距离10:00活动结束剩余->'+ei);
 										EndTime = ei;
-										$('#stopNow').css('display', 'none');
-										$('#startNow').css('display', 'block');
-										$('#noStart').css('display', 'none');
-										$(".content").html("距离活动结束剩余");
+										/*$('.div2').css('display', 'none');
+										$('.div1').css('display', 'block');
+										$('.div0').css('display', 'none');*/
+
+										$('.div28').css('display', 'block');
+										$('.div18').css('display', 'none');
+										$('.div08').css('display', 'none');
+										$('.div210').css('display', 'none');
+										$('.div110').css('display', 'block');
+										$('.div010').css('display', 'none');
+										$('.div212').css('display', 'none');
+										$('.div112').css('display', 'none');
+										$('.div012').css('display', 'block');
+										$('.div214').css('display', 'none');
+										$('.div114').css('display', 'none');
+										$('.div014').css('display', 'block');
+										$('.div216').css('display', 'none');
+										$('.div116').css('display', 'none');
+										$('.div016').css('display', 'block');
+										$(".content").html("距离10:00活动结束剩余");
+										$("#li10").addClass('curr').siblings().removeClass('curr');
 										//document.getElementById("seckill").href = "javascript:executeKill();";
 										/*document.getElementById("seckill").href = "http://www.baidu.com";
 										document.getElementById("seckillimg").href = "http://www.baidu.com";//记得改为秒杀路径
 										document.getElementById("seckilldesc").href = "http://www.baidu.com";//记得改为秒杀路径*/
-									}else if(NowTime < tw1){
+									}else if(NowTime >=ei && NowTime < tw1){
+										console.log(NowTime+'<--距离12:00活动结束剩余->'+tw1);
 										EndTime =tw1;
-										$('#stopNow').css('display', 'none');
-										$('#startNow').css('display', 'block');
-										$('#noStart').css('display', 'none');
-										$(".content").html("距离活动结束剩余");
+										/*$('.div2').css('display', 'none');
+										$('.div1').css('display', 'block');
+										$('.div0').css('display', 'none');*/
+
+										$('.div28').css('display', 'block');
+										$('.div18').css('display', 'none');
+										$('.div08').css('display', 'none');
+										$('.div210').css('display', 'block');
+										$('.div110').css('display', 'none');
+										$('.div010').css('display', 'none');
+										$('.div212').css('display', 'none');
+										$('.div112').css('display', 'block');
+										$('.div012').css('display', 'none');
+										$('.div214').css('display', 'none');
+										$('.div114').css('display', 'none');
+										$('.div014').css('display', 'block');
+										$('.div216').css('display', 'none');
+										$('.div116').css('display', 'none');
+										$('.div016').css('display', 'block');
+
+										$(".content").html("距离12:00活动结束剩余");
+										$("#li12").addClass('curr').siblings().removeClass('curr');
 										//document.getElementById("seckill").href = "javascript:executeKill();";
 										/*document.getElementById("seckill").href = "http://www.baidu.com";
 										document.getElementById("seckillimg").href = "http://www.baidu.com";//记得改为秒杀路径
 										document.getElementById("seckilldesc").href = "http://www.baidu.com";//记得改为秒杀路径*/
 									} else if(NowTime >= tw1 && NowTime < ei1) {
+										console.log(NowTime+'<-距离14:00活动结束剩余-->'+ei1);
 										EndTime = ei1;
-										$('#stopNow').css('display', 'none');
-										$('#startNow').css('display', 'block');
-										$('#noStart').css('display', 'none');
-										$(".content").html("距离活动结束剩余");
+										/*$('.div2').css('display', 'none');
+										$('.div1').css('display', 'block');
+										$('.div0').css('display', 'none');*/
+
+										$('.div28').css('display', 'block');
+										$('.div18').css('display', 'none');
+										$('.div08').css('display', 'none');
+										$('.div210').css('display', 'block');
+										$('.div110').css('display', 'none');
+										$('.div010').css('display', 'none');
+										$('.div212').css('display', 'block');
+										$('.div112').css('display', 'none');
+										$('.div012').css('display', 'none');
+										$('.div214').css('display', 'none');
+										$('.div114').css('display', 'block');
+										$('.div014').css('display', 'none');
+										$('.div216').css('display', 'none');
+										$('.div116').css('display', 'none');
+										$('.div016').css('display', 'block');
+
+										$(".content").html("距离14:00活动结束剩余");
+										$("#li14").addClass('curr').siblings().removeClass('curr');
 										//document.getElementById("seckill").href = "javascript:executeKill();";
 										/*document.getElementById("seckill").href = "http://www.baidu.com";
 										document.getElementById("seckillimg").href = "http://www.baidu.com";//记得改为秒杀路径
 										document.getElementById("seckilldesc").href = "http://www.baidu.com";//记得改为秒杀路径*/
-									}else if(NowTime >= ei1) {
+									}else if(NowTime >= ei1 && NowTime < las) {
+										console.log(NowTime+'<--距离16:00活动结束剩余->'+las);
+										EndTime =las;
+										/*$('.div2').css('display', 'block');
+										$('.div1').css('display', 'none');
+										$('.div0').css('display', 'none');*/
+
+										$('.div28').css('display', 'block');
+										$('.div18').css('display', 'none');
+										$('.div08').css('display', 'none');
+										$('.div210').css('display', 'block');
+										$('.div110').css('display', 'none');
+										$('.div010').css('display', 'none');
+										$('.div212').css('display', 'block');
+										$('.div112').css('display', 'none');
+										$('.div012').css('display', 'none');
+										$('.div214').css('display', 'block');
+										$('.div114').css('display', 'none');
+										$('.div014').css('display', 'none');
+										$('.div216').css('display', 'none');
+										$('.div116').css('display', 'block');
+										$('.div016').css('display', 'none');
+
+										$(".content").html("距离16:00活动结束剩余");
+										$("#li16").addClass('curr').siblings().removeClass('curr');
+									}else if (NowTime >=las){
 										EndTime = tw + 24 * 60 * 60 * 1000;
-										$('#stopNow').css('display', 'block');
-										$('#startNow').css('display', 'none');
-										$('#noStart').css('display', 'none');
-										$(".content").html("距离活动开始剩余")
+										console.log(NowTime+'<--距离8:00活动开始剩余->'+las+'-->'+EndTime);
+										$('.div28').css('display', 'block');
+										$('.div18').css('display', 'none');
+										$('.div08').css('display', 'none');
+										$('.div210').css('display', 'block');
+										$('.div110').css('display', 'none');
+										$('.div010').css('display', 'none');
+										$('.div212').css('display', 'block');
+										$('.div112').css('display', 'none');
+										$('.div012').css('display', 'none');
+										$('.div214').css('display', 'block');
+										$('.div114').css('display', 'none');
+										$('.div014').css('display', 'none');
+										$('.div216').css('display', 'block');
+										$('.div116').css('display', 'none');
+										$('.div016').css('display', 'none');
+
+										$(".content").html("距离08:00活动开始剩余");
+										$("#li8").addClass('curr').siblings().removeClass('curr');
 									}
 								}
-								console.log(EndTime)
+								/*console.log(EndTime)*/
 								var t = EndTime - NowTime;
 								if(t < 1000) {
 									window.location.reload();
@@ -638,45 +860,4 @@
 			window.location.href = "http://search.gmall.com:8094/list.html?keyword=" + keyword;
 		}
 	</script>
-
-	<!--<script>
-		function executeKill() {
-			$.ajax({
-				type: "POST",
-				url: "http://localhost:8099/item/kill/execute",
-				contentType: "application/json;charset=utf-8",
-				data: JSON.stringify(getJsonData()),
-				dataType: "json",
-
-				success: function(res){
-					if (res.code==0) {
-						//alert(res.msg);
-						window.location.href="http://localhost:8099/item/kill/execute/success";
-					}else{
-						//alert(res.msg);
-						window.location.href="http://localhost:8099/item/kill/execute/fail";
-					}
-				},
-				error: function (data) {
-					alert(data+"提交数据失败！");
-					return;
-				}
-			});
-		}
-
-		function getJsonData() {
-			var killId=$("#killId").val();
-			//alert(killId);
-			var dataa = {
-                "killId":killId,
-                "userId":1
-            };
-			/*var data = {
-				"killId":killId
-			};*/
-			alert(dataa);
-			alert(JSON.stringify(dataa));
-			return JSON.stringify(dataa);
-		}
-	</script>-->
 </html>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.css"/>
 </head>
 <body>
-<header>
+<header style="padding-left: 322px;padding-right: 322px;">
     <a name="mao1">
         <div class="header">
 
@@ -22,11 +22,19 @@
                 </li>
 
             </ul>
-            <ul class="header-right">
-                <li><a href="http://localhost:8096/index?ReturnUrl=http://localhost:8095/cartList" style="color: red;">你好，请登录</a></li>
-                <li><a href="http://localhost:8096/toregister">免费注册</a></li>
+            <ul class="header-right" th:if="${#httpServletRequest.getAttribute('memberId')}==null">
+                <li><a href="http://passport.gmall.com:8096/index?ReturnUrl=http://cart.gmall.com:8095/cartList" style="color: red;">你好，请登录</a></li>
+                <li><a href="http://passport.gmall.com:8096/toregister">免费注册</a></li>
                 <li class="spacer"></li>
-                <li><a href="http://localhost:8097/orderList">我的订单</a></li>
+                <li><a href="http://order.gmall.com:8097/orderList">我的订单</a></li>
+                <li class="spacer"></li>
+
+            </ul>
+            <ul class="header-right" th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+                <li><a th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}" style="color: red;">你好，请登录</a></li>
+                <li><a href="http://user.gmall.com:8091/userInfo">我的账号</a></li>
+                <li class="spacer"></li>
+                <li><a href="http://order.gmall.com:8097/orderList">我的订单</a></li>
                 <li class="spacer"></li>
 
             </ul>
@@ -43,7 +51,7 @@
         <div class="one_search_top">
             <div class="one_top_left">
                 <a href="http://search.gmall.com:8094/index" class="one_left_logo"><img src="img/logo1.jpg"></a>
-                <a href="http://localhost:8095/cartList" class="one_left_link">购物车</a>
+                <a href="http://cart.gmall.com:8095/cartList" class="one_left_link">购物车</a>
             </div>
             <div class="one_top_right">
                 <input id="keyword" name="keyword" type="text" placeholder="篮球鞋" class="one_right_txt" onfocus="this.placeholder=''"
@@ -51,7 +59,7 @@
                 <input type="button" value="搜索" class="one_right_btn" onclick="searchList()">
             </div>
         </div>
-        <div class="one_search_load" th:if="${userId}==null"><!--无效果啊，怎么判断是否登录了呢 -->
+        <div class="one_search_load" th:if="${#httpServletRequest.getAttribute('memberId')}==null"><!--无效果啊，怎么判断是否登录了呢 -->
             <img src="/img/shop_07.jpg" class="one_load_wraing">
             <span>您还没有登录！登录后购物车的商品将保存到您账号中</span>
             <a href="javascript:void(0)"><input type="button" onclick="login()" value="立即登录" class="one_load_btn"></a>
@@ -168,13 +176,15 @@
     function checkSku(chkbox) {
         var skuId = $(chkbox).attr("value");
         var checked = $(chkbox).prop("checked");
+        var num = parseInt($(chkbox).parents('.order_lists').find('.sum').html());
+        //alert(parseInt($(chkbox).parents('.order_lists').find('.sum').html()));
         var isCheckedFlag = "0";
         if (checked) {
             isCheckedFlag = "1";
         }
-        $.post("checkCart", "isChecked=" + isCheckedFlag + "&" + "skuId=" + skuId, function (html) {
+        $.post("checkCart", "isChecked=" + isCheckedFlag + "&" + "skuId=" + skuId+ "&" + "num=" + num, function (html) {
             // 服务会返回一个inner内嵌页面给ajax，我们返回的新的页面刷新替换掉原来的老的页面
-            $("#cartListInner").html(html);
+            //$("#cartListInner").html(html);
         });
         /*var param="isChecked="+isCheckedFlag+"&"+"skuId="+skuId;
         $.post("checkCart",param,function (data) {

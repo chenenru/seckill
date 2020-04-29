@@ -37,7 +37,7 @@
     <!--头部-->
     <div class="header_head">
         <div class="header_head_box">
-            <a href="http://localhost:8094/index" class="img"><img src="index/img/logo1.jpg"/></a>
+            <a href="http://search.gmall.com:8094/index" class="img"><img src="index/img/logo1.jpg"/></a>
             <b class="header_head_p">
                 <a href="javascript:void(0)">
                     <img src="index/img/img_05.png" style="border-radius: 50%;"/>
@@ -82,18 +82,23 @@
                 </div>
             </b>
             <ul>
-                <li>
+                <!--<input type="text" th:text="${session.memberId}"/>-->
+                <li th:if="${#httpServletRequest.getAttribute('memberId')}==null">
                     <a href="http://passport.gmall.com:8096/index?ReturnUrl=http://search.gmall.com:8094/index">你好，请登录</a>
                 </li>
-                <li>
-                    <a href="http://localhost:8096/toregister" class="li_2">免费注册</a>
+                <li th:if="${#httpServletRequest.getAttribute('memberId')}==null">
+                    <a href="http://passport.gmall.com:8096/toregister" class="li_2">免费注册</a>
+                </li>
+                <li th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+                    <a href="" class="link-login red" th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}"></a>
+                </li>
+                <li th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+                    <a href="http://search.gmall.com:8091/userInfo" class="link-regist">我的账号</a>
                 </li>
                 <span>|</span>
                 <li>
-                    <a href="http://localhost:8097/orderList">我的订单</a>
+                    <a href="http://order.gmall.com:8097/orderList">我的订单</a>
                 </li>
-
-
             </ul>
         </div>
     </div>
@@ -108,7 +113,7 @@
         <div class="header_ico">
             <div class="header_gw">
                 <img src="index/img/img_15.png"/>
-                <span><a href="http://localhost:8095/cartList">我的购物车</a></span>
+                <span><a href="http://cart.gmall.com:8095/cartList">我的购物车</a></span>
                 <span>0</span>
             </div>
             <div class="header_ko">
@@ -121,38 +126,43 @@
             <ul>
                 <!--闪购 秒杀   男鞋 女鞋 潮鞋 定制               联名   系列    男童鞋  女童鞋-->
                 <li>
-                    <a href="javascript:void(0)">闪购</a>
+                    <a href="http://search.gmall.com:8094/list.html?keyword=">闪购</a>
                 </li>
                 <li>
-                    <a href="http://localhost:8099/item/index">秒杀</a>
+                    <a href="http://seckill.gmall.com:8099/item/index">秒杀</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)">男鞋</a>
+                    <a href="http://search.gmall.com:8094/list.html?keyword=男子">男鞋</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)">女鞋</a>
+                    <a href="http://search.gmall.com:8094/list.html?keyword=女子">女鞋</a>
                 </li>
             </ul>
             <div class="spacer">|</div>
             <ul>
                 <!--潮鞋 定制               联名   系列    男童鞋  女童鞋 -->
                 <li>
-                    <a href="javascript:void(0)">潮鞋</a>
+                    <a href="http://search.gmall.com:8094/list.html?keyword=潮鞋">潮鞋</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)">定制</a>
+                    <a href="http://search.gmall.com:8094/list.html?keyword=定制">定制</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)">联名</a>
+                    <a href="http://search.gmall.com:8094/list.html?keyword=联名">联名</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)">系列</a>
+                    <a href="http://search.gmall.com:8094/list.html?keyword=系列">系列</a>
                 </li>
             </ul>
             <div class="spacer">|</div>
             <ul>
                 <li>
-                    <a href="javascript:void(0)">童鞋</a>
+                    <a href="http://search.gmall.com:8094/list.html?keyword=男童鞋">男童鞋</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="http://search.gmall.com:8094/list.html?keyword=女童鞋">女童鞋</a>
                 </li>
             </ul>
         </nav>
@@ -249,11 +259,18 @@
                         <div class="user_info_tou">
                             <a href="javascript:void(0)"><img class="" src="index/img/touxiang.png"></a>
                         </div>
-                        <div class="user_info_show">
+                        <div class="user_info_show" th:if="${#httpServletRequest.getAttribute('memberId')}==null">
                             <p class="">Hi, 欢迎来到!</p>
                             <p>
                                 <a href="http://passport.gmall.com:8096/index?ReturnUrl=http://search.gmall.com:8094/index" class="">登录</a>
-                                <a href="http://localhost:8096/toregister" class="">注册</a>
+                                <a href="http://passport.gmall.com:8096/toregister" class="">注册</a>
+                            </p>
+                        </div>
+                        <div class="user_info_show" th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+                            <p class="" th:text="'Hi, '+${#httpServletRequest.getAttribute('nickname')}">Hi, 欢迎来到!</p>
+                            <p>
+                                <a href="" class="">闪购</a>
+                                <a href="" class="">秒杀</a>
                             </p>
                         </div>
                     </div>
@@ -418,69 +435,69 @@
                 <div class="swiper-slide">
                     <ul>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimAIbt0AAEGHKH9vk4319.jpg" alt=""><!--秒杀下面的图片 -->
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6gcfmAScNEAAD1GuhjFLk562.jpg" alt=""><!--秒杀下面的图片 -->
                             <p>
-                                <a href="http://item.gmall.com:8093/139.html">男子篮球鞋 Jordan Why Not Zer0.3 PF 颜色 白色/黑/大气灰/亮深红 尺寸 CD3002-101</a>
+                                <a href="http://item.gmall.com:8093/140.html">男子篮球鞋 Air Jordan XXXIII PF 显示颜色:白色/苍野灰/岛绿/金属银 款式:BV5072-101</a>
                             </p>
-                            <span>1099.00</span><s>¥1299.00</s>
+                            <span>1299.00</span><s>¥1499.00</s>
                         </li>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rGiGAY4mMAADyiN9DJGY593.jpg" alt="">
-                            <p><a href="http://item.gmall.com:8093/129.html">男子篮球鞋 Air Jordan XXXIII PF 颜色 苍野灰/白色/帆白/空间蓝 尺寸 BV5072-004</a>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHQuAcn11AADRZjbivvc758.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/142.html">女子运动鞋 Air Jordan 1 Mid 显示颜色： 黑/贵族红/白色 款式： BQ6472-016</a>
                             </p>
-                            <span>¥1299.90</span><s>¥1499.90</s>
+                            <span>¥899.90</span><s>¥999.90</s>
                         </li>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimACLliAADzJTIlRkk658.jpg" alt="">
-                            <p><a href="http://item.gmall.com:8093/137.html">男子篮球鞋 Jordan Why Not Zer0.3 PF  颜色 黑/白色/金属金 尺寸 CD3002-001</a>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHaGAK2aAAAEGHKH9vk4939.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/147.html">男子篮球鞋 Jordan Why Not Zer0.3 PF 显示颜色： 白色/黑/大气灰/亮深红 款式： CD3002-101</a>
                             </p>
-                            <span>¥1099.00</span><s>¥1299.00</s>
+                            <span>¥999.00</span><s>¥1099.00</s>
                         </li>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimAZ1G8AAEEQUa8Sck191.jpg" alt="">
-                            <p><a href="http://item.gmall.com:8093/135.html">男子篮球鞋 Jordan Why Not Zer0.3 PF  颜色 微粒灰/黑/铁灰/爆炸粉 尺寸 CD3002-003</a>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHiKAHh3yAAEUAHJ_kVA387.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/152.html">男子篮球鞋 LeBron XVII PRM EP 显示颜色： 赭石沙色/杉木红/金属金 款式： CT3467-0013</a>
                             </p>
                             <span>¥1299.00</span><s>¥1499.00</s>
                         </li>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rEIaAQOb6AAEUAHJ_kVA423.jpg" alt="">
-                            <p><a href="http://item.gmall.com:8093/122.html">男子篮球鞋 LeBron XVII PRM EP 颜色 赭石沙色/杉木红/金属金 尺寸 CT3467-001</a></p>
-                            <span>¥899.00</span><s>¥999.00</s>
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6gcfmAVoa1AADyiN9DJGY299.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/141.html">男子篮球鞋 Air Jordan XXXIII PF 显示颜色:苍野灰/白色/帆白/空间蓝 款式: BV5072-004</a></p>
+                            <span>¥1299.00</span><s>¥1499.00</s>
                         </li>
                     </ul>
                 </div>
                 <div class="swiper-slide">
                     <ul>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rEIaAHoTZAADE9gpZr8g264.jpg" alt="">
-                            <p><a href="http://item.gmall.com:8093/124.html">男子篮球鞋 LeBron XVII PRM EP 颜色 赛车蓝/黑/白色 尺寸 CT3465-400
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHQuAIDw6AAEi9zJjgBE713.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/143.html">女子运动鞋 Air Jordan 1 Mid 显示颜色： 黑/红杉绿/骑兵灰绿 款式： BQ6472-030
                             </a></p>
                             <span>¥899.00</span><s>¥999.00</s>
                         </li>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rG7OAEksgAADRZjbivvc089.jpg" alt="">
-                            <p><a href="http://item.gmall.com:8093/132.html">女子运动鞋 Air Jordan 1 Mid 颜色 亮深红/黑 尺寸 BQ6472-600
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHaGASK0cAAErP2LxToY960.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/148.html">男子篮球鞋 Jordan Why Not Zer0.3 PF 显示颜色： 白色/冷灰/狼灰/白色 款式： CD3002-100
                             </a></p>
                             <span>¥999.00</span><s>¥1099.00</s>
                         </li>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rG7OAEIYWAAC-FkT4ZyU808.jpg" alt="">
-                            <p><a href="http://item.gmall.com:8093/133.html">女子运动鞋 Air Jordan 1 Mid 颜色 白色/白色/暗白蓝 尺寸 BQ6472-114
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHiKAeXDCAADE9gpZr8g003.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/153.html">男子篮球鞋 LeBron XVII PRM EP 显示颜色： 赛车蓝/黑/白色 款式： CT3465-400
                             </a>
                             </p>
-                            <span>¥999.00</span><s>¥1099.00</s>
+                            <span>¥1299.00</span><s>¥1499.00</s>
                         </li>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimASCcyAAErP2LxToY168.jpg" alt="">
-                            <p><a href="http://item.gmall.com:8093/138.html">男子篮球鞋 Jordan Why Not Zer0.3 PF 颜色 白色/冷灰/狼灰/白色 尺寸 CD3002-100
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHQuALPcfAADeZKaNaVk128.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/144.html">女子运动鞋 Air Jordan 1 Mid 显示颜色： 亮深红/黑 款式： BQ6472-600
                             </a></p>
-                            <span>¥1099.00</span><s>¥1299.00</s>
+                            <span>¥899.00</span><s>¥999.00</s>
                         </li>
                         <li>
-                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rHimAGpIxAAEXLFNyeE8886.jpg" alt="">
-                            <p><a href="http://item.gmall.com:8093/136.html">男子篮球鞋 Jordan Why Not Zer0.3 PF 颜色 白色/赛车粉/阴影绿/黑 尺寸 CD3002-102
+                            <img style="weight:128px;height: 128px" src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHaGAEz9xAADzJTIlRkk458.jpg" alt="">
+                            <p><a href="http://item.gmall.com:8093/149.html">男子篮球鞋 Jordan Why Not Zer0.3 PF 显示颜色： 黑/白色/金属金 款式： CD3002-001
                             </a></p>
-                            <span>¥1099.90</span><s>¥1299.00</s>
+                            <span>¥999.90</span><s>¥1099.00</s>
                         </li>
                     </ul>
             </div>

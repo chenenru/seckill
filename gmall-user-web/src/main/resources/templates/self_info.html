@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+        <meta name="author" content="order by dede58.com"/>
+		<title>闪购秒杀牌子鞋的购物网站-个人中心</title>
+		<link rel="stylesheet" type="text/css" href="../css2/style.css"/>
+	</head>
+	<body>
+	<!-- start header -->
+		<header>
+			<div class="top center">
+				<div class="left fl">
+					<ul>
+						<li><a href="http://search.gmall.com:8094/index" target="_blank">秒杀商城</a></li>
+						<li>|</li>
+						<li><a href="http://search.gmall.com:8094/index">首页</a></li>
+						<li>|</li>
+						<li><a href="">闪购</a></li>
+						<li>|</li>
+						<li><a href="http://seckill.gmall.com:8099/item/index">秒杀</a></li>
+						<li>|</li>
+						<li><a href="">男鞋</a></li>
+						<li>|</li>
+						<li><a href="">女鞋</a></li>
+						<li>|</li>
+						<li><a href="">潮鞋</a></li>
+						<li>|</li>
+						<li><a href="">定制</a></li>
+						<li>|</li>
+						<li><a href="">联名</a></li>
+						<li>|</li>
+						<li><a href="">系列</a></li>
+						<li>|</li>
+						<li><a href="">男童鞋</a></li>
+						<li>|</li>
+						<li><a href="">女童鞋</a></li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<div class="right fr">
+					<div class="gouwuche fr"><a href="http://order.gmall.com:8097/orderList">我的订单</a></div>
+					<div class="fr">
+						<ul>
+							<li th:if="${#httpServletRequest.getAttribute('memberId')}==null"><a href="http://passport.gmall.com:8096/index" target="_blank">登录</a></li>
+							<li>|</li>
+							<li th:if="${#httpServletRequest.getAttribute('memberId')}==null"><a href="http://passport.gmall.com:8096/toregister" target="_blank" >注册</a></li>
+							<li>|</li>
+							<!--<li><a href="#top">个人中心</a></li>--><<!--input th:text="${session.memberId}"/>-->
+							<li th:if="${#httpServletRequest.getAttribute('memberId')}!=null"><a href="" class="link-login red" th:text="'欢迎,'+${session.nickname}"></a></li>
+							<li th:if="${#httpServletRequest.getAttribute('memberId')}!=null">|</li>
+							<li th:if="${#httpServletRequest.getAttribute('memberId')}!=null"><a href="http://search.gmall.com:8091/userInfo" class="link-regist">个人中心</a></li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</header>
+	<!--end header -->
+	<!-- start banner_x -->
+		<div class="banner_x center">
+			<a href="http://search.gmall.com:8094/index" target="_blank"><div class="logo fl"></div></a>
+			<a href=""><div class="ad_top fl"></div></a>
+			<div class="nav fl">
+				<ul>
+					<li><a href="http://search.gmall.com:8094/index">首页</a></li>
+					<li><a href="">闪购</a></li>
+					<li><a href="http://seckill.gmall.com:8099/item/index">秒杀</a></li>
+					<li><a href="">男鞋</a></li>
+					<li><a href="">女鞋</a></li>
+					<li><a href="">潮鞋</a></li>
+					<li><a href="">定制</a></li>
+					<li><a href="">联名</a></li>
+					<li><a href="">系列</a></li>
+					<li><a href="">男童鞋</a></li>
+					<li><a href="">女童鞋</a></li>
+				</ul>
+			</div>
+			<div class="search fr">
+				<form action="" method="post">
+					<div class="text fl">
+						<input type="text" class="shuru"  placeholder="篮球鞋">
+					</div>
+					<div class="submit fl">
+						<input type="submit" class="sousuo" value="搜索"/>
+					</div>
+					<div class="clear"></div>
+				</form>
+				<div class="clear"></div>
+			</div>
+		</div>
+<!-- end banner_x -->
+<!-- self_info -->
+	<div class="grzxbj">
+		<div class="selfinfo center">
+		<div class="lfnav fl">
+			<div class="ddzx">订单中心</div>
+			<div class="subddzx">
+				<ul>
+					<li><a href="http://order.gmall.com:8097/orderList" >我的订单</a></li>
+				</ul>
+			</div>
+			<div class="ddzx">个人中心</div>
+			<div class="subddzx">
+				<ul>
+					<li><a href="http://user.gmall.com:8091/userInfo" style="color:#ff6700;font-weight:bold;">我的个人中心</a></li><!--先写死-->
+					<li><a href="http://user.gmall.com:8091/manageAddress?operation=3">收货地址</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="rtcont fr">
+			<div class="grzlbt ml40">我的资料</div>
+			<div class="subgrzl ml40"><span>昵称</span><span th:text="${user.nickname}">啦啦维吉尔</span><span><a href="">编辑</a></span></div>
+			<div class="subgrzl ml40"><span>我的性别</span><span th:text="${user.gender}==1?'男':'女'">未知</span><span><a href="">编辑</a></span></div>
+			<div class="subgrzl ml40"><span>我的生日</span><span th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}">2020/03/31</span><span><a href="">编辑</a></span></div>
+			<div class="subgrzl ml40"><span>手机号</span><span th:text="${user.phone}">15669097417</span><span><a href="">编辑</a></span></div>
+			<div class="subgrzl ml40"><span>邮箱</span><span th:text="${user.email}">************</span><span><a href="">编辑</a></span></div>
+			<!--<div class="subgrzl ml40"><span>个性签名</span><span th:text="${user?.personalizedSignature}">一支穿云箭，千军万马来相见！</span><span><a href="">编辑</a></span></div>-->
+			<!--<div class="subgrzl ml40"><span>注册时间</span><span th:text="${#dates.format(user.createTime, 'yyyy-MM-dd')}">2020/03/31</span><span><a href="">编辑</a></span></div>--><!--th:if="${#dates.format(item.startTime, 'HH:mm:ss')}>'00:08:00' and ${#dates.format(item.endTime, 'HH:mm:ss')}<'00:10:00'"-->
+			<div class="subgrzl ml40"><span>我的城市</span><span th:text="${user.city}">游戏，音乐，旅游，健身</span><span><a href="">编辑</a></span></div>
+			<!--<div class="subgrzl ml40"><span>我的职业</span><span th:text="${user?.job}">游戏，音乐，旅游，健身</span><span><a href="">编辑</a></span></div>-->
+			<div class="subgrzl ml40"><span>默认地址</span><span th:text="${address.province}+'省'+${address.city}+${address.region}+${address.detailAddress}">浙江省杭州市江干区19号大街571号</span><span><a href="">编辑</a></span></div>
+			
+		</div>
+		<div class="clear"></div>
+		</div>
+	</div>
+<!-- self_info -->
+		
+		<footer class="mt20 center">
+			<div class="mt20">
+				秒杀商城|首页|闪购|秒杀|男鞋|女鞋|潮鞋|定制|联名|系列|男童鞋|女童鞋|隐私政策|Select Region</div>
+			<div>©www.gmall.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
+			<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
+		</footer>
+	</body>
+</html>

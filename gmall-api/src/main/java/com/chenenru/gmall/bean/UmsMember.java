@@ -1,5 +1,8 @@
 package com.chenenru.gmall.bean;
 
+import lombok.Data;
+import lombok.ToString;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -7,6 +10,8 @@ import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 
+@Data
+@ToString
 public class UmsMember implements Serializable{
 
     @Id
@@ -17,7 +22,7 @@ public class UmsMember implements Serializable{
     private String password;
     private String nickname;
     private String phone;
-    private int status;
+    private Integer status;
     private Date createTime;
     private String icon;
     private String gender;
@@ -26,10 +31,10 @@ public class UmsMember implements Serializable{
     private String job;
     private String personalizedSignature;
     private String sourceType;
-    private int integration;
-    private int growth;
-    private int luckeyCount;
-    private int historyIntegration;
+    private Integer integration;
+    private Integer growth;
+    private Integer luckeyCount;
+    private Integer historyIntegration;
     private String sourceUid;
     private String accessToken;
     private String accessCode;
@@ -206,11 +211,11 @@ public class UmsMember implements Serializable{
         this.phone = phone;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -264,35 +269,35 @@ public class UmsMember implements Serializable{
     }
 
 
-    public int getIntegration() {
+    public Integer getIntegration() {
         return integration;
     }
 
-    public void setIntegration(int integration) {
+    public void setIntegration(Integer integration) {
         this.integration = integration;
     }
 
-    public int getGrowth() {
+    public Integer getGrowth() {
         return growth;
     }
 
-    public void setGrowth(int growth) {
+    public void setGrowth(Integer growth) {
         this.growth = growth;
     }
 
-    public int getLuckeyCount() {
+    public Integer getLuckeyCount() {
         return luckeyCount;
     }
 
-    public void setLuckeyCount(int luckeyCount) {
+    public void setLuckeyCount(Integer luckeyCount) {
         this.luckeyCount = luckeyCount;
     }
 
-    public int getHistoryIntegration() {
+    public Integer getHistoryIntegration() {
         return historyIntegration;
     }
 
-    public void setHistoryIntegration(int historyIntegration) {
+    public void setHistoryIntegration(Integer historyIntegration) {
         this.historyIntegration = historyIntegration;
     }
 

@@ -23,15 +23,21 @@
 
         </b>
         <ul>
-            <li>
+            <li th:if="${#httpServletRequest.getAttribute('memberId')}==null">
                 <a href="http://passport.gmall.com:8096/index?ReturnUrl=http://search.gmall.com:8094/list.html" class="li_2">你好，请登录</a>
             </li>
-            <li>
-                <a href="http://localhost:8096/toregister" class="li_2">免费注册</a>
+            <li th:if="${#httpServletRequest.getAttribute('nickname')}==null">
+                <a href="http://passport.gmall.com:8096/toregister" class="li_2">免费注册</a>
+            </li>
+            <li th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+                <a  class="li_2" th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}">你好，请登录</a>
+            </li>
+            <li th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+                <a href="http://search.gmall.com:8091/userInfo" class="li_2">我的账号</a>
             </li>
             <span>|</span>
             <li>
-                <a href="http://localhost:8097/orderList">我的订单</a>
+                <a href="http://order.gmall.com:8097/orderList">我的订单</a>
             </li>
 
         </ul>
@@ -49,7 +55,7 @@
     </div>
     <div class="header_ico">
         <div class="header_gw">
-            <span><a href="http://localhost:8095/cartList">我的购物车</a></span>
+            <span><a href="http://cart.gmall.com:8095/cartList">我的购物车</a></span>
             <img src="list/image/settleup-@1x.png"/>
             <span>0</span>
         </div>
@@ -128,14 +134,14 @@
                         <div class="mc">
                             <ul>
                                 <li>
-                                    <a href="http://item.gmall.com:8093/125.html" title="男子篮球鞋 LeBron XVII PRM EP"><img
-                                            src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rEIaAHoTZAADE9gpZr8g264.jpg" alt=""></a>
-                                    <a href="http://item.gmall.com:8093/125.html" title="LeBron XVII PRM EP 篮球鞋依托勒布朗的力量和速度，塑就出众包覆性和支撑力，助你制霸赛场。采用轻盈的针织和模压纱线组合设计，塑就耐穿外观和质感。组合缓震设计，为勒布朗带来出色减震支撑效果和灵敏响应回弹能量，助力畅享漫长赛季。">
+                                    <a href="http://item.gmall.com:8093/153.html" title="男子篮球鞋 LeBron XVII PRM EP"><img
+                                            src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHiKAeXDCAADE9gpZr8g003.jpg" alt=""></a>
+                                    <a href="http://item.gmall.com:8093/153.html" title="LeBron XVII PRM EP 篮球鞋依托勒布朗的力量和速度，塑就出众包覆性和支撑力，助你制霸赛场。采用轻盈的针织和模压纱线组合设计，塑就耐穿外观和质感。组合缓震设计，为勒布朗带来出色减震支撑效果和灵敏响应回弹能量，助力畅享漫长赛季。">
                                         <em>LeBron XVII PRM EP 篮球鞋依托勒布朗的力量和速度，塑就出众包覆性和支撑力，助你制霸赛场。采用轻盈的针织和模压纱线组合设计，塑就耐穿外观和质感。组合缓震设计，为勒布朗带来出色减震支撑效果和灵敏响应回弹能量，助力畅享漫长赛季。</em>
                                     </a>
                                     <div class="mc_price">
                                         <strong class="price">
-                                            <span class="J-p-5963064">￥899.00</span>
+                                            <span class="J-p-5963064">￥1299.00</span>
                                         </strong>
                                         <span class="mc-ico" title="购买本商品送赠品">
                                             <i class="goods-icons">赠品</i>
@@ -148,9 +154,9 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="http://item.gmall.com:8093/127.html" title="男子篮球鞋 Air Jordan XXXIII PF"><img
-                                            src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rGiGAaDWYAAD1GuhjFLk077.jpg" alt=""></a>
-                                    <a href="http://item.gmall.com:8093/127.html" title="男子篮球鞋 Air Jordan XXXIII PF">
+                                    <a href="http://item.gmall.com:8093/140.html" title="男子篮球鞋 Air Jordan XXXIII PF"><img
+                                            src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6gcfmAScNEAAD1GuhjFLk562.jpg" alt=""></a>
+                                    <a href="http://item.gmall.com:8093/140.html" title="男子篮球鞋 Air Jordan XXXIII PF">
                                         <em>Air Jordan XXXIII PF 篮球鞋焕新演绎一流篮球鞋经典设计。革命性扣合系统帮助稳定双足，助力实现凌跃表现，结合经过精心调整的全新 FlightSpeed 技术，带来源源不断的能量回馈。</em>
                                     </a>
                                     <div class="mc_price">
@@ -168,14 +174,14 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="http://item.gmall.com:8093/130.html" title="女子运动鞋 Air Jordan 1 Mid"><img
-                                            src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF5rG7OAEksgAADRZjbivvc089.jpg" alt=""></a>
-                                    <a href="http://item.gmall.com:8093/130.html" title="女子运动鞋 Air Jordan 1 Mid">
+                                    <a href="http://item.gmall.com:8093/142.html" title="女子运动鞋 Air Jordan 1 Mid"><img
+                                            src="http://192.168.99.100:8888/group1/M00/00/00/wKhjZF6hHQuAcn11AADRZjbivvc758.jpg" alt=""></a>
+                                    <a href="http://item.gmall.com:8093/142.html" title="女子运动鞋 Air Jordan 1 Mid">
                                         <em>Air Jordan 1 Mid 集掌控全场的霸气风范、非凡舒适性及标志性外形于一体。鞋底加入 Air 缓震技术，专为硬木球场设计，加垫鞋口赋予脚踝出色支撑力。</em>
                                     </a>
                                     <div class="mc_price">
                                         <strong class="price">
-                                            <span class="J-p-5963064">￥999.00</span>
+                                            <span class="J-p-5963064">￥899.00</span>
                                         </strong>
                                         <span class="mc-ico" title="购买本商品送赠品">
                                             <i class="goods-icons">赠品</i>

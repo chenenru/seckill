@@ -14,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.Jedis;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -72,6 +74,7 @@ public class SkuServiceImpl implements SkuService {
         }
 
         //发出商品的缓存同步消息
+        flushSkuCache(skuId);
         //商品的搜索引擎的同步消息
 
 
@@ -89,6 +92,16 @@ public class SkuServiceImpl implements SkuService {
         pmsSkuImage.setSkuId(skuId);
         List<PmsSkuImage> pmsSkuImages = pmsSkuImageMapper.select(pmsSkuImage);
         skuInfo.setSkuImageList(pmsSkuImages);
+        //平台属性
+        PmsSkuAttrValue pmsSkuAttrValue = new PmsSkuAttrValue();
+        pmsSkuAttrValue.setSkuId(skuId);
+        List<PmsSkuAttrValue> pmsSkuAttrValues = pmsSkuAttrValueMapper.select(pmsSkuAttrValue);
+        skuInfo.setSkuAttrValueList(pmsSkuAttrValues);
+        //销售属性
+        PmsSkuSaleAttrValue skuSaleAttrValue=new PmsSkuSaleAttrValue();
+        skuSaleAttrValue.setSkuId(skuId);
+        List<PmsSkuSaleAttrValue> pmsSkuSaleAttrValues = pmsSkuSaleAttrValueMapper.select(skuSaleAttrValue);
+        skuInfo.setSkuSaleAttrValueList(pmsSkuSaleAttrValues);
         return skuInfo;
     }
 
@@ -164,8 +177,12 @@ public class SkuServiceImpl implements SkuService {
             PmsSkuAttrValue pmsSkuAttrValue = new PmsSkuAttrValue();
             pmsSkuAttrValue.setSkuId(skuId);
             List<PmsSkuAttrValue> select = pmsSkuAttrValueMapper.select(pmsSkuAttrValue);
-
             pmsSkuInfo.setSkuAttrValueList(select);
+
+            PmsSkuSaleAttrValue skuSaleAttrValue = new PmsSkuSaleAttrValue();
+            skuSaleAttrValue.setSkuId(skuId);
+            List<PmsSkuSaleAttrValue> pmsSkuSaleAttrValues = pmsSkuSaleAttrValueMapper.select(skuSaleAttrValue);
+            pmsSkuInfo.setSkuSaleAttrValueList(pmsSkuSaleAttrValues);
         }
         return pmsSkuInfos;
     }
@@ -187,5 +204,39 @@ public class SkuServiceImpl implements SkuService {
 
 
         return b;
+    }
+
+    @Override
+    public List<PmsSkuSaleAttrValue> getSkuSaleAttrValueListBySkuId(String skuId) {
+        PmsSkuSaleAttrValue skuSaleAttrValue = new PmsSkuSaleAttrValue();
+        skuSaleAttrValue.setSkuId(skuId);
+        List<PmsSkuSaleAttrValue> pmsSkuSaleAttrValues = pmsSkuSaleAttrValueMapper.select(skuSaleAttrValue);
+        return pmsSkuSaleAttrValues;
+    }
+
+    @Override
+    public String updateSkuInfo(PmsSkuInfo pmsSkuInfo) {
+        int i = pmsSkuInfoMapper.updateByPrimaryKeySelective(pmsSkuInfo);
+        if (i>0){
+            flushSkuCache(pmsSkuInfo.getId());
+            return "success";
+        }
+        else
+            return "faile";
+    }
+    public void flushSkuCache(String skuId) {
+        PmsSkuInfo pmsSkuInfo=new PmsSkuInfo();
+        /*pmsSkuInfo.setId(skuId);
+        pmsSkuInfo = pmsSkuInfoMapper.selectOne(pmsSkuInfo);*/
+        pmsSkuInfo=getSkuByIdFromDb(skuId);
+
+        // 同步到redis缓存中
+        Jedis jedis = redisUtil.getJedis();
+        //jedis.hdel("order:" + skuId + ":info",pmsSkuInfo);
+       // jedis.hmset("order:" + skuId + ":info", map);
+        jedis.del("sku:" + skuId + ":info");
+        jedis.set("sku:" + skuId + ":info", JSON.toJSONString(pmsSkuInfo));
+        jedis.close();
+
     }
 }

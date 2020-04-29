@@ -14,7 +14,7 @@ https://blog.csdn.net/weixin_36242811/article/details/90515835，
 到docker执行
 docker-machine start default 
 docker-machine ssh default 
-sudo sed -i "s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=加速地址 |g" /var/lib/boot2docker/profile 
+sudo sed -i "s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=https://df3mt5z2.mirror.aliyuncs.com |g" /var/lib/boot2docker/profile
 exit 
 docker-machine restart default
 之后会有提示输入

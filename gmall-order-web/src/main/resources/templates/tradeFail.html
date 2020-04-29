@@ -26,10 +26,13 @@
 
         </ul>
         <ul class="header-right">
-            <li th:text="'你好，'+${nickName}"></li>
+            <li th:if="${#httpServletRequest.getAttribute('memberId')}==null"><a href="http://passport.gmall.com:8096/index">请登录</a></li>
+            <li th:if="${#httpServletRequest.getAttribute('memberId')}==null"><a href="http://passport:8096/toregister">免费注册</a></li>
+            <li th:if="${#httpServletRequest.getAttribute('memberId')}!=null"><a th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}"></a></li>
+            <li th:if="${#httpServletRequest.getAttribute('memberId')}!=null"><a href="http://search.gmall.com:8091/userInfo">我的账号</a></li>
             <li>|</li>
             <li class="spacer"></li>
-            <li><a href="http://localhost:8097/orderList">我的订单</a></li>
+            <li><a href="http://order.gmall.com:8097/orderList">我的订单</a></li>
             <li class="spacer"></li>
 
         </ul>

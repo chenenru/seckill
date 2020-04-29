@@ -4,8 +4,10 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>我的地址</title>
-		<link rel="stylesheet" type="text/css" href="address/css/base.css" />
-		<link rel="stylesheet" type="text/css" href="address/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<!--<link rel="stylesheet" href="../css/carts.css" />-->
+		<!--<link rel="stylesheet" href="../css/slide.css" />-->
 		<style>
 			.dsc-search {
 				float: right;
@@ -27,15 +29,19 @@
 					</div>
 
 				</div>
-				<div class="txt-info" id="">
+				<div class="txt-info" th:if="${#httpServletRequest.getAttribute('memberId')}==null">
 					<a href="http://passport.gmall.com:8096/index" class="link-login red">请登录</a>
-					<a href="http://localhost:8096/toregister" class="link-regist">免费注册</a>
+					<a href="http://passport.gmall.com:8096/toregister" class="link-regist">免费注册</a>
 				</div>
+                <div class="txt-info" th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+                    <a href="" class="link-login red" th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}"></a>
+                    <a href="http://user.gmall.com:8091/userInfo" class="link-regist">我的账号</a>
+                </div>
 			</div>
 			<ul class="quick-menu fr">
 				<li>
 					<div class="dt">
-						<a href="http://localhost:8097/orderList">我的订单</a>
+						<a href="http://order.gmall.com:8097/orderList">我的订单</a>
 					</div>
 				</li>
 				<li class="spacer"></li>
@@ -106,7 +112,7 @@
 	<div class="header">
 		<div class="header_container">
 			<div class="logo fl">
-				<a href="http://search.gmall.com:8094/index"><img src="../images/logo.png" /></a>
+				<a href="http://search.gmall.com:8094/index"><img src="../image/logo_top4.jpg" /></a>
 				<a href="http://search.gmall.com:8094/index"><img src="../images/ecsc-join.gif" /></a>
 			</div>
 			<div class="dsc-search">
@@ -124,7 +130,7 @@
 	<div class="nav" ectype="dscNav">
 		<div class="w w1200">
 			<div class="categorys" style="text-align: center;margin-top: 7px;">
-				<a href="http://localhost:8099/item/index"><img src="../images/skmu-nav.png" /></a>
+				<a href="http://search.gmall.com:8094/index"><img src="../images/skmu-nav.png" /></a>
 			</div>
 			<div class="nav-main" id="nav">
 				<ul class="navitems">
@@ -133,7 +139,10 @@
 						<a href="#">闪购</a>
 					</li>
 					<li>
-						<a href="http://localhost:8099/item/index">秒杀</a>
+						<a href="http://seckill.gmall.com:8099/item/index">秒杀</a>
+					</li>
+					<li>
+						<a href="#">男鞋</a>
 					</li>
 					<li>
 						<a href="#">女鞋</a>
@@ -170,7 +179,10 @@
 				<div class="address_icon clear ">
 					<i><img src="images/place1.png"/></i>
 					<br />
-					<span><a href="#">添加新地址</a></span>
+					<span><a class="open_new">    </a></span>
+					<div class="open_new">
+						<button class="open_btn">添加新地址</button>
+					</div>
 				</div>
 				<div class="new_address hide">
 					<div class="model_bg">
@@ -193,19 +205,19 @@
                                     private String city;
                                     private String region;
                                     private String detailAddress;-->
-											<form action="http://localhost:8091/addAddress" method="post" name="theForm" id="theForm" class="user_form">
+											<form action="http://user.gmall.com:8091/addAddress" method="post" name="theForm" id="theForm" class="user_form">
 												<div class="form_row">
 													<div class="form_label"><span class="red">*</span>收货人：</div>
 													<div class="form_value">
 														<input type="text" class="form_input" value="" maxlength="20" name="name" id="consignee_name">
-														<span id="consigneeNameNote" class="status error hide">请您填写收货人姓名</span>
+														<span class="status error hide">请您填写收货人姓名</span>
 													</div>
 												</div>
 												<div class="form_row">
 													<div class="form_label"><span class="red">*</span>手机号码：</div>
 													<div class="form_value">
 														<input type="text" class="form_input" maxlength="11" name="phoneNumber" value="" id="consignee_mobile">
-														<span id="consigneeMobileTelNote" class="status error hide">请您填写收货人联系方式</span>
+														<span class="status error hide">请您填写收货人联系方式</span>
 													</div>
 												</div>
 
@@ -224,14 +236,14 @@
 													<div class="form_label"><span class="red">*</span>详细信息：</div>
 													<div class="form_value">
 														<input type="text" class="form_input form_input_long" name="detailAddress" value="" id="consignee_address">
-														<span id="consigneeAddressNote" class="status error hide">请您填写收货详细地址</span>
+														<span class="status error hide">请您填写收货详细地址</span>
 													</div>
 												</div>
 												<div class="form_row">
 													<div class="form_label">邮编：</div>
 													<div class="form_value">
 														<input type="text" class="form_input" name="postCode" value="" id="consignee_zipcode">
-														<span id="consigneeZipcodeNote" class="status error"></span>
+														<span class="status error"></span>
 													</div>
 												</div>
 												<!--<div class="form_row">
@@ -258,7 +270,7 @@
 									</div>
 									<div class="tip_box icon_box">
 										<div class="pb_ft">
-											<a class="pb_btn pb_ok" id="submitAddress" onclick="addAddress()">保存收货人信息</a><!--onclick="addAddress()"-->
+											<a class="pb_btn pb_ok" onclick="addAddress()">保存收货人信息</a><!--onclick="addAddress()"-->
 											<a class="pb_btn pb_cl">取消</a>
 										</div>
 									</div>
@@ -269,6 +281,7 @@
 					</div>
 				</div>
 			</div>
+			<div id="addresstInner" th:include="index"></div>
 		</div>
 		<div class="clear"></div>
 		<!--底部-->
@@ -358,12 +371,12 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/javascript" src="address/js/jquery.min.js"></script>
-	<script type="text/javascript" src="address/js/kuCity.js"></script>
-	<script type="text/javascript" src="address/js/carts.js"></script>
-	<script type="text/javascript" src="address/js/jquery.SuperSlide.js"></script>
-	<script type="text/javascript" src="address/js/slide.js"></script>
-	<script src="address/js/PCASClass.js"></script>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/kuCity.js"></script>
+	<script type="text/javascript" src="../js/carts.js"></script>
+	<script type="text/javascript" src="../js/jquery.SuperSlide.js"></script>
+	<script type="text/javascript" src="../js/slide.js"></script>
+	<script src="../js/PCASClass.js"></script>
 	<script>
 		$('.li_dorpdown').hover(function() {
 			$('.dorpdown-layer').show();
@@ -392,7 +405,19 @@
 		});
 		$('.pb_cl').click(function(){
 			$('.new_address').fadeOut();
-		})
+		});
+	</script>
+	<script>
+		$('.manage_address_icon').click(function(){
+			//alert("11111");
+			$('.manage_address').show();
+		});
+		$('.manage_manage_clo').click(function(){
+			$('.manage_address').fadeOut();
+		});
+		$('.manage_pb_cl').click(function(){
+			$('.manage_address').fadeOut();
+		});
 	</script>
 	<script>
 		$('.search').kuCity();

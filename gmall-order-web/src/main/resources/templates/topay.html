@@ -131,13 +131,16 @@
 						</li>
 					</ul>
 					<ul class="header_ul_right">
-						<li style="border: 0;">
-							<a href="http://passport.gmall.com:8096/index" class="aa">你好，请登录</a>
-						</li>
+						<li style="border: 0;" th:if="${#httpServletRequest.getAttribute('memberId')}==null">
+							<a href="http://passport.gmall.com:8096/index" class="aa">你好，请登录</a></li>
+						<li th:if="${#httpServletRequest.getAttribute('memberId')}==null">
+							<a href="http://passport.gmall.com:8096/toregister" style="color: red;">免费注册</a> |</li>
+						<li style="border: 0;" th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+							<a  class="aa" th:text="'欢迎,'+${#httpServletRequest.getAttribute('nickname')}">你好，请登录</a></li>
+						<li th:if="${#httpServletRequest.getAttribute('memberId')}!=null">
+							<a href="http://search.gmall.com:8091/userInfo" style="color: red;">>我的账号</a> |</li>
 						<li>
-							<a href="http://localhost:8096/toregister" style="color: red;">免费注册</a> |</li>
-						<li>
-							<a href="http://localhost:8097/orderList" class="aa">我的订单</a> |</li>
+							<a href="http://order.gmall.com:8097/orderList" class="aa">我的订单</a> |</li>
 						<li class="jingdong">
 							<a href="javascript:;">我的商城</a><span class="glyphicon glyphicon-menu-down">|</span><!-- 应该跳到我的信息-->
 							<ol class="jingdong_ol">
@@ -357,12 +360,12 @@
 							</ol>
 						</li>
 						<li class="sjjd" style="border: 0;">
-							<a href="javascript:;" class="aa">手机我的</a>
+							<a href="javascript:;" class="aa">我的鞋子</a>
 							<div class="er">
 								<div class="er_1">
 									<img src="../img/59a51bf6Nb8e478cc.png" />
 									<div class="er_1_1">
-										<h6><a href="#">手机我的</a></h6>
+										<h6><a href="#">我的鞋子</a></h6>
 										<p>新人专享大礼包</p>
 										<div>
 											<a href="#"><img src="../img/11.png" /></a>
@@ -407,7 +410,7 @@
 							<button onclick="searchList()">搜索</button>
 						</div>
 						<div class="nav_top_three">
-							<a href="http://localhost:8095/cartList">我的购物车</a><span class="glyphicon glyphicon-shopping-cart"></span>
+							<a href="http://cart.gmall.com:8095/cartList">我的购物车</a><span class="glyphicon glyphicon-shopping-cart"></span>
 							<div class="nav_top_three_1">
 								<img src="../img/44.png" />购物车还没有商品，赶紧选购吧！
 							</div>
@@ -425,7 +428,7 @@
 				<div class="content_myjd">
 					<div class="breadcrumb">
 						<!-- 应该跳到我的信息-->
-						<a href="javascript:;">我的我的</a><span>&nbsp;&gt;&nbsp;<a href="http://localhost:8097/orderList">订单中心</a>&nbsp;&gt;&nbsp;<strong th:text="${orderInfo.orderSn}">订单：70716422916</strong></span></div>
+						<a href="http://user.gmall.com:8091/userInfo?userId=42">我的信息</a><span>&nbsp;&gt;&nbsp;<a href="http://order.gmall.com:8097/orderList">订单中心</a>&nbsp;&gt;&nbsp;<strong th:text="${orderInfo.orderSn}">订单：70716422916</strong></span></div>
 				</div>
 				<div class="order-state01">
 					<div class="state-cont">
@@ -436,7 +439,7 @@
 
 							<span class="remain-time" style=""><b class="b1"></b>剩余4时51分</span>
 							<div class="state-btns">
-								<a class="btn-1" th:href="@{'http://localhost:8098/index?outTradeNo='+${orderInfo.orderSn}+'&totalAmount='+${orderInfo.payAmount}}">付款</a>
+								<a class="btn-1" th:href="@{'http://payment.gmall.com:8098/index?outTradeNo='+${orderInfo.orderSn}+'&totalAmount='+${orderInfo.payAmount}}">付款</a>
 								<a class="btn-2">找人代付</a>
 							</div>
 							<div class="state-bottom">
@@ -459,7 +462,7 @@
 							</div>
 							<div class="state-bottom">
 								<span class="span1"><b class="b1"></b>打印订单</span>
-								<span class="span2"><a class="b2" th:if="${orderInfo.status}==1 or ${orderInfo.status}==2" th:href="@{'http://localhost:8097/orderstus?status=4&orderSn='+${orderInfo.orderSn}}"></a>取消订单</span>
+								<span class="span2"><a class="b2" th:if="${orderInfo.status}==1 or ${orderInfo.status}==2" th:href="@{'http://order.gmall.com:8097/orderstus?status=4&orderSn='+${orderInfo.orderSn}}"></a>取消订单</span>
 							</div>
 
 						</div>
@@ -601,7 +604,7 @@
 					<div class="mb"></div>
 				</div>
 				<!--配货方式-->
-				<div class="sta_pei">
+				<div class="sta_pei" style="height: 70px;">
 					<div class="sta_left">
 						<div class="sta_1">
 							<img src="../image/5886ffa5Na5e39e2d.jpg" />
@@ -921,7 +924,7 @@
 							<td><img th:src="${orderitem.productPic}" src="../image/5886ffa5Na5e39e2d.jpg"/>
 								<img th:if="${orderitem.productPic}==null" src="../image/5886ffa5Na5e39e2d.jpg"/>
 							<div style="display: inline-block;">
-								<p><b></b><a th:href="@{'http://item.gmall.com:8093/'+${orderitem.id}+'.html'}" class="a-link" target="_blank" th:title="${orderitem.productName}" title="伊利 风味发酵乳 原味酸奶100g*8（两件起售）" th:text="${orderitem.productName}">伊利 风味发酵乳 原味酸奶100g*8（两件起售）</a></p>
+								<p><b></b><a th:href="@{'http://item.gmall.com:8093/'+${orderitem.productSkuId}+'.html'}" class="a-link" target="_blank" th:title="${orderitem.productName}" title="伊利 风味发酵乳 原味酸奶100g*8（两件起售）" th:text="${orderitem.productName}">伊利 风味发酵乳 原味酸奶100g*8（两件起售）</a></p>
 							<p class="txt" th:text="${orderitem.promotionName}">益消 原味八连杯100g*</p>
 							</div>
 							</td>

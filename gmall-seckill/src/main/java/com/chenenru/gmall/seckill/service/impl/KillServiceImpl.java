@@ -233,9 +233,11 @@ public class KillServiceImpl implements KillService {
         Boolean result = false;
 
         final String lockKey = new StringBuffer().append(killId).append(userId).append("-RedissonLock").toString();
+        //TODO:Redission锁
         RLock lock = redissonClient.getLock(lockKey);
         try {
             //lock.lock(10,TimeUnit.SECONDS);
+            //TODO:设置拿锁的时间
             boolean cachRes = lock.tryLock(30, 10, TimeUnit.SECONDS);
             if (cachRes) {
                 //TODO:判断当前用户是否已经抢购过当前商品 需要优化为原子性

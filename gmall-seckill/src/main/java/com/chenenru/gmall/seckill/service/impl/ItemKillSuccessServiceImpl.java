@@ -66,6 +66,12 @@ public class ItemKillSuccessServiceImpl implements ItemKillSuccessService {
 
     @Override
     public boolean updateItemKillStatus(ItemKillSuccess itemKillSuccess, Byte i) {
+        if ("5".equals(i)){
+            i= Byte.valueOf("-1");//5 -1无效
+        }
+        if ("4".equals(i)){
+            i= Byte.valueOf("2");//4 2 已取消
+        }
         itemKillSuccess.setStatus(i);
         int update = itemKillSuccessMapper.updateByPrimaryKey(itemKillSuccess);
         if (update>0){

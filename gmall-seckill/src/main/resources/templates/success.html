@@ -156,7 +156,7 @@
                         var days=d.getUTCDate();
                         var mouths=d.getUTCMonth()+1;
                         var years=d.getUTCFullYear();
-                        alert(years+"/"+mouths+"/"+days+" "+h+":"+m+":"+s);
+                        //alert(years+"/"+mouths+"/"+days+" "+h+":"+m+":"+s);
                         m = checkTime(m);
                         s = checkTime(s);
                         var timeStr = h + ":" + m + ":" + s;
@@ -207,7 +207,7 @@
 </head>
 <!-- <body onload="setInterval('gainTime()',1000);"> -->
 
-<body onload="gainTime();">
+<body onload="gainTime();" style="text-align:center">
 <p>welcome</p>
 
 <div id="txt"></div>

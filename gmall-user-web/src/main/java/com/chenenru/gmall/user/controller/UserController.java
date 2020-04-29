@@ -1,6 +1,7 @@
 package com.chenenru.gmall.user.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.chenenru.gmall.annotations.LoginRequired;
 import com.chenenru.gmall.bean.UmsMember;
 import com.chenenru.gmall.bean.UmsMemberReceiveAddress;
 import com.chenenru.gmall.service.UserService;
@@ -51,6 +52,7 @@ public class UserController {
 
     @RequestMapping("addAddress")
     @ResponseBody
+    @LoginRequired(loginSuccess = true)
     public String addAddress(UmsMemberReceiveAddress umsMemberReceiveAddress){
 
         /*private String id;
@@ -63,8 +65,10 @@ public class UserController {
         private String city;
         private String region;
         private String detailAddress;*/
+        umsMemberReceiveAddress.setCity(umsMemberReceiveAddress.getCity()+"市");
+        //umsMemberReceiveAddress.setRegion(umsMemberReceiveAddress.getRegion()+"区");
         umsMemberReceiveAddress.setDefaultStatus(0);
-        umsMemberReceiveAddress.setRegion(umsMemberReceiveAddress.getArea());
+        umsMemberReceiveAddress.setRegion(umsMemberReceiveAddress.getArea()+"区");
         userService.saveUmsMemberReceiveAddress(umsMemberReceiveAddress);
 
         //System.out.println(umsMemberReceiveAddress.toString()+"????");
@@ -73,8 +77,10 @@ public class UserController {
 
     //管理地址 0增加地址 1删除地址 2修改地址 3默认查询所有地址
     @RequestMapping("manageAddress")
+    @LoginRequired(loginSuccess = true)
     public String manageAddress(String operation, UmsMemberReceiveAddress umsMemberReceiveAddress, ModelMap modelMap, HttpServletRequest request){
         String uId = (String) request.getAttribute("memberId");
+        //uId="42";//先写死
         if ("0".equals(operation)&& StringUtils.isNotBlank(operation)){
             userService.saveUmsMemberReceiveAddress(umsMemberReceiveAddress);
         }
@@ -88,6 +94,20 @@ public class UserController {
         modelMap.put("addresses", addresses);
         modelMap.put("memberId",uId);
         return "address";
+    }
+
+    @RequestMapping("userInfo")
+    @LoginRequired(loginSuccess = true)
+    public String getUserByUserId(HttpServletRequest request,ModelMap modelMap){
+        String uId = (String) request.getAttribute("memberId");
+        if (uId==null){
+            uId="46";
+        }
+        UmsMember umsMember= userService.getUserByuId(uId);
+        List<UmsMemberReceiveAddress> address = userService.getReceiveAddressByMemberId(uId);
+        modelMap.put("user", umsMember);
+        modelMap.put("address", address.get(0));
+        return "self_info";
     }
 
 
